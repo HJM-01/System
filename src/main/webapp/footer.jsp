@@ -12,7 +12,7 @@
 </head>
 <body>
 <footer>
-    <div class="copyright">
+    <div class="footer">
         <p>
             <a href="#">联系我们</a>|
             <a href="#">在线留言</a>|

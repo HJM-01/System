@@ -4,12 +4,20 @@
 /*    border: none; !* 取消边框 *!*/
 /*    width: 100vw;*/
 /*}*/
+
+/*头部格式*/
 .header {
-     background-color: pink;
+     background-color: #f7ecb5;
      width: 100%;
      margin: 0;
      padding: 0;
+    text-align: center;
+    box-shadow:#000 7px 4px 10px;
+    /*border:2px #0f0f0f solid;*/
+    border-top-left-radius: 20px;
+    /*border-top-right-radius: 10%;*/
  }
+
 .navbar-default {
     background-color: transparent;
     border: none;
@@ -26,34 +34,88 @@
     font-size: 18px;
     padding: 15px 20px;
 }
+
+/*搜索、导航格式*/
 .search-box {
     margin-top: 8px;
 }
+
+/*搜索框*/
 .search-box .form-control {
     width: 200px;
     display: inline-block;
 }
+
+/*提交按钮*/
 .search-box .btn {
     margin-left: -5px;
 }
+
 .navbar-brand {
     font-weight: bold;
 }
+
+/*中间内容格式*/
 .banner{
-    /*height: 500px;*/
-    background-image: radial-gradient(circle,#c597f4 ,#5a9bcf);
-}
-.banner .wrapper{
     position: relative;
-    /*height: 500px;*/
-    background-image: radial-gradient(circle,#c597f4 ,#5a9bcf);
+    height: 700px;
+    background-color: #fcf8e3;
     overflow: hidden;
 }
-.subnav{
-    position: absolute;
-    border-bottom: 37px;
-    top: 17px;
-    width: 240px;
-    height: 600px;
-    background-color: rgba(250, 248, 248, 0.42);
+.banner .carousel{
+    list-style-type: none;
+}
+
+ img{
+    width: 1250px;
+    height: 650px;
+}
+/*.banner{*/
+/*    position: absolute;*/
+/*    border-bottom: 37px;*/
+/*    top: 17px;*/
+/*    width: 240px;*/
+/*    height: 600px;*/
+/*    background-color: rgba(250, 248, 248, 0.42);*/
+/*}*/
+
+/*脚部格式*/
+.footer{
+    background-color: #fcf8e3;
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/*搜索框*/
+.form-control{
+    border: none;
+    background: none;
+    /*background-color: #eeeeee;*/
+    outline: none;
+    padding: 0;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 40px;
+    width: 0;
+    transition: 0.4s;
+}
+/*图片*/
+.header-info{
+    color: #635e5e;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    margin-left: 400px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.header-info:hover .form-control{
+    width: 200px;
+    padding: 0 12px;
 }

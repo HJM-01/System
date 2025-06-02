@@ -12,10 +12,15 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
 </head>
-<script src="/webjars/jquery/jquery.min.js"></script>
-<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <body>
-    <jsp:include page="header.jsp"></jsp:include>
-    <jsp:include page="footer.jsp"></jsp:include>
+    <jsp:include page="header.jsp"/>
+
+    <div class="content">
+    <jsp:include page="content.jsp"/>
+    </div>
+
+    <div class="footer">
+    <jsp:include page="footer.jsp"/>
+    </div>
 </body>
 </html>
