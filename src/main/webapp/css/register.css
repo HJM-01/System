@@ -26,6 +26,26 @@
     font-size: 18px;
     padding: 15px 20px;
 }
-glyphicon glyphicon-search {
-    float: right;
+.search-box {
+    margin-top: 8px;
+}
+.search-box .form-control {
+    width: 200px;
+    display: inline-block;
+}
+.search-box .btn {
+    margin-left: -5px;
+}
+.navbar-brand {
+    font-weight: bold;
+}
+.banner{
+    /*height: 500px;*/
+    background-image: radial-gradient(circle,#c597f4 ,#5a9bcf);
+}
+.banner .wrapper{
+    position: relative;
+    /*height: 500px;*/
+    background-image: radial-gradient(circle,#c597f4 ,#5a9bcf);
+    overflow: hidden;
 }

@@ -51,7 +51,7 @@ a:hover {
 }
 abbr[title] {
   border-bottom: none;
-  text-decoration-line: underline;
+  text-decoration: underline;
   -webkit-text-decoration: underline dotted;
   -moz-text-decoration: underline dotted;
   text-decoration: underline dotted;
@@ -243,10 +243,6 @@ th {
   }
   .navbar {
     display: none;
-    background-color: pink; /* 设置粉色背景 */
-    border-width: 0; /* 去掉默认的边框 */
-    width: 100%; /* 宽度占满容器 */
-    margin: 0; /* 去掉默认外边距 */
   }
   .btn > .caret,
   .dropup > .btn > .caret {
