@@ -1,0 +1,56 @@
+html{
+    background-color: #f7ecb5;
+}
+
+/*表格格式 大小 背景颜色 圆角矩形型边框*/
+form{
+    width: 85%;
+    height: auto;
+    background-color: #fcf8e3;
+    border-radius: 50px;
+    margin: 5%;
+    padding: 2%;
+}
+
+/*图片格式 大小 圆角矩形型边框*/
+.td img {
+    width: 80%;
+   height: auto;
+   border-radius: 40px;
+    margin: 0;
+    display: block;
+
+.td {
+  width: 70%;
+   height: auto;
+   border-radius: 40px;
+   overflow: hidden;
+}
+/*用户名、密码输入框格式 隐藏上左右 背景颜色*/
+    input[name=username],input[name=password]{
+    border-left: hidden;
+   border-right: hidden;
+    border-top: hidden;
+    border-bottom:3px solid #000000;
+    background-color: #fcf8e3;
+}
+
+/*提交、注册按钮    手指 背景颜色 圆角矩形型边框 字体颜色 大小*/
+input[type=submit],input[name=register]{
+    cursor: pointer;
+    background-color: #8a6d3b;
+    border:#8a6d3b;
+    border-radius: 3px;
+    color: white;
+    width: 100%;
+    height: 130%;
+}
+
+/*“用户登录” 字体颜色  对齐方式  粗细*/
+.text1 {
+    color: #8a6d3b;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
