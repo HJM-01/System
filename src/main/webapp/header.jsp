@@ -10,6 +10,8 @@
   <head>
     <title>Title</title>
   </head>
+  <script src="/webjars/jquery/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
   <body>
     <div class="header">
       <div class="container">
@@ -24,13 +26,8 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     宠物知识 <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li><a class="dropdown-item" href="#">猫的科普</a></li>
+                    <li><a class="dropdown-item"   href="#">狗的科普</a></li>
                   </ul>
                 </li>
                 <li><a href="#">领养中心</a></li>
@@ -41,6 +38,11 @@
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
+        <div class="header-info">
+          <div class="header-right ">
+            <span class="glyphicon glyphicon-search"></span>
+          </div>
+        </div>
       </div>
     </div>
   
