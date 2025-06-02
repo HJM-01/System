@@ -64,12 +64,12 @@ html {
 
 /* 表单容器样式 */
 form {
-    width: 85%;
-    max-width: 600px;
+    width: 100%;
+    max-width:950px;
     height: auto;
     background-color: #fcf8e3;
     border-radius: 50px;
-    margin: 5% auto;
+    margin: 3% auto;
     padding: 5%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
