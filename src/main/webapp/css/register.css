@@ -1,0 +1,59 @@
+/*.navbar {*/
+/*    background-color: #f8bbd0; !* 深棕色背景 *!*/
+/*    border-radius: 0; !* 取消圆角 *!*/
+/*    border: none; !* 取消边框 *!*/
+/*    width: 100vw;*/
+/*}*/
+.header {
+     background-color: pink;
+     width: 100%;
+     margin: 0;
+     padding: 0;
+ }
+.navbar-default {
+    background-color: transparent;
+    border: none;
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.navbar-nav > li {
+    display: flex;
+    align-items: center;
+}
+.navbar-nav > li > a {
+    font-size: 18px;
+    padding: 15px 20px;
+}
+.search-box {
+    margin-top: 8px;
+}
+.search-box .form-control {
+    width: 200px;
+    display: inline-block;
+}
+.search-box .btn {
+    margin-left: -5px;
+}
+.navbar-brand {
+    font-weight: bold;
+}
+.banner{
+    /*height: 500px;*/
+    background-image: radial-gradient(circle,#c597f4 ,#5a9bcf);
+}
+.banner .wrapper{
+    position: relative;
+    /*height: 500px;*/
+    background-image: radial-gradient(circle,#c597f4 ,#5a9bcf);
+    overflow: hidden;
+}
+.subnav{
+    position: absolute;
+    border-bottom: 37px;
+    top: 17px;
+    width: 240px;
+    height: 600px;
+    background-color: rgba(250, 248, 248, 0.42);
+}
