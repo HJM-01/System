@@ -49,3 +49,11 @@
     background-image: radial-gradient(circle,#c597f4 ,#5a9bcf);
     overflow: hidden;
 }
+.subnav{
+    position: absolute;
+    border-bottom: 37px;
+    top: 17px;
+    width: 240px;
+    height: 600px;
+    background-color: rgba(250, 248, 248, 0.42);
+}

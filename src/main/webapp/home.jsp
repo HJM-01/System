@@ -16,6 +16,6 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <body>
     <jsp:include page="header.jsp"></jsp:include>
-
+    <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
