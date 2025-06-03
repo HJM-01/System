@@ -3,7 +3,7 @@
 <head>
   <title>Title</title>
 </head>
-<script src="js/banner.js"></script>
+<script src="../js/banner.js"></script>
 <body>
 <div class="header">
   <div class="container">

@@ -16,7 +16,7 @@
     <title>管理系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="../css/admin.css">
 
     <!-- Tailwind配置 -->
     <script>
