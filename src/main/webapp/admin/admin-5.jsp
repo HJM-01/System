@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Lynnlyt
   Date: 2025/6/3
-  Time: 20:23
+  Time: 20:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -15,7 +15,7 @@
     <title>管理系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="../css/admin.css">
 
     <!-- Tailwind配置 -->
     <script>
@@ -63,22 +63,22 @@
                     <span>数据分析</span>
                 </a>
 
-                <a href="admin-1.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-2.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
                     <span>账户管理</span>
                 </a>
 
-                <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-3.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-heart-o"></i>
                     <span>收养申请管理</span>
                 </a>
 
-                <a href="admin-3.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-4.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-id-card"></i>
                     <span>流浪猫信息管理</span>
                 </a>
 
-                <a href="admin-4.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-file-text-o"></i>
                     <span>志愿者申请</span>
                 </a>
@@ -87,7 +87,7 @@
             <div class="space-y-1 mt-8">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">系统设置</p>
 
-                <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
                     <span>论坛管理</span>
                 </a>
@@ -201,6 +201,5 @@
 </script>
 </body>
 </html>
-
 
 
