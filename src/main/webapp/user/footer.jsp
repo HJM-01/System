@@ -11,14 +11,74 @@
     <title>Title</title>
 </head>
 <body>
-<footer>
-    <div class="footer">
-        <p>
-            <a href="#">联系我们</a>|
-            <a href="#">在线留言</a>|
-            <a href="https://www.cmse.gov.cn/">友情链接</a>
-        </p>
-    </div>
-</footer>
+<%--<footer>--%>
+
+<%--    <div class="footer">--%>
+<%--        <p>--%>
+<%--            <a href="#">联系我们</a>|--%>
+<%--            <a href="#">在线留言</a>|--%>
+<%--            <a href="https://www.cmse.gov.cn/">友情链接</a>--%>
+<%--        </p>--%>
+<%--    </div>--%>
+    <section class="footer-w3">
+        <div class="container">
+            <div class="col-lg-4 col-md-4 col-sm-4 footer-agile1" data-aos="zoom-in">
+                <h3>网站简介</h3>
+                <p class="footer-p1">
+                    该网站是用于想领养宠物和想成为我们其中一员，那么你将再这里实现你的想法。
+                    如果你是领养者，请认真选取想要领养的宠物领养后，请认真负责对待可爱的猫狗！
+                    如果你是想成为志愿者，请联系我们，我们欢迎任何爱心认识，加入我们！
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 footer-mid-w3" data-aos="zoom-in">
+                <h3>宠物展示</h3>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/QQ图片20250602202950(1).jpeg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/QQ图片20250602202950(2).jpeg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/QQ图片20250602202950(4).jpeg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/QQ图片20250602202950(5).jpeg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/QQ图片20250602202950(6).jpeg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/QQ图片20250602202950(6).jpeg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!--联系方式-->
+            <div class="col-lg-4 col-md-4 col-sm-4 footer-agile1" data-aos="zoom-in">
+                <h3>联系方式</h3>
+                <p>电话&nbsp;&nbsp;<span style="font-size: 22px;color: red">13533233063</span></p>
+                <br>
+                <p>邮件&nbsp;&nbsp;<span style="font-size: 22px;color: red">3044681891.com</span></p>
+                <br>
+                <p>官网&nbsp;&nbsp;<span style="font-size: 22px;color: red">www.pet.com</span></p>
+                <br>
+            </div>
+
+        </div>
+
+    </section>
+
+<%--</footer>--%>
 </body>
 </html>
