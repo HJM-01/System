@@ -59,7 +59,7 @@
                 </div>
                 <div class="agileinfo_footer_grid1">
                     <a href="#">
-                        <img src="/image/QQ图片20250602202950(6).jpeg" alt=" " class="img-responsive">
+                        <img src="/image/QQ图片20250602202950(7).jpeg" alt=" " class="img-responsive">
                     </a>
                 </div>
                 <div class="clearfix"> </div>
