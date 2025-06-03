@@ -10,7 +10,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理系统</title>
@@ -24,7 +23,7 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1e40af',
+                        primary: '#ffa000',
                         secondary: '#3b82f6',
                         accent: '#60a5fa',
                         neutral: '#f3f4f6',
@@ -44,7 +43,7 @@
 <body class="bg-gray-50 font-sans antialiased text-gray-800">
 <div class="flex h-screen overflow-hidden">
     <!-- 侧边栏导航 -->
-    <aside id="sidebar" class="bg-white shadow-lg w-64 flex-shrink-0 hidden md:block transition-all duration-300 ease-in-out z-20">
+    <aside id="sidebar" class="bg-gray-105 shadow-lg w-64 flex-shrink-0 hidden md:block transition-all duration-300 ease-in-out z-20">
         <div class="flex items-center justify-between p-4 border-b">
             <div class="flex items-center space-x-2">
                 <i class="fa fa-cogs text-primary text-2xl"></i>
@@ -70,12 +69,12 @@
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-heart-o"></i>
                     <span>收养申请管理</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                    <i class="fa fa-cubes"></i>
+                    <i class="fa fa-id-card"></i>
                     <span>流浪猫信息管理</span>
                 </a>
 
@@ -188,7 +187,8 @@
                     <div class="bg-white rounded-xl shadow p-6 card-hover">
                         <div class="flex items-center">
                             <div class="p-3 bg-secondary/10 rounded-lg text-secondary">
-                                <i class="fa fa-shopping-cart text-xl"></i>
+                                <i class="
+                                fa fa-heart-o text-xl"></i>
                             </div>
                             <div class="ml-4">
                                 <p class="text-gray-500 text-sm">流浪猫总数（已发现）</p>
