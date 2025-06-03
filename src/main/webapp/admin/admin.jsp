@@ -58,36 +58,36 @@
             <div class="space-y-1">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">主导航</p>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
+                <a href="admin.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
                     <i class="fa fa-tachometer"></i>
                     <span>数据分析</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-1.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
                     <span>账户管理</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-heart-o"></i>
                     <span>收养申请管理</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-3.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-id-card"></i>
                     <span>流浪猫信息管理</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-4.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-file-text-o"></i>
-                    <span>报表分析</span>
+                    <span>志愿者申请</span>
                 </a>
             </div>
 
             <div class="space-y-1 mt-8">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">系统设置</p>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
                     <span>论坛管理</span>
                 </a>
@@ -272,7 +272,7 @@
                     </div>
                 </div>
 
-                <!-- 最近订单表格 -->
+
                 <div class="bg-white rounded-xl shadow mb-8">
                     <div class="p-6 border-b">
                         <div class="flex items-center justify-between">
