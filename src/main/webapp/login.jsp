@@ -16,7 +16,7 @@
         <table>
             <tr rowspan="4">
                 <td class="td" rowspan="4" colspan="2">
-                    <img src="images/loginCat.jpeg" >
+                    <img src="image/loginCat.jpeg" >
                 </td>
                 <td colspan="2" class="text1">用户登录</td>
             </tr>
