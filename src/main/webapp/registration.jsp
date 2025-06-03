@@ -1,24 +1,24 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 2025/6/2
-  Time: 16:38
+  Date: 2025/6/3
+  Time: 14:43
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>登录</title>
+    <title>注册</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-    <form action="login" name="#" method="post">
+    <form action="#" name="registration" method="post">
         <table>
-            <tr rowspan="4">
-                <td class="td" rowspan="4" colspan="2">
+            <tr rowspan="6">
+                <td class="td" rowspan="6" colspan="2">
                     <img src="images/loginCat.jpeg" >
                 </td>
-                <td colspan="2" class="text1">用户登录</td>
+                <td colspan="2" class="text1">用户注册</td>
             </tr>
 
             <tr>
@@ -30,11 +30,20 @@
             </tr>
 
             <tr>
+                <td colspan="2"><input type="password" name="SecondPassword" placeholder="请再次确认密码"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="text" name="phoneNumber" placeholder="联系方式"></td>
+            </tr>
+
+            <tr>
                 <td><input type="submit" name="LoginSubmit" value="登  录"></td>
-                <td><input type="button" name="register" value="注   册"></td>
+                <td><input type="submit" name="register" value="注   册"></td>
             </tr>
 
         </table>
     </form>
+
 </body>
 </html>
