@@ -4,17 +4,17 @@
     <title>Title</title>
 </head>
 <body>
-<footer>
     <div class="banner">
-<%--        <div class="wrapper">--%>
-            <ul class="carousel" id="carousel">
-                <li><img alt="示例图片1" src="./image/QQ图片20250602202950(1).jpeg" class="visible"></li>
-                <li><img alt="示例图片2" src="./image/QQ图片20250602202950(2).jpeg" class="hidden"></li>
-                <li><img alt="示例图片3" src="./image/QQ图片20250602202950(4).jpeg" class="hidden"></li>
-                <li><img alt="示例图片4" src="./image/QQ图片20250602202950(5).jpeg"  class="hidden"></li>
-            </ul>
-<%--        </div>--%>
+<%--                <div class="wrapper">--%>
+        <ul class="carousel" id="carousel" style="list-style: none; padding-left: 0;">
+            <li><img alt="示例图片1" src="./image/QQ图片20250603125958(3).jpeg" class="visible"></li>
+            <li><img alt="示例图片2" src="./image/QQ图片20250603125958(1).jpeg" class="hidden"></li>
+            <li><img alt="示例图片3" src="./image/QQ图片20250603125958(5).jpeg" class="hidden"></li>
+            <li><img alt="示例图片4" src="./image/QQ图片20250603125958.jpeg"  class="hidden"></li>
+        </ul>
+<%--                </div>--%>
     </div>
-</footer>
 </body>
+<footer>
+</footer>
 </html>
