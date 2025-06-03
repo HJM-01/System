@@ -121,7 +121,7 @@
     <!-- 主内容区 -->
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- 顶部导航 -->
-        <header class="bg-white shadow-sm z-10">
+        <header class="primary shadow-sm z-10">
             <div class="flex items-center justify-between p-4">
                 <div class="flex items-center">
                     <button id="toggle-sidebar" class="mr-4 text-gray-500 hover:text-gray-700 md:hidden">
