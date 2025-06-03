@@ -7,7 +7,7 @@
 
 /*头部格式*/
 .header {
-     background-color: #f7ecb5;
+     background-color: #dab706;
      width: 100%;
      margin: 0;
      padding: 0;
@@ -86,13 +86,89 @@
 
 /*头部*/
 /*脚部格式*/
-.footer{
-    background-color: #fcf8e3;
-    height: 60px;
-    padding: 10px;
-    text-align: center;
-}
+/*.footer{*/
+/*    background-color: #fcf8e3;*/
+/*    height: 60px;*/
+/*    padding: 10px;*/
+/*    text-align: center;*/
+/*}*/
 /*搜索框*/
+section.footer-w3 h3 {
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+section.footer-w3 p.footer-p1 {
+    font-size: 14px;
+    color: #eee;
+}
+
+section.footer-w3 button.btn.btn-outline.btn-lg {
+    width: 30%;
+    float: left;
+    height: 40px;
+    letter-spacing: 1px;
+    text-align: center;
+    background-color: #ea3c56;
+    border: 1px solid #ea3c56;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+}
+
+section.footer-w3 button.btn.btn-outline.btn-lg:hover {
+    background-color: #3ba2c1;
+    color: #fff;
+    border-color: #3ba2c1;
+}
+
+section.footer-w3 ul.tweet-agile li:nth-child(1) {
+    padding-bottom: 30px;
+}
+
+section.footer-w3 ul.tweet-agile li i.fa.fa-twitter-square {
+    font-size: 45px;
+    color: #fff;
+    display: inline-block;
+}
+
+section.footer-w3 ul.tweet-agile li p.tweet-p1 {
+    font-size: 15px;
+    font-weight: normal;
+    margin: -48px 0 10px 44px;
+    line-height: 30px;
+    color: #fff;
+}
+
+section.footer-w3 ul.tweet-agile li p.tweet-p1 a {
+    text-decoration: none;
+    color: #00cdc1;
+}
+
+section.footer-w3 ul.tweet-agile li p.tweet-p1 a:hover {
+    color: #fff;
+}
+
+section.footer-w3 ul.tweet-agile li p.tweet-p2 {
+    font-size: 13px;
+    font-weight: normal;
+    font-style: italic;
+    color: #dcdcdc;
+}
+
+.agileinfo_footer_grid1 {
+    float: left;
+    width: 26.45%;
+    margin: 0 .5em .7em 0;
+}
 .form-control{
     border: none;
     background: none;
