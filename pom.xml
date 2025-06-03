@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.boda</groupId>
-    <artifactId>Product40</artifactId>
+    <artifactId>System</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Product40</name>
+    <name>System</name>
     <packaging>war</packaging>
 
     <properties>
