@@ -168,7 +168,7 @@
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                         <i class="fa fa-search text-gray-400"></i>
                     </span>
-                            <input type="text" placeholder="搜索猫ID/名称/区域"
+                            <input type="text" placeholder="搜索猫ID/名称"
                                    class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
                         </div>
 
@@ -182,15 +182,15 @@
                             </select>
                         </div>
 
-                        <div>
-                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                                <option value="">全部区域</option>
-                                <option value="A区">A区</option>
-                                <option value="B区">B区</option>
-                                <option value="C区">C区</option>
-                                <option value="D区">D区</option>
-                            </select>
-                        </div>
+<%--                        <div>--%>
+<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                                <option value="">全部区域</option>--%>
+<%--                                <option value="A区">A区</option>--%>
+<%--                                <option value="B区">B区</option>--%>
+<%--                                <option value="C区">C区</option>--%>
+<%--                                <option value="D区">D区</option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
@@ -221,7 +221,7 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">发现日期</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">健康状况</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">绝育状态</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">区域</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                                 <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
                             </thead>
@@ -239,73 +239,73 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">已绝育</span>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">A区</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
                                     <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
                                     <a href="#" class="text-danger hover:text-danger/80">删除</a>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#CAT-002</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1002/40/40" alt="猫照片" class="w-10 h-10 rounded-full object-cover">
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">灰灰</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-02-20</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待观察</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">未绝育</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">B区</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#CAT-003</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1003/40/40" alt="猫照片" class="w-10 h-10 rounded-full object-cover">
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">小白</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-03-10</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">生病</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">已绝育</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">C区</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#CAT-004</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1004/40/40" alt="猫照片" class="w-10 h-10 rounded-full object-cover">
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">小黑</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-04-05</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">健康</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">已绝育</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">A区</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#CAT-002</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1002/40/40" alt="猫照片" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">灰灰</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-02-20</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待观察</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">未绝育</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">B区</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#CAT-003</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1003/40/40" alt="猫照片" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">小白</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-03-10</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">生病</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">已绝育</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">C区</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#CAT-004</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1004/40/40" alt="猫照片" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">小黑</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-04-05</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">健康</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">已绝育</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">A区</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
                             </tbody>
                         </table>
                     </div>

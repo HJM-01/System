@@ -181,14 +181,14 @@
                             </select>
                         </div>
 
-                        <div>
-                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                                <option value="">全部状态</option>
-                                <option value="活跃">活跃</option>
-                                <option value="锁定">锁定</option>
-                                <option value="待审核">待审核</option>
-                            </select>
-                        </div>
+<%--                        <div>--%>
+<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                                <option value=""></option>--%>
+<%--                                <option value="活跃"></option>--%>
+<%--                                <option value="锁定"></option>--%>
+<%--                                <option value="待审核"></option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
@@ -217,9 +217,9 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">头像</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户名</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">注册日期</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">角色</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                                 <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
                             </thead>
@@ -236,7 +236,7 @@
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">管理员</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>--%>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
@@ -244,66 +244,66 @@
                                     <a href="#" class="text-danger hover:text-danger/80">删除</a>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-002</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1006/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">李四</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">lisi@example.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-02-15</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">志愿者</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-003</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1012/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">王五</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">wangwu@example.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-03-20</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">普通用户</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-004</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1027/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">赵六</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">zhaoliu@example.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-04-05</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">普通用户</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">锁定</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-002</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1006/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">李四</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">lisi@example.com</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-02-15</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">志愿者</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-003</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1012/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">王五</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">wangwu@example.com</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-03-20</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">普通用户</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-004</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1027/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">赵六</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">zhaoliu@example.com</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-04-05</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">普通用户</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">锁定</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
                             </tbody>
                         </table>
                     </div>
