@@ -121,7 +121,7 @@
     <!-- 主内容区 -->
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- 顶部导航 -->
-        <header class="bg-white shadow-sm z-10">
+        <header class="primary shadow-sm z-10">
             <div class="flex items-center justify-between p-4">
                 <div class="flex items-center">
                     <button id="toggle-sidebar" class="mr-4 text-gray-500 hover:text-gray-700 md:hidden">
@@ -159,7 +159,222 @@
         <!-- 内容区域 -->
         <main class="flex-1 overflow-y-auto bg-gray-50 p-6 animate-fadeIn">
             <div class="max-w-7xl mx-auto">
+                <!-- 查询条件区域 -->
+                <div class="bg-white rounded-xl shadow p-6 mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">网站账户管理</h2>
 
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <i class="fa fa-search text-gray-400"></i>
+                    </span>
+                            <input type="text" placeholder="搜索用户名/邮箱/ID"
+                                   class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                        </div>
+
+                        <div>
+                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                                <option value="">全部角色</option>
+                                <option value="管理员">管理员</option>
+                                <option value="志愿者">志愿者</option>
+                                <option value="普通用户">普通用户</option>
+                            </select>
+                        </div>
+
+<%--                        <div>--%>
+<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                                <option value=""></option>--%>
+<%--                                <option value="活跃"></option>--%>
+<%--                                <option value="锁定"></option>--%>
+<%--                                <option value="待审核"></option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+                    </div>
+
+                    <div class="mt-4 flex justify-between items-center">
+                        <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                            <i class="fa fa-search mr-2"></i>查询
+                        </button>
+
+                        <button class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">
+                            <i class="fa fa-plus mr-2"></i>新增账户
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 数据展示区域 -->
+                <div class="bg-white rounded-xl shadow mb-6">
+                    <div class="p-6 border-b flex justify-between items-center">
+                        <h3 class="font-semibold text-lg">账户信息列表</h3>
+                        <span class="text-sm text-gray-500">共 <strong>256</strong> 条记录</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">头像</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户名</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">角色</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-001</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <img src="https://picsum.photos/id/1005/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">张三</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">zhangsan@example.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-10</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">管理员</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>--%>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
+                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
+                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
+                                </td>
+                            </tr>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-002</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1006/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">李四</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">lisi@example.com</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-02-15</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">志愿者</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-003</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1012/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">王五</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">wangwu@example.com</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-03-20</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">普通用户</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-004</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <img src="https://picsum.photos/id/1027/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">赵六</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">zhaoliu@example.com</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-04-05</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">普通用户</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap">--%>
+<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">锁定</span>--%>
+<%--                                </td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
+<%--                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 分页控件 -->
+                    <div class="px-6 py-4 border-t flex items-center justify-between">
+                        <div class="text-sm text-gray-700">
+                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">256</span> 条记录
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>
+                            <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>
+                            <span class="px-3 py-1 text-gray-700">...</span>
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">64</button>
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 数据统计卡片 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                                <i class="fa fa-users text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-500 text-sm">总用户数</p>
+                                <p class="text-2xl font-bold">256</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-purple-100 rounded-lg text-purple-800">
+                                <i class="fa fa-shield text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-500 text-sm">管理员</p>
+                                <p class="text-2xl font-bold">12</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-blue-100 rounded-lg text-blue-800">
+                                <i class="fa fa-heart text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-500 text-sm">志愿者</p>
+                                <p class="text-2xl font-bold">48</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-gray-100 rounded-lg text-gray-800">
+                                <i class="fa fa-user text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-500 text-sm">普通用户</p>
+                                <p class="text-2xl font-bold">196</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
