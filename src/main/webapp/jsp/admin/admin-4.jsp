@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Lynnlyt
   Date: 2025/6/3
-  Time: 20:23
+  Time: 20:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -15,7 +15,7 @@
     <title>管理系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../../css/admin.css">
 
     <!-- Tailwind配置 -->
     <script>

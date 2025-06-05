@@ -3,7 +3,7 @@
 <head>
   <title>Title</title>
 </head>
-<script src="../js/banner.js"></script>
+<script src="../../js/banner.js"></script>
 <body>
 <div class="header">
   <div class="container">
@@ -16,7 +16,7 @@
           <ul class="nav navbar-nav">
             <li><a href="#">首页</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a href="/html/user/about.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 宠物知识 <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">猫的科普</a></li>

@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/register.css">
 </head>
 <body>
     <jsp:include page="header.jsp"/>
@@ -22,5 +22,6 @@
     <div class="footer">
     <jsp:include page="footer.jsp"/>
     </div>
+    <script src="js/banner.js"></script>
 </body>
 </html>
