@@ -181,15 +181,15 @@
                             </select>
                         </div>
 
-                        <div>
-                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                                <option value="">全部申请时间</option>
-                                <option value="今天">今天</option>
-                                <option value="本周">本周</option>
-                                <option value="本月">本月</option>
-                                <option value="今年">今年</option>
-                            </select>
-                        </div>
+<%--                        <div>--%>
+<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                                <option value="">全部申请时间</option>--%>
+<%--                                <option value="今天">今天</option>--%>
+<%--                                <option value="本周">本周</option>--%>
+<%--                                <option value="本月">本月</option>--%>
+<%--                                <option value="今年">今年</option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
@@ -197,9 +197,9 @@
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
 
-                        <button class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">
-                            <i class="fa fa-file-pdf-o mr-2"></i>导出报表
-                        </button>
+<%--                        <button class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">--%>
+<%--                            <i class="fa fa-file-pdf-o mr-2"></i>导出报表--%>
+<%--                        </button>--%>
                     </div>
                 </div>
 
@@ -217,8 +217,8 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请编号</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请人</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">联系方式</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请时间</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请岗位</th>
+<%--                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请时间</th>--%>
+<%--                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请岗位</th>--%>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
                                 <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
@@ -228,8 +228,8 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#VOL-20230101</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">张三</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13800138001</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-15 09:30</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">猫咪护理员</td>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-15 09:30</td>--%>
+<%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">猫咪护理员</td>--%>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
                                 </td>
@@ -239,51 +239,7 @@
                                     <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#VOL-20230102</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">李四</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13900139002</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-16 14:15</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">活动组织者</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">已通过</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-400 cursor-not-allowed">通过</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#VOL-20230103</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">王五</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13700137003</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-17 10:45</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">兽医助理</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">已拒绝</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-success hover:text-success/80 mr-3">通过</a>
-                                    <a href="#" class="text-gray-400 cursor-not-allowed">拒绝</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#VOL-20230104</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">赵六</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13600136004</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-18 16:20</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">领养协调员</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-success hover:text-success/80 mr-3">通过</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
