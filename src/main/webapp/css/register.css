@@ -123,21 +123,54 @@ section.footer-w3 button.btn.btn-outline.btn-lg {
     -o-border-radius: 0;
     -ms-border-radius: 0;
 }
-#carousel {
+
+#footer1 {
+    position: fixed;
+    bottom: -300px; /* Start hidden below viewport */
+    left: 0;
     width: 100%;
-    height: 300px;
-    background-color: #f0f0f0;
-    position: relative;
+    background: white;
+    transition: bottom 0.5s ease;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
 }
 
-#footer {
+#footer1.show {
+    bottom: 0; /* Show footer when this class is added */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.pet-image-hover {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.pet-image-hover:hover {
+    transform: scale(1.02);
+}
+
+/* For carousel images */
+.carousel img {
     width: 100%;
-    height: 100px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    bottom: -100px;
-    transition: bottom 0.3s ease;
+    height: auto;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
 }
 section.footer-w3 button.btn.btn-outline.btn-lg:hover {
     background-color: #3ba2c1;
@@ -184,10 +217,38 @@ section.footer-w3 ul.tweet-agile li p.tweet-p2 {
     width: 26.45%;
     margin: 0 .5em .7em 0;
 }
+@media(max-width: 736px) {
+    .blog-right-agileits-w3layouts h4 a {
+        font-size: 14px;
+    }
+    .address,
+    .phone,
+    .email {
+        float: left;
+        width: 33%;
+    }
+    .phone {
+        margin: 0;
+    }
+    .team-grid-left {
+        margin-top: 34px;
+    }
+}
 
-.img-responsive{
-    width: 160px;
-    height: 100px;
+@media(max-width: 684px) {
+    .callbacks_nav.next {
+        left: 92%;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .form-control{

@@ -9,6 +9,10 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="js/banner.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/register.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <%--<footer>--%>
@@ -20,7 +24,7 @@
 <%--            <a href="https://www.cmse.gov.cn/">友情链接</a>--%>
 <%--        </p>--%>
 <%--    </div>--%>
-<div id="footer">
+<div id="footer1">
     <section class="footer-w3">
         <div class="container">
             <div class="col-lg-4 col-md-4 col-sm-4 footer-agile1" data-aos="zoom-in">
@@ -79,7 +83,8 @@
         </div>
 
     </section>
+    <button class="close-btn">×</button>
 </div>
-<script src="js/banner.js"></script>
+
 </body>
 </html>
