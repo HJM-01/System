@@ -196,8 +196,8 @@
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
 
-                        <button class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">
-                            <i class="fa fa-plus mr-2"></i>新增账户
+                        <button  onclick="window.location.href='admin-1add.jsp'" class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">
+                            <i href="admin-1add.jsp" class="fa fa-plus mr-2"></i>新增账户
                         </button>
                     </div>
                 </div>
