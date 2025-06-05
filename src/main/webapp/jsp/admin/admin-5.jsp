@@ -15,7 +15,7 @@
     <title>管理系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../../css/admin.css">
 
     <!-- Tailwind配置 -->
     <script>
@@ -60,27 +60,27 @@
 
                 <a href="admin.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
                     <i class="fa fa-tachometer"></i>
-                    <span>数据分析</span>
+                    <span>动物管理</span>
                 </a>
 
                 <a href="admin-2.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
-                    <span>账户管理</span>
+                    <span>领养管理</span>
                 </a>
 
                 <a href="admin-3.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-heart-o"></i>
-                    <span>收养申请管理</span>
+                    <span>志愿者申请管理</span>
                 </a>
 
                 <a href="admin-4.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-id-card"></i>
-                    <span>流浪猫信息管理</span>
+                    <span>同领养列表</span>
                 </a>
 
                 <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-file-text-o"></i>
-                    <span>志愿者申请</span>
+                    <span>不同领养列表</span>
                 </a>
             </div>
 
@@ -89,12 +89,12 @@
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
-                    <span>论坛管理</span>
+                    <span>用户信息</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-user-circle-o"></i>
-                    <span>个人设置</span>
+                    <span>管理员信息</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">

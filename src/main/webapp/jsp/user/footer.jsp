@@ -20,6 +20,7 @@
 <%--            <a href="https://www.cmse.gov.cn/">友情链接</a>--%>
 <%--        </p>--%>
 <%--    </div>--%>
+<div id="footer">
     <section class="footer-w3">
         <div class="container">
             <div class="col-lg-4 col-md-4 col-sm-4 footer-agile1" data-aos="zoom-in">
@@ -78,7 +79,7 @@
         </div>
 
     </section>
-
-<%--</footer>--%>
+</div>
+<script src="js/banner.js"></script>
 </body>
 </html>

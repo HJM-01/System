@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var carousel = document.getElementById('carousel');
+    var footer = document.getElementById('footer');
     var images = carousel.getElementsByTagName('img');
     var currentImageIndex = 0;
 
@@ -18,4 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 每3秒调用一次 switchImage 函数
     setInterval(switchImage, 3000);
+
+    // 添加鼠标进入和离开事件处理函数
+    carousel.addEventListener('mouseenter', () => {
+        footer.style.bottom = '0';
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        footer.style.bottom = '-100px';
+    });
 });

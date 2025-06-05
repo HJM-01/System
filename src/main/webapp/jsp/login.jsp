@@ -9,14 +9,14 @@
 <html>
 <head>
     <title>登录</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
     <form action="login" name="#" method="post">
         <table>
             <tr rowspan="4">
                 <td class="td" rowspan="4" colspan="2">
-                    <img src="image/loginCat.jpeg" >
+                    <img src="../image/loginCat.jpeg" >
                 </td>
                 <td colspan="2" class="text1">用户登录</td>
             </tr>
