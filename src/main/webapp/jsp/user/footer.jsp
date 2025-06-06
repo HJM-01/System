@@ -44,7 +44,7 @@
                 </div>
                 <div class="agileinfo_footer_grid1">
                     <a href="#">
-                        <img src="/image/QQ图片20250602202950(2).jpeg" alt=" " class="img-responsive">
+                        <img src="/image/微信图片_20250606155528(1).png" alt=" " class="img-responsive" width="140px" height="140px">
                     </a>
                 </div>
                 <div class="agileinfo_footer_grid1">
@@ -65,6 +65,16 @@
                 <div class="agileinfo_footer_grid1">
                     <a href="#">
                         <img src="/image/QQ图片20250602202950(7).jpeg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/微信图片_20250606160323.jpg" alt=" " class="img-responsive">
+                    </a>
+                </div>
+                <div class="agileinfo_footer_grid1">
+                    <a href="#">
+                        <img src="/image/微信图片_20250606160345(1).png" alt=" " class="img-responsive">
                     </a>
                 </div>
                 <div class="clearfix"> </div>

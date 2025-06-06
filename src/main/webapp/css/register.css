@@ -67,9 +67,13 @@
     list-style-type: none;
 }
 
- img{
-    width: 1300px;
-    height: 650px;
+#myCarousel img{
+    width: 1300px; /* 宽度 */
+    height: 650px; /* 高度 */
+    object-fit: cover; /* 保持宽高比并裁剪超出部分 */
+    /* 可选：添加边框或圆角 */
+    border: none; /* 取消边框 */
+    border-radius: 8px; /* 圆角 */
 }
 /*.banner{*/
 /*    position: absolute;*/
@@ -123,23 +127,41 @@ section.footer-w3 button.btn.btn-outline.btn-lg {
     -o-border-radius: 0;
     -ms-border-radius: 0;
 }
-
-#footer1 {
-    position: fixed;
-    bottom: -300px; /* Start hidden below viewport */
-    left: 0;
-    width: 100%;
-    background: white;
-    transition: bottom 0.5s ease;
-    z-index: 1000;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    padding: 20px 0;
+.carousel-container {
+    position: relative;
+    z-index: 1; /* 低于底部面板 */
 }
+
+/* 底部面板样式 */
+#footer1 {
+     position: fixed;
+     bottom: -1000px; /* 完全隐藏 */
+     left: 0;
+     width: 100%;
+     height: 300px; /* 固定高度 */
+     background: white;
+     transition: bottom 0.5s ease;
+     z-index: 1000; /* 高于轮播图 */
+     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+     overflow-y: auto; /* 允许滚动 */
+ }
+
 
 #footer1.show {
-    bottom: 0; /* Show footer when this class is added */
+    bottom: 0;
 }
 
+/* 宠物图片悬停效果 */
+.pet-trigger {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.pet-trigger:hover {
+    transform: scale(1.02);
+}
+
+/* 关闭按钮样式 */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -148,22 +170,10 @@ section.footer-w3 button.btn.btn-outline.btn-lg {
     border: none;
     font-size: 24px;
     cursor: pointer;
-}
-
-.pet-image-hover {
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.pet-image-hover:hover {
-    transform: scale(1.02);
+    z-index: 1001;
 }
 
 /* For carousel images */
-.carousel img {
-    width: 100%;
-    height: auto;
-}
 
 .visible {
     display: block;
@@ -172,6 +182,46 @@ section.footer-w3 button.btn.btn-outline.btn-lg {
 .hidden {
     display: none;
 }
+section.footer-w3 {
+    background-color: #1d1b1b;
+    padding: 4em 0;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+section.footer-w3 h3 {
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+section.footer-w3 p.footer-p1 {
+    font-size: 14px;
+    color: #eee;
+}
+
+section.footer-w3 button.btn.btn-outline.btn-lg {
+    width: 30%;
+    float: left;
+    height: 40px;
+    letter-spacing: 1px;
+    text-align: center;
+    background-color: #ea3c56;
+    border: 1px solid #ea3c56;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+}
+
 section.footer-w3 button.btn.btn-outline.btn-lg:hover {
     background-color: #3ba2c1;
     color: #fff;
@@ -214,7 +264,7 @@ section.footer-w3 ul.tweet-agile li p.tweet-p2 {
 
 .agileinfo_footer_grid1 {
     float: left;
-    width: 26.45%;
+    width: 23%;
     margin: 0 .5em .7em 0;
 }
 @media(max-width: 736px) {
@@ -239,16 +289,6 @@ section.footer-w3 ul.tweet-agile li p.tweet-p2 {
     .callbacks_nav.next {
         left: 92%;
     }
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
 }
 
 .form-control{

@@ -42,105 +42,63 @@ footer.addEventListener('mouseenter', function() {
 });
 
 
-
-    $(document).ready(function() {
-    // Cache DOM elements
+//实现底部上拉下滑效果
+$(document).ready(function() {
+    // 1. 初始化变量
     const $footer = $('#footer1');
-    const $petImages = $('#myCarousel img, .agileinfo_footer_grid1 img');
+    const $petImages = $('.carousel img, .agileinfo_footer_grid1 img');
     const $closeBtn = $('.close-btn');
     let hideTimeout;
-    let carouselInterval;
 
-    // Initialize functions
-    function initHoverEffects() {
-    // Add hover class to all pet images
-    $petImages.addClass('pet-image-hover');
+    // 2. 为所有宠物图片添加触发类
+    $petImages.addClass('pet-trigger');
 
-    // Handle image hover
-    $petImages.hover(
-    function() { // Mouse enter
-    clearTimeout(hideTimeout);
-    $footer.addClass('show');
-},
-    function() { // Mouse leave
-    startHideTimeout();
-}
-    );
+    // 3. 鼠标悬停图片时显示底部面板
+    $(document).on('mouseenter', '.pet-trigger', function () {
+        clearTimeout(hideTimeout);
+        $footer.addClass('show');
+    });
 
-    // Handle footer hover
-    $footer.hover(
-    function() { // Mouse enter
-    clearTimeout(hideTimeout);
-},
-    function() { // Mouse leave
-    startHideTimeout();
-}
-    );
-}
+    // 4. 鼠标离开图片时延迟隐藏
+    $(document).on('mouseleave', '.pet-trigger', function () {
+        startHideTimeout();
+    });
 
-    function initCloseButton() {
-    $closeBtn.on('click', function() {
-    $footer.removeClass('show');
-    clearTimeout(hideTimeout);
-});
-}
 
+    // 2. 监听鼠标进入事件
+    banner.addEventListener('mouseenter', () => {
+        footer.style.bottom = '0'; // 上滑显示 Footer
+    });
+
+    // 3. 监听鼠标离开事件
+    banner.addEventListener('mouseleave', () => {
+        footer.style.bottom = '-1000px'; // 下滑隐藏 Footer
+    });
+
+    // 7. 关闭按钮功能
+    $closeBtn.on('click', function(e) {
+        e.preventDefault();
+        $footer.removeClass('show');
+
+        // 添加临时class防止立即重新触发
+        $footer.addClass('closing');
+        setTimeout(() => {
+            $footer.removeClass('closing');
+        }, 500); // 与过渡动画时间匹配
+    });
+
+    // 修改鼠标事件判断
+    $(document).on('mouseenter', '.pet-trigger:not(.closing)', function() {
+        if(!$footer.hasClass('closing')) {
+            clearTimeout(hideTimeout);
+            $footer.addClass('show');
+        }
+    });
+
+    // 8. 延迟隐藏函数
     function startHideTimeout() {
-    hideTimeout = setTimeout(function() {
-    $footer.removeClass('show');
-}, 300); // 300ms delay before hiding
-}
-
-    function initCarousel() {
-    const $carousel = $('#myCarousel');
-    if (!$carousel.length) return;
-
-    const $images = $myCarousel.find('img');
-    let currentImageIndex = 0;
-
-    // Initialize first image
-    $images.eq(0).addClass('visible').removeClass('hidden');
-
-    function switchImage() {
-    $images.eq(currentImageIndex)
-    .removeClass('visible')
-    .addClass('hidden');
-
-    currentImageIndex = (currentImageIndex + 1) % $images.length;
-
-    $images.eq(currentImageIndex)
-    .removeClass('hidden')
-    .addClass('visible');
-}
-
-    function startCarousel() {
-    stopCarousel();
-    carouselInterval = setInterval(switchImage, 3000);
-}
-
-    function stopCarousel() {
-    if (carouselInterval) {
-    clearInterval(carouselInterval);
-}
-}
-
-    // Start carousel
-    startCarousel();
-
-    // Pause on hover
-    $carousel.hover(
-    function() { stopCarousel(); },
-    function() { startCarousel(); }
-    );
-}
-
-    // Initialize all components
-    function init() {
-    initHoverEffects();
-    initCloseButton();
-    initCarousel();
-}
-
-    // Start everything
-    init();
-});
+        hideTimeout = setTimeout(function () {
+            $footer.removeClass('show');
+        }, 300); // 300毫秒延迟
+    }
+})
