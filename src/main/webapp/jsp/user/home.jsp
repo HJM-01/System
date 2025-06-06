@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../../css/register.css">
     <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script SRC="/js/banner.js"></script>
 </head>
 <body>

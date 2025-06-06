@@ -1,0 +1,134 @@
+.about,
+.services,
+.blog,
+.team,
+.contact {
+    padding: 5em 0;
+}
+
+h3.agile-title {
+    color: #000;
+    font-size: 56px;
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: 400;
+    font-style: italic;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+.about-wel h5 {
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.about-wel h5 span {
+    color: #ff3535;
+}
+
+.about-wel p {
+    color: #545151;
+    margin: 16px 0 25px;
+}
+
+.about-wel ul li {
+    list-style: none;
+}
+
+.about-wel ul li {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.9em;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.about-wel ul li i {
+    margin-right: 12px;
+    color: #ff3535;
+}
+
+.button-styles {
+    margin-top: 35px;
+}
+
+.button-styles a {
+    background: #000;
+    color: #fff;
+    padding: 12px 30px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -moz-border-radius: 4px;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.button-styles a:hover {
+    background: #00cdc1;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+a.button2-w3l {
+    background: #00cdc1;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+a.button2-w3l:hover {
+    background: #000;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.img{
+    width: 160px;
+    height: 160px;
+}
+.modal-content img {
+    width: 100%;
+}
+
+.modal-content h4 {
+    color: #ff3535;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-family: 'Molle', cursive;
+    letter-spacing: 1px;
+}
+
+.modal-content h5 {
+    color: #00cdc1;
+    padding: 15px 0 7px;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.modal-content p {
+    color: #636363;
+    font-size: 14px;
+    line-height: 25px;
+    padding-top: 10px;
+}
+
+.modal-header {
+    padding: 30px;
+}
