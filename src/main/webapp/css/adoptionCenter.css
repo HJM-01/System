@@ -7,3 +7,35 @@ h3.agile-title {
     font-style: italic;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.18);
 }
+.services {
+    position: relative;
+}
+
+.w3l-img-side,
+.w3l-img-side2 {
+    position: absolute;
+    top: 0;
+}
+
+.w3l-img-side2 {
+    right: 0;
+}
+.services {
+    position: relative;
+}
+
+.w3l-img-side,
+.w3l-img-side2 {
+    position: absolute;
+    top: 0;
+}
+
+.w3l-img-side2 {
+    right: 0;
+}
+.w3l-img-side img {
+    width: 70%;
+}
+.w3l-img-side img {
+    width: 55%;
+}
