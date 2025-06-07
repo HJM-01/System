@@ -21,6 +21,8 @@
   <script SRC="/js/adpotionCenter.js"></script>
   <script src="/js/jquery-3.4.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/easing.js"></script>
+  <script src="/js/move-top.js"></script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -33,10 +35,10 @@
   </div>
 
   <div class="w3l-img-side">
-    <img src="/static/images/animal/cat.jpg" alt="" />
+    <img src="/image/animal/cat.jpg" alt="" />
   </div>
   <div class="w3l-img-side w3l-img-side2">
-    <img src="/static/images/animal/dog.jpg" alt="" />
+    <img src="/image/animal/dog.jpg" alt="" />
   </div>
 </div>
 <div class="row">

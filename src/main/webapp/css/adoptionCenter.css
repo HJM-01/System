@@ -28,9 +28,10 @@ h3.agile-title {
 .w3l-img-side2 {
     position: absolute;
     top: 0;
+    margin-right: 0;
 }
 
-.w3l-img-side2 {
+. w3l-img-side2 {
     right: 0;
 }
 .w3l-img-side img {
@@ -38,4 +39,17 @@ h3.agile-title {
 }
 .w3l-img-side img {
     width: 55%;
+}
+.w3_agile_services_grids:nth-child(3) {
+    margin-top: 4em;
+}
+
+.services {
+    padding: 3em 0;
+}
+.w3l-img-side img {
+    width: 36%;
+}
+.services {
+    padding-top: 7em;
 }
