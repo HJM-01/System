@@ -60,12 +60,12 @@
 
                 <a href="admin.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
                     <i class="fa fa-tachometer"></i>
-                    <span>数据分析</span>
+                    <span>同意收养列表</span>
                 </a>
 
                 <a href="admin-1.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
-                    <span>账户管理</span>
+                    <span>不同意收养列表</span>
                 </a>
 
                 <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -87,9 +87,9 @@
             <div class="space-y-1 mt-8">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">系统设置</p>
 
-                <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-1.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
-                    <span>论坛管理</span>
+                    <span>用户管理</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -97,10 +97,10 @@
                     <span>个人设置</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                    <i class="fa fa-bell-o"></i>
-                    <span>通知中心</span>
-                </a>
+<%--                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">--%>
+<%--                    <i class="fa fa-bell-o"></i>--%>
+<%--                    <span>通知中心</span>--%>
+<%--                </a>--%>
             </div>
         </nav>
 

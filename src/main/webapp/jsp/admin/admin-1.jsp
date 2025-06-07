@@ -60,12 +60,12 @@
 
                 <a href="admin.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
                     <i class="fa fa-tachometer"></i>
-                    <span>数据分析</span>
+                    <span>同意收养列表</span>
                 </a>
 
                 <a href="admin-1.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
-                    <span>账户管理</span>
+                    <span>不同意收养列表</span>
                 </a>
 
                 <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -87,9 +87,9 @@
             <div class="space-y-1 mt-8">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">系统设置</p>
 
-                <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-1.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
-                    <span>论坛管理</span>
+                    <span>用户管理</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -97,10 +97,10 @@
                     <span>个人设置</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                    <i class="fa fa-bell-o"></i>
-                    <span>通知中心</span>
-                </a>
+<%--                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">--%>
+<%--                    <i class="fa fa-bell-o"></i>--%>
+<%--                    <span>通知中心</span>--%>
+<%--                </a>--%>
             </div>
         </nav>
 
@@ -180,15 +180,6 @@
                                 <option value="普通用户">普通用户</option>
                             </select>
                         </div>
-
-<%--                        <div>--%>
-<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
-<%--                                <option value=""></option>--%>
-<%--                                <option value="活跃"></option>--%>
-<%--                                <option value="锁定"></option>--%>
-<%--                                <option value="待审核"></option>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
@@ -326,55 +317,55 @@
                 </div>
 
                 <!-- 数据统计卡片 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                                <i class="fa fa-users text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">总用户数</p>
-                                <p class="text-2xl font-bold">256</p>
-                            </div>
-                        </div>
-                    </div>
+<%--                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">--%>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-primary/10 rounded-lg text-primary">--%>
+<%--                                <i class="fa fa-users text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">总用户数</p>--%>
+<%--                                <p class="text-2xl font-bold">256</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-purple-100 rounded-lg text-purple-800">
-                                <i class="fa fa-shield text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">管理员</p>
-                                <p class="text-2xl font-bold">12</p>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-purple-100 rounded-lg text-purple-800">--%>
+<%--                                <i class="fa fa-shield text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">管理员</p>--%>
+<%--                                <p class="text-2xl font-bold">12</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-blue-100 rounded-lg text-blue-800">
-                                <i class="fa fa-heart text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">志愿者</p>
-                                <p class="text-2xl font-bold">48</p>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-blue-100 rounded-lg text-blue-800">--%>
+<%--                                <i class="fa fa-heart text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">志愿者</p>--%>
+<%--                                <p class="text-2xl font-bold">48</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-gray-100 rounded-lg text-gray-800">
-                                <i class="fa fa-user text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">普通用户</p>
-                                <p class="text-2xl font-bold">196</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-gray-100 rounded-lg text-gray-800">--%>
+<%--                                <i class="fa fa-user text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">普通用户</p>--%>
+<%--                                <p class="text-2xl font-bold">196</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
             </div>
         </main>
 

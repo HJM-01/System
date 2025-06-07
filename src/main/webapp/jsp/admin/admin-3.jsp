@@ -60,12 +60,12 @@
 
                 <a href="admin.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
                     <i class="fa fa-tachometer"></i>
-                    <span>数据分析</span>
+                    <span>同意收养列表</span>
                 </a>
 
                 <a href="admin-1.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
-                    <span>账户管理</span>
+                    <span>不同意收养列表</span>
                 </a>
 
                 <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -87,9 +87,9 @@
             <div class="space-y-1 mt-8">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">系统设置</p>
 
-                <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-1.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
-                    <span>论坛管理</span>
+                    <span>用户管理</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -97,10 +97,10 @@
                     <span>个人设置</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                    <i class="fa fa-bell-o"></i>
-                    <span>通知中心</span>
-                </a>
+<%--                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">--%>
+<%--                    <i class="fa fa-bell-o"></i>--%>
+<%--                    <span>通知中心</span>--%>
+<%--                </a>--%>
             </div>
         </nav>
 
@@ -260,55 +260,55 @@
                 </div>
 
                 <!-- 数据统计卡片 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                                <i class="fa fa-paw text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">流浪猫总数</p>
-                                <p class="text-2xl font-bold">128</p>
-                            </div>
-                        </div>
-                    </div>
+<%--                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">--%>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-primary/10 rounded-lg text-primary">--%>
+<%--                                <i class="fa fa-paw text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">流浪猫总数</p>--%>
+<%--                                <p class="text-2xl font-bold">128</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-success/10 rounded-lg text-success">
-                                <i class="fa fa-medkit text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">已绝育数量</p>
-                                <p class="text-2xl font-bold">89</p>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-success/10 rounded-lg text-success">--%>
+<%--                                <i class="fa fa-medkit text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">已绝育数量</p>--%>
+<%--                                <p class="text-2xl font-bold">89</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-info/10 rounded-lg text-info">
-                                <i class="fa fa-home text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">已领养数量</p>
-                                <p class="text-2xl font-bold">42</p>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-info/10 rounded-lg text-info">--%>
+<%--                                <i class="fa fa-home text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">已领养数量</p>--%>
+<%--                                <p class="text-2xl font-bold">42</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-warning/10 rounded-lg text-warning">
-                                <i class="fa fa-heartbeat text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">生病/待处理</p>
-                                <p class="text-2xl font-bold">17</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-warning/10 rounded-lg text-warning">--%>
+<%--                                <i class="fa fa-heartbeat text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">生病/待处理</p>--%>
+<%--                                <p class="text-2xl font-bold">17</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
             </div>
         </main>
     </div>
