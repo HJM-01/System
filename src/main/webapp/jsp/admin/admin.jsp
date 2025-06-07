@@ -60,12 +60,12 @@
 
                 <a href="admin.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
                     <i class="fa fa-tachometer"></i>
-                    <span>数据分析</span>
+                    <span>同意收养列表</span>
                 </a>
 
                 <a href="admin-1.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
-                    <span>账户管理</span>
+                    <span>不同意收养列表</span>
                 </a>
 
                 <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -87,9 +87,9 @@
             <div class="space-y-1 mt-8">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">系统设置</p>
 
-                <a href="admin-5.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-1.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
-                    <span>论坛管理</span>
+                    <span>用户管理</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
@@ -97,10 +97,10 @@
                     <span>个人设置</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                    <i class="fa fa-bell-o"></i>
-                    <span>通知中心</span>
-                </a>
+<%--                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">--%>
+<%--                    <i class="fa fa-bell-o"></i>--%>
+<%--                    <span>通知中心</span>--%>
+<%--                </a>--%>
             </div>
         </nav>
 
@@ -166,76 +166,76 @@
                 </div>
 
                 <!-- 统计卡片 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-xl shadow p-6 card-hover">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                                <i class="fa fa-users text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">网站总用户</p>
-                                <p class="text-2xl font-bold">3</p>
-                            </div>
-                            <div class="ml-auto">
-                  <span class="text-success text-sm flex items-center">
-                    <i class="fa fa-arrow-up mr-1"></i> 12.5%
-                  </span>
-                            </div>
-                        </div>
-                    </div>
+<%--                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">--%>
+<%--                    <div class="bg-white rounded-xl shadow p-6 card-hover">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-primary/10 rounded-lg text-primary">--%>
+<%--                                <i class="fa fa-users text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">网站总用户</p>--%>
+<%--                                <p class="text-2xl font-bold">3</p>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-auto">--%>
+<%--                  <span class="text-success text-sm flex items-center">--%>
+<%--                    <i class="fa fa-arrow-up mr-1"></i> 12.5%--%>
+<%--                  </span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 card-hover">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-secondary/10 rounded-lg text-secondary">
-                                <i class="
-                                fa fa-heart-o text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">流浪猫总数（已发现）</p>
-                                <p class="text-2xl font-bold">30</p>
-                            </div>
-                            <div class="ml-auto">
-                  <span class="text-success text-sm flex items-center">
-                    <i class="fa fa-arrow-up mr-1"></i> 8.3%
-                  </span>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 card-hover">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-secondary/10 rounded-lg text-secondary">--%>
+<%--                                <i class="--%>
+<%--                                fa fa-heart-o text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">流浪猫总数（已发现）</p>--%>
+<%--                                <p class="text-2xl font-bold">30</p>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-auto">--%>
+<%--                  <span class="text-success text-sm flex items-center">--%>
+<%--                    <i class="fa fa-arrow-up mr-1"></i> 8.3%--%>
+<%--                  </span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 card-hover">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-success/10 rounded-lg text-success">
-                                <i class="fa fa-credit-card text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">？？</p>
-                                <p class="text-2xl font-bold">？？</p>
-                            </div>
-                            <div class="ml-auto">
-                  <span class="text-success text-sm flex items-center">
-                    <i class="fa fa-arrow-up mr-1"></i> 15.2%
-                  </span>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 card-hover">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-success/10 rounded-lg text-success">--%>
+<%--                                <i class="fa fa-credit-card text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">？？</p>--%>
+<%--                                <p class="text-2xl font-bold">？？</p>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-auto">--%>
+<%--                  <span class="text-success text-sm flex items-center">--%>
+<%--                    <i class="fa fa-arrow-up mr-1"></i> 15.2%--%>
+<%--                  </span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="bg-white rounded-xl shadow p-6 card-hover">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-warning/10 rounded-lg text-warning">
-                                <i class="fa fa-cubes text-xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-500 text-sm">猫粮库存</p>
-                                <p class="text-2xl font-bold">468</p>
-                            </div>
-                            <div class="ml-auto">
-                  <span class="text-danger text-sm flex items-center">
-                    <i class="fa fa-arrow-down mr-1"></i> 3.1%
-                  </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<%--                    <div class="bg-white rounded-xl shadow p-6 card-hover">--%>
+<%--                        <div class="flex items-center">--%>
+<%--                            <div class="p-3 bg-warning/10 rounded-lg text-warning">--%>
+<%--                                <i class="fa fa-cubes text-xl"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-4">--%>
+<%--                                <p class="text-gray-500 text-sm">猫粮库存</p>--%>
+<%--                                <p class="text-2xl font-bold">468</p>--%>
+<%--                            </div>--%>
+<%--                            <div class="ml-auto">--%>
+<%--                  <span class="text-danger text-sm flex items-center">--%>
+<%--                    <i class="fa fa-arrow-down mr-1"></i> 3.1%--%>
+<%--                  </span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
 
                 <!-- 图表区域 -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
