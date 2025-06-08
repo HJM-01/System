@@ -1,22 +1,23 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import entity.User;
+
+import java.sql.*;
 import java.util.List;
+
+import static java.sql.DriverManager.getConnection;
 
 public class UserDaolmpl implements UserDao {
     @Override
-    public int addUsers(User user) throws SQLException {
-        User user1 = new User();
+    public int addUsers(entity.User user) throws SQLException {
         int n=0;
         try(
                 Connection conn = getConnection();
-                PreparedStatement ptmt= conn.prepareStatement("insert into User values (?,?,?,?,?)");
+                PreparedStatement ptmt= conn.prepareStatement("INSERT INTO `user` (userName,password,telephone) VALUE(?,?,?)");
                 ){
-            ptmt.setString(1,user1.getUsername());
-            ptmt.setString(2,user1.getPassword());
-            ptmt.setInt(3,user1.getPhoneNumber());
+            ptmt.setString(1,user.getUserName());
+            ptmt.setString(2,user.getPassword());
+            ptmt.setString(3,user.getTelephone());
             n=ptmt.executeUpdate();
         }catch (SQLException se) {
             se.printStackTrace();

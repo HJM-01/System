@@ -1,10 +1,14 @@
-package pojo;
+package entity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.io.Serializable;
 
 @Data
-public class User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable {
     private Integer id;
     private String userName;
     private String password;
@@ -19,5 +23,9 @@ public class User {
 //    List<Comment> commentList;
 //    @TableField(exist = false)
 //    List<AdoptAnimal> animalList;
-
+public User(String userName, String password, String telephone){
+        this.userName=userName;
+        this.password=password;
+        this.telephone=telephone;
+    }
 }

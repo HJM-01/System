@@ -12,8 +12,9 @@ public interface Dao {
         DataSource dataSource = null;
         try {
             Context context = new InitialContext();
-            String j= "java:comp/env/jdbc/#";
-            dataSource = (DataSource) context.lookup(j);
+//            String j= ;
+//            dataSource = (DataSource)context.lookup(j);
+            dataSource=(DataSource) context.lookup("java:comp/env/jdbc/Animals");
         }catch (NamingException ne){
             System.out.println("异常"+ne);
         }
@@ -31,3 +32,5 @@ public interface Dao {
         return conn;
     }
 }
+
+

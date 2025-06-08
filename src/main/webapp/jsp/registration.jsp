@@ -12,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
-    <form action="#" name="registration" method="post">
+    <form action="/registration" method="post">
         <table>
-            <tr rowspan="6">
+            <tr aria-rowspan="6" >
                 <td class="td" rowspan="6" colspan="2">
-                    <img src="../image/loginCat.jpeg" >
+                    <img src="../image/loginCat.jpeg"  alt="#">
                 </td>
                 <td colspan="2" class="text1">用户注册</td>
             </tr>
@@ -41,9 +41,7 @@
                 <td><input type="submit" name="LoginSubmit" value="登  录"></td>
                 <td><input type="submit" name="register" value="注   册"></td>
             </tr>
-
         </table>
     </form>
-
 </body>
 </html>
