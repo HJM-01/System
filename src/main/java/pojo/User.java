@@ -5,10 +5,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * @author Mr Wu
- * @create: 2019-08-20 14:18
- */
 @Data
 public class User {
     private Integer id;

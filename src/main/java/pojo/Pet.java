@@ -1,18 +1,13 @@
 package pojo;
 
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author Mr Wu
- * @create: 2019-08-20 14:23
- */
+
 @Data
 public class Pet {
     private Integer id;
@@ -29,6 +24,6 @@ public class Pet {
     @TableField(exist = false)
     private List<AdoptAnimal> adoptAnimalList=new ArrayList<>();
     @TableField(exist = false)
-    private List<Comment> commentList=new ArrayList<>();
+    private List<Comment> commentList= new ArrayList<>().reversed();
 
 }
