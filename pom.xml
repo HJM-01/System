@@ -98,6 +98,12 @@
             <artifactId>gwt-datetimeformat</artifactId>
             <version>1.1.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.38</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.dominokit.i18n/gwt-datetimeformat -->
 
     </dependencies>
