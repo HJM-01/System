@@ -24,6 +24,9 @@ public class Pet implements Serializable {
     private Integer state;
     private String remark;
 
+    public void getPetname(String petname) {
+    }
+
 //    @TableField(exist = false)
 //    private List<AdoptAnimal> adoptAnimalList=new ArrayList<>();
 //    @TableField(exist = false)

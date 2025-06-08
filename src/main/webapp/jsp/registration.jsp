@@ -12,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
-    <form action="/registration" method="post">
+    <form action="registration1" method="post">
         <table>
-            <tr aria-rowspan="6" >
+            <tr aria-rowspan="6" > 
                 <td class="td" rowspan="6" colspan="2">
                     <img src="../image/loginCat.jpeg"  alt="#">
                 </td>
