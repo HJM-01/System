@@ -23,15 +23,7 @@
 <div class="myDiv">
   <div>
     <h2>待领养的动物</h2>
-    <center>
-      <div id="demo1" class="slideBox">
-        <ul class="items">
-          <c:forEach items="${pics}" var="pic">
-            <li>
-              <a href=""><img class="my-img" src="/static/images/animal/${pic}"></a>
-            </li>
-          </c:forEach>
-        </ul>
-      </div>
+  </div>
+</div>
 </body>
 </html>

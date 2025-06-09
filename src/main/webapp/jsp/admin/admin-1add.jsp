@@ -117,7 +117,7 @@
 
         <!-- 用户表单 -->
         <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
-          <form id="userForm" action="addUser.jsp" method="post" enctype="multipart/form-data">
+          <form id="userForm" action="adminAdd1" method="post" enctype="multipart/form-data">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- 左侧表单区域 -->
               <div>

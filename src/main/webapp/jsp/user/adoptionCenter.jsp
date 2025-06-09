@@ -41,6 +41,15 @@
     <img src="/image/animal/dog.jpg" alt="" />
   </div>
 </div>
+<div id="demo1" class="slideBox">
+  <ul class="items">
+    <li>
+      <a href=""><img class="my-img" src="/image/微信图片_20250606155528(1).png"></a>
+      <a href=""><img class="my-img" src="/image/微信图片_20250606160323.jpg"></a>
+      <a href=""><img class="my-img" src="/image/微信图片_20250606160345(1).png"></a>
+    </li>
+  </ul>
+</div>
 <div class="row">
   <!-- 分页条信息 -->
   <div class="col-md-5" id="page_info_area"></div>
