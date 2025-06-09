@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements Serializable {
+public class user implements Serializable {
     private Integer id;
     private String userName;
     private String password;
@@ -23,7 +23,7 @@ public class User implements Serializable {
 //    List<Comment> commentList;
 //    @TableField(exist = false)
 //    List<AdoptAnimal> animalList;
-public User(String userName, String password, String telephone){
+public user(String userName, String password, String telephone){
         this.userName=userName;
         this.password=password;
         this.telephone=telephone;

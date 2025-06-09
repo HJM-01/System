@@ -21,7 +21,7 @@ public class registrationServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String secondPassword = request.getParameter("SecondPassword");
-        String phoneNumber = request.getParameter("phoneNumber");
+        String telephone = request.getParameter("telephone");
 
         // 客户端验证
         if (!password.equals(secondPassword)) {
@@ -37,11 +37,11 @@ public class registrationServlet extends HttpServlet {
             DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/Animals");
             // 3. 从连接池获取连接
             try (Connection conn = ds.getConnection()) {
-                String sql = "INSERT INTO users (username, password, phoneNumber) VALUES (?, ?, ?)";
+                String sql = "INSERT INTO user (username, password, telephone) VALUES (?, ?, ?)";
                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                     pstmt.setString(1, username);
                     pstmt.setString(2, password);
-                    pstmt.setString(3, phoneNumber);
+                    pstmt.setString(3, telephone);
                     int rows = pstmt.executeUpdate();
                     if (rows > 0) {
                         response.getWriter().write("注册成功！");
