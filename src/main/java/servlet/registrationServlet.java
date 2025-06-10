@@ -18,6 +18,7 @@ import java.sql.SQLException;
 public class registrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8"); // 建议加上编码声明
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String secondPassword = request.getParameter("SecondPassword");
@@ -46,7 +47,7 @@ public class registrationServlet extends HttpServlet {
                     if (rows > 0) {
                         response.getWriter().write("注册成功！");
                     } else {
-                        response.getWriter().write("注册失败，可能是由于数据库问题。");
+                        response.getWriter().write("注册失败，请重新注册。");
                     }
                 }
             }

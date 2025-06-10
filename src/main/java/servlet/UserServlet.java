@@ -1,6 +1,7 @@
 package servlet;
 
 
+import DAO.UserDao;
 import entity.user;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -23,16 +24,17 @@ public class UserServlet extends HttpServlet {
 
         // 从表单获取参数
         user user = new user();
-        user.setId(Integer.parseInt(req.getParameter("id")));
+//        user.setId(Integer.parseInt(req.getParameter("id")));
         user.setUserName(req.getParameter("userName"));
-        user.setPassword(req.getParameter("password"));
+//        user.setPassword(req.getParameter("password"));
         user.setSex(req.getParameter("sex"));
         user.setAge(Integer.parseInt(req.getParameter("age")));
         user.setTelephone(req.getParameter("telephone"));
         user.setEmail(req.getParameter("email"));
-        user.setAddress(req.getParameter("address"));
-        user.setPic(req.getParameter("pic"));
-        user.setState(Integer.parseInt(req.getParameter("state")));
+
+//        user.setAddress(req.getParameter("address"));
+//        user.setPic(req.getParameter("pic"));
+//        user.setState(Integer.parseInt(req.getParameter("state")));
 
         // 调用Service层处理业务逻辑
         if (userService.addUser(user)) {

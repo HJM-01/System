@@ -6,18 +6,19 @@
   Time: 16:38
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
+<%@ page contentType="text/html;charset=UTF-8"  %>
 <html>
 <head>
     <title>登录</title>
+<%--    <link rel="stylesheet" type="text/css" href="../css/login.css">--%>
     <link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
-    <form action="login" name="#" method="post">
+    <form  name="#" method="post">
         <table>
-            <tr rowspan="4">
+            <tr aria-rowspan="4">
                 <td class="td" rowspan="4" colspan="2">
-                    <img src="../image/loginCat.jpeg" >
+                    <img src="../image/loginCat.jpeg"  alt="#">
                 </td>
                 <td colspan="2" class="text1">用户登录</td>
             </tr>
@@ -32,7 +33,7 @@
 
             <tr>
                 <td><input type="submit" name="LoginSubmit" value="登  录"></td>
-                <td><input type="button" name="register" value="注   册"></td>
+                <td><input onclick="window.location.href='registration.jsp'" type="button" name="register" value="注   册"></td>
             </tr>
 
         </table>

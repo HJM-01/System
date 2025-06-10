@@ -23,7 +23,7 @@ public class user implements Serializable {
 //    List<Comment> commentList;
 //    @TableField(exist = false)
 //    List<AdoptAnimal> animalList;
-public user(String userName, String password, String telephone){
+    public user(String userName, String password, String telephone){
         this.userName=userName;
         this.password=password;
         this.telephone=telephone;

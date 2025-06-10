@@ -14,19 +14,22 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul class="nav navbar-nav">
-            <li><a href="#">首页</a></li>
-            <li class="dropdown">
-              <a href="/jsp/user/pet knowlege.jsp" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                宠物知识 <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">猫的科普</a></li>
-                <li><a class="dropdown-item"   href="#">狗的科普</a></li>
-              </ul>
+            <li><a href="home.jsp">首页</a></li>
+
+<%--            <li class="dropdown">--%>
+              <li>
+<%--              <a href="pet%20knowledge.jsp" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">--%>
+                  <a href="pet%20knowledge.jsp">相处小知识
+<%--                  <span class="caret"></span>--%></a>
+<%--              <ul class="dropdown-menu">--%>
+<%--                <li><a class="dropdown-item" href="#">猫的科普</a></li>--%>
+<%--                <li><a class="dropdown-item"   href="#">狗的科普</a></li>--%>
+<%--              </ul>--%>
             </li>
-            <li><a href="#">领养中心</a></li>
-            <li><a href="#">团队展示</a></li>
-            <li><a href="#">登录</a></li>
-            <li><a href="#" class="active">注册 </a></li>
+
+            <li><a href="adoptionCenter.jsp">领养中心</a></li>
+<%--            <li><a href="#">团队展示</a></li>--%>
+            <li><a href="../login.jsp">登录/注册</a></li>
             <li>
               <div class="header-info">
 <%--                <div class="header-right">--%>

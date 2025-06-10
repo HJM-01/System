@@ -92,13 +92,13 @@ form {
     transition: transform 0.3s ease;
 }
 
-.td:hover img {
-    transform: scale(1.05);
-}
+/*.td:hover img {*/
+/*    transform: scale(1.05);*/
+/*}*/
 
 /* 输入框样式 */
-input[name="username"],
-input[name="password"] {
+input[type="text"],
+input[type="password"] {
     width: 100%;
     padding: 10px 0;
     margin: 15px 0;
@@ -111,15 +111,15 @@ input[name="password"] {
     transition: border-color 0.3s ease;
 }
 
-input[name="username"]:focus,
-input[name="password"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
     outline: none;
     border-color: #8a6d3b;
 }
 
 /* 按钮样式 */
 input[type="submit"],
-input[name="register"] {
+input[type="button"]{
     cursor: pointer;
     background-color: #8a6d3b;
     border: none;
@@ -134,14 +134,14 @@ input[name="register"] {
 }
 
 input[type="submit"]:hover,
-input[name="register"]:hover {
+input[type="button"]:hover{
     background-color: #7a5c2d;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 input[type="submit"]:active,
-input[name="register"]:active {
+input[type="button"]:active{
     transform: translateY(0);
 }
 

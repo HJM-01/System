@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -122,10 +120,11 @@
               <!-- 左侧表单区域 -->
               <div>
                 <!-- 用户ID -->
-                <div class="mb-4">
-                  <label for="userId" class="block text-sm font-medium text-gray-700 mb-1">用户ID</label>
-                  <input type="text" id="userId" name="userId" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-gray-50" placeholder="请输入ID" readonly>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                  <label for="username" class="block text-sm font-medium text-gray-700 mb-1">用户ID</label>--%>
+<%--                  <input type="text" id="userID" name="id" required--%>
+<%--                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入用户ID">--%>
+<%--                </div>--%>
 
                 <!-- 用户名 -->
                 <div class="mb-4">
@@ -144,42 +143,59 @@
                 <!-- 电话号码 -->
                 <div class="mb-4">
                   <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">电话号码</label>
-                  <input type="tel" id="phone" name="phone" required
+                  <input type="tel" id="phone" name="telephone" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入电话号码">
                 </div>
-              </div>
-
-              <!-- 右侧表单区域 -->
-              <div>
-                <!-- 角色 -->
+                <!-- 补充年龄字段：name 为 age，与后端 user.setAge 匹配 -->
                 <div class="mb-4">
-                  <label for="role" class="block text-sm font-medium text-gray-700 mb-1">角色</label>
-                  <select id="role" name="role" required
+                  <label for="age" class="block text-sm font-medium text-gray-700 mb-1">年龄</label>
+                  <input type="number" id="age" name="age" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                         placeholder="请输入年龄">
+                </div>
+
+                <!-- 补充性别字段：name 为 sex，与后端 user.setSex 匹配 -->
+                <div class="mb-4">
+                  <label for="sex" class="block text-sm font-medium text-gray-700 mb-1">性别</label>
+                  <select id="sex" name="sex" required
                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
-                    <option value="">请选择角色</option>
-                    <option value="管理员">管理员</option>
-                    <option value="志愿者">志愿者</option>
-                    <option value="普通用户">普通用户</option>
+                    <option value="">请选择性别</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
                   </select>
                 </div>
 
+              <!-- 右侧表单区域 -->
+<%--              <div>--%>
+                <!-- 角色 -->
+<%--                <div class="mb-4">--%>
+<%--                  <label for="role" class="block text-sm font-medium text-gray-700 mb-1">角色</label>--%>
+<%--                  <select id="role" name="role" required--%>
+<%--                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">--%>
+<%--                    <option value="">请选择角色</option>--%>
+<%--                    <option value="管理员">管理员</option>--%>
+<%--                    <option value="志愿者">志愿者</option>--%>
+<%--                    <option value="普通用户">普通用户</option>--%>
+<%--                  </select>--%>
+<%--                </div>--%>
+
                 <!-- 头像上传 -->
-                <div class="mb-4">
-                  <label class="block text-sm font-medium text-gray-700 mb-1">头像</label>
-                  <div class="flex items-center justify-center w-full">
-                    <label for="avatar" class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
-                      <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                        <i class="fa fa-cloud-upload text-3xl text-gray-400 mb-2"></i>
-                        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">点击上传头像</span> 或拖放文件</p>
-                        <p class="text-xs text-gray-500">支持 JPG, PNG 格式，最大 2MB</p>
-                      </div>
-                      <input id="avatar" name="avatar" type="file" accept="image/*" class="hidden" />
-                    </label>
-                  </div>
-                  <div id="previewContainer" class="mt-2 hidden">
-                    <img id="avatarPreview" src="" alt="头像预览" class="w-20 h-20 rounded-full object-cover border-2 border-primary/20 shadow-sm">
-                  </div>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                  <label class="block text-sm font-medium text-gray-700 mb-1">头像</label>--%>
+<%--                  <div class="flex items-center justify-center w-full">--%>
+<%--                    <label for="avatar" class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">--%>
+<%--                      <div class="flex flex-col items-center justify-center pt-5 pb-6">--%>
+<%--                        <i class="fa fa-cloud-upload text-3xl text-gray-400 mb-2"></i>--%>
+<%--                        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">点击上传头像</span> 或拖放文件</p>--%>
+<%--                        <p class="text-xs text-gray-500">支持 JPG, PNG 格式，最大 2MB</p>--%>
+<%--                      </div>--%>
+<%--                      <input id="avatar" name="avatar" type="file" accept="image/*" class="hidden" />--%>
+<%--                    </label>--%>
+<%--                  </div>--%>
+<%--                  <div id="previewContainer" class="mt-2 hidden">--%>
+<%--                    <img id="avatarPreview" src="" alt="头像预览" class="w-20 h-20 rounded-full object-cover border-2 border-primary/20 shadow-sm">--%>
+<%--                  </div>--%>
+<%--                </div>--%>
 
               </div>
             </div>
@@ -207,8 +223,8 @@
 <script>
   // 页面加载完成后执行
   document.addEventListener('DOMContentLoaded', function() {
-    // 自动生成用户ID
-    generateUserId();
+    // // 自动生成用户ID
+    // generateUserId();
 
     // 头像预览功能
     const avatarInput = document.getElementById('avatar');
