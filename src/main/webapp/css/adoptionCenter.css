@@ -1,5 +1,5 @@
 h3.agile-title {
-    color: #000;
+    color: #1b1919;
     font-size: 56px;
     margin-bottom: 1em;
     text-align: center;
@@ -52,4 +52,82 @@ h3.agile-title {
 }
 .services {
     padding-top: 7em;
+}
+ 通用样式重置（可根据项目需求调整）
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "微软雅黑", sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* 领养中心主体 */
+.adoption-center {
+    padding: 30px 0;
+}
+.page-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.pet-cards {
+    text-align: center;
+}
+.pet-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+.pet-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.pet-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #f00; /* 模拟红圈效果 */
+    margin-bottom: 10px;
+}
+.pet-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.pet-desc {
+    font-size: 14px;
+    color: #999;
+}
+
+/* 装饰图 */
+.decor-cat,
+.decor-dog {
+    max-width: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* 轮播 */
+.slideBox {
+    padding: 30px 0;
+    background-color: #f9f9f9;
+}
+.slideBox h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.carousel-inner img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* 分页区（示例基础样式，可结合 JS 动态渲染） */
+.pagination-area {
+    padding: 20px 0;
+    text-align: center;
 }

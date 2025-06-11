@@ -3,6 +3,7 @@
 <head>
   <title>Title</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../../css/register.css">
 <script src="../../js/banner.js"></script>
 <body>
 <div class="header">

@@ -19,13 +19,14 @@ public class user implements Serializable {
     private String address;
     private String pic;
     private Integer state;
-//    @TableField(exist = false)
+
+    //    @TableField(exist = false)
 //    List<Comment> commentList;
 //    @TableField(exist = false)
 //    List<AdoptAnimal> animalList;
-    public user(String userName, String password, String telephone){
-        this.userName=userName;
-        this.password=password;
-        this.telephone=telephone;
+    public user(String userName, String password, String telephone) {
+        this.userName = userName;
+        this.password = password;
+        this.telephone = telephone;
     }
 }

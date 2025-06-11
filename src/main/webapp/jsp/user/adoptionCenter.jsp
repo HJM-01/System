@@ -44,9 +44,15 @@
 <div id="demo1" class="slideBox">
   <ul class="items">
     <li>
-      <a href=""><img class="my-img" src="/image/微信图片_20250606155528(1).png"></a>
-      <a href=""><img class="my-img" src="/image/微信图片_20250606160323.jpg"></a>
-      <a href=""><img class="my-img" src="/image/微信图片_20250606160345(1).png"></a>
+      <div class="circular-image-container">
+        <a href=""><img src="/image/微信图片_20250606155528(1).png" alt="领养宣传图1"></a>
+      </div>
+      <div class="circular-image-container">
+        <a href=""><img src="/image/微信图片_20250606160323.jpg" alt="领养宣传图2"></a>
+      </div>
+      <div class="circular-image-container">
+        <a href=""><img src="/image/微信图片_20250606160345(1).png" alt="领养宣传图3"></a>
+      </div>
     </li>
   </ul>
 </div>

@@ -386,4 +386,9 @@ h2{
     padding-right: 2em;
     color: #aaa;
 }
-
+.adoption1{
+        border-radius: 50%;
+        width: 200px;
+        height: 200px; /* 确保宽高相等 */
+        object-fit: cover; /* 防止图片变形，可能裁剪部分内容 */
+}

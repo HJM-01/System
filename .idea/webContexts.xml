@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-    <component name="WebContextManager">
-        <option name="state">
-            <map>
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/admin.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/content.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/admin/admin-1add.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/admin" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/registration.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/about.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/user" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/footer.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/user" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/user" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/registration.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
-                <entry key="file://$PROJECT_DIR$/src/main/webapp/user/footer.jsp" value="file://$PROJECT_DIR$/src/main/webapp/user" />
-            </map>
-        </option>
-    </component>
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/content.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/admin/admin-1add.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/admin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/registration.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/about.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/user" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/footer.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/user" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/user" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/user/registration.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/user/footer.jsp" value="file://$PROJECT_DIR$/src/main/webapp/user" />
+      </map>
+    </option>
+  </component>
 </project>
