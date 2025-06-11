@@ -223,8 +223,6 @@
 <script>
   // 页面加载完成后执行
   document.addEventListener('DOMContentLoaded', function() {
-    // // 自动生成用户ID
-    // generateUserId();
 
     // 头像预览功能
     const avatarInput = document.getElementById('avatar');

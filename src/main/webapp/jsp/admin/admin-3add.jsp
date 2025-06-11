@@ -117,53 +117,60 @@
 
         <!-- 用户表单 -->
         <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
-          <form id="userForm" action="addUser.jsp" method="post" enctype="multipart/form-data">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form id="CatForm" action="AddPetServlet" method="post" enctype="multipart/form-data">            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- 左侧表单区域 -->
               <div>
-                <!-- 猫ID -->
-<%--                <div class="mb-4">--%>
-<%--                  <label for="username" class="block text-sm font-medium text-gray-700 mb-1">猫名</label>--%>
-<%--                  <input type="text" id="id" name="username" required--%>
-<%--                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入">--%>
-<%--                </div>--%>
 
-                <!-- 用户名 -->
+                <!-- 猫名 -->
                 <div class="mb-4">
-                  <label for="username" class="block text-sm font-medium text-gray-700 mb-1">猫名</label>
-                  <input type="text" id="username" name="username" required
+                  <label for="petName" class="block text-sm font-medium text-gray-700 mb-1">猫名</label>
+                  <input type="text" id="petName" name="petName" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入用户名">
+                </div>
+
+                <div class="mb-4">
+                  <label for="petType" class="block text-sm font-medium text-gray-700 mb-1">品种</label>
+                  <input type="text" id="petType" name="petType" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入品种">
                 </div>
 
                 <!-- 发现日期 -->
                 <div class="mb-4">
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">发现日期</label>
-                  <input type="email" id="email" name="email" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入邮箱地址">
+                  <label for="birthday" class="block text-sm font-medium text-gray-700 mb-1">发现日期</label>
+                  <input type="date" id="birthday" name="birthday" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入发现日期">
                 </div>
 
-                <!-- 健康状态 -->
+                <!-- 性别 -->
                 <div class="mb-4">
-                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">健康状态</label>
-                  <input type="tel" id="phone" name="phone" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入电话号码">
+                  <label for="sex" class="block text-sm font-medium text-gray-700 mb-1">性别</label>
+                  <select id="sex" name="sex" required
+                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                    <option value="">请选择状态</option>
+                    <option value="male">雄性</option>
+                    <option value="female">雌性</option>
+                  </select>
                 </div>
               </div>
-
               <!-- 右侧表单区域 -->
               <div>
                 <!-- 绝育状态 -->
                 <div class="mb-4">
-                  <label for="role" class="block text-sm font-medium text-gray-700 mb-1">绝育状态</label>
-                  <select id="role" name="role" required
+                  <label for="state" class="block text-sm font-medium text-gray-700 mb-1">领养状态</label>
+                  <select id="state" name="state" required
                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
-                    <option value="">请选择状态</option>
-                    <option value="管理员">已绝育</option>
-                    <option value="志愿者">未绝育</option>
-                    <option value="普通用户">待绝育</option>
+                    <option value="">请选择领养状态</option>
+                    <option value="2">已领养</option>
+                    <option value="1">未领养</option>
+
                   </select>
                 </div>
 
+                <div class="mb-4">
+                  <label for="remark" class="block text-sm font-medium text-gray-700 mb-1">添加描述</label>
+                  <input type="text" id="remark" name="remark" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入描述">
+                </div>
                 <!-- 猫咪照片上传 -->
                 <div class="mb-4">
                   <label class="block text-sm font-medium text-gray-700 mb-1">照片</label>
@@ -181,7 +188,6 @@
                     <img id="avatarPreview" src="" alt="头像预览" class="w-20 h-20 rounded-full object-cover border-2 border-primary/20 shadow-sm">
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -208,8 +214,6 @@
 <script>
   // 页面加载完成后执行
   document.addEventListener('DOMContentLoaded', function() {
-    // 自动生成用户ID
-    generateUserId();
 
     // 头像预览功能
     const avatarInput = document.getElementById('avatar');
