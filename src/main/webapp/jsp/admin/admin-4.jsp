@@ -58,17 +58,17 @@
             <div class="space-y-1">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">主导航</p>
 
-                <a href="admin.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
+                <a href="admin-agree.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-item-active">
                     <i class="fa fa-tachometer"></i>
                     <span>同意收养列表</span>
                 </a>
 
-                <a href="admin-agree.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-disagree.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
                     <span>不同意收养列表</span>
                 </a>
 
-                <a href="admin-disagree.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="Adoption_Application.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-heart-o"></i>
                     <span>收养申请管理</span>
                 </a>
@@ -92,9 +92,9 @@
                     <span>用户管理</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="adminadd.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-user-circle-o"></i>
-                    <span>个人设置</span>
+                    <span>管理员设置</span>
                 </a>
 
 <%--                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">--%>
