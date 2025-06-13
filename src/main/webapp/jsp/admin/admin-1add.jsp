@@ -107,8 +107,8 @@
             <p class="text-gray-500 mt-1">填写以下信息创建新账户</p>
           </div>
           <div>
-            <a href="admin-1.jsp" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
-              <i class="fa fa-arrow-left mr-2"></i> 返回用户列表
+            <a href="adminadd.jsp" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+              <i class="fa fa-arrow-left mr-2"></i> 返回管理员列表
             </a>
           </div>
         </div>
@@ -126,30 +126,30 @@
 <%--                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入用户ID">--%>
 <%--                </div>--%>
 
-                <!-- 用户名 -->
+                <!-- 管理员名 -->
                 <div class="mb-4">
-                  <label for="username" class="block text-sm font-medium text-gray-700 mb-1">用户名</label>
-                  <input type="text" id="username" name="username" required
+                  <label for="adminName" class="block text-sm font-medium text-gray-700 mb-1">管理员名</label>
+                  <input type="text" id="adminName" name="adminName" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入用户名">
                 </div>
 
                 <!-- 邮箱 -->
                 <div class="mb-4">
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
-                  <input type="email" id="email" name="email" required
+                  <label for="Email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                  <input type="email" id="Email" name="Email" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入邮箱地址">
                 </div>
 
                 <!-- 电话号码 -->
                 <div class="mb-4">
-                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">电话号码</label>
-                  <input type="tel" id="phone" name="telephone" required
+                  <label for="telephone" class="block text-sm font-medium text-gray-700 mb-1">电话号码</label>
+                  <input type="tel" id="telephone" name="telephone" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入电话号码">
                 </div>
                 <!-- 补充年龄字段：name 为 age，与后端 user.setAge 匹配 -->
                 <div class="mb-4">
-                  <label for="age" class="block text-sm font-medium text-gray-700 mb-1">年龄</label>
-                  <input type="number" id="age" name="age" required
+                  <label for="realName" class="block text-sm font-medium text-gray-700 mb-1">年龄</label>
+                  <input type="number" id="realName" name="realName" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                          placeholder="请输入年龄">
                 </div>
