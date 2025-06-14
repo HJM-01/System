@@ -19,7 +19,7 @@ public class PetDAO {
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, pet.getId());
+            pstmt.setInt(1, pet.getId());//这个id不是自增吗咋还要
             pstmt.setString(2, pet.getPetName());
             pstmt.setString(3, pet.getPetType()); // 若前端无该字段，可设默认值或调整
             pstmt.setString(4, pet.getSex());
