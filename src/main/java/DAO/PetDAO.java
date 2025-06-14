@@ -35,4 +35,44 @@ public class PetDAO {
         }
         return result;
     }
+
+    // 根据ID查询宠物详情
+    public Pet getPetById(int id) {
+        Pet pet = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection();
+            String sql = "SELECT * FROM pet WHERE id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                pet = new Pet();
+                pet.setId(rs.getInt("id"));
+                pet.setPetName(rs.getString("pet_name"));
+                pet.setPetType(rs.getString("pet_type"));
+                pet.setSex(rs.getString("sex"));
+                pet.setBirthday(rs.getDate("birthday"));
+                pet.setPic(rs.getString("pic"));
+                pet.setState(rs.getInt("state"));
+                pet.setRemark(rs.getString("remark"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close((ResultSet) conn, pstmt, (Connection) rs);
+        }
+        return pet;
+    }
+    // 获取宠物图片列表（假设图片路径以逗号分隔存储）
+    public String[] getPetPics(int id) {
+        Pet pet = getPetById(id);
+        if (pet != null && pet.getPic() != null) {
+            return pet.getPic().split(",");
+        }
+        return new String[0];
+    }
+
 }

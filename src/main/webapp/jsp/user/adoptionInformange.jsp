@@ -18,6 +18,7 @@
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/jquery.slideBox.min.js" type="text/javascript"></script>
   <script src="/js/jquery.comment.js"></script>
+  <script src="/js/adoptionInformage.js"></script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -157,59 +158,6 @@
           </div><!-- /.modal-content -->
         </div><!-- /.modal -->
       </div>
-
-      <div class="container">
-        <%--存放评论的地方--%>
-        <div class="comment-list">
-
-        </div>
-
-        <div class="commentbox">
-          <textarea cols="80" rows="50" placeholder="来说几句吧" class="mytextarea" id="content"></textarea>
-          <div class="btn btn-info pull-right" id="comment">评论</div>
-        </div>
-      </div>
-    </div>
-    <%--主回复--%>
-    <div class="modal fade" id="saveAnswer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel1">评论</h4>
-          </div>
-          <div class="modal-body">
-            <form id="save_answer_form">
-              <input type="hidden" name="id" id="edit_id">
-              <textarea class="form-control" id="edit_content" placeholder="请发表评论！" name="content"></textarea>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="comment_btn">关闭</button>
-            <button type="button" class="btn btn-primary" id="save_answer_btn">提交</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal -->
-    </div>
-    <div class="modal fade" id="saveAnswers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel2">评论</h4>
-          </div>
-          <div class="modal-body">
-            <form id="save_answers_form">
-              <input type="hidden" name="id" id="answer_id"<%-- value="${answer.id}"--%>>
-              <input type="hidden" name="comment_id" id="comment_id"<%-- value="${answer.comment.id}"--%>>
-              <textarea class="form-control" id="answer_content" placeholder="请发表评论！" name="content"></textarea>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="answer_btn">关闭</button>
-            <button type="button" class="btn btn-primary" id="save_answers_btn">提交</button>
-          </div>
-        </div><!-- /.modal-content -->
       </div><!-- /.modal -->
     </div>
   </div>
