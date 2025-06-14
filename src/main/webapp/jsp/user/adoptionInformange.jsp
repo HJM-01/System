@@ -1,23 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 何嘉敏
-  Date: 2025/6/10
-  Time: 15:50
-  To change this template use File | Settings | File Templates.
---%>
-<%--<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>动物的具体信息</title>
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/adoptionInformage.css" type="text/css"/>
   <link rel="stylesheet" type="text/css" href="../../css/register.css">
   <script src="/js/jquery-3.4.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/jquery.slideBox.min.js" type="text/javascript"></script>
   <script src="/js/jquery.comment.js"></script>
+  <script src="/js/adoptionInformage.js"></script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -85,135 +80,80 @@
       </div>
 
       <!-- 模态框（Modal） -->
-      <div class="modal fade" id="myAdopt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                &times;
-              </button>
-              <h4 class="modal-title" id="myModalLabel">
-                请确认个人信息
-              </h4>
-            </div>
-            <div class="modal-body">
-              <form class="form-horizontal" id="new_adopt_form">
-                <input type="hidden" value="${user.id}" name="id">
-                <div class="form-group">
-                  <label for="new_Name" class="col-sm-2 control-label">
-                    领养人： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Name"
-                           placeholder="请输入领养人姓名" name="userName" value="${user.userName}" />
+      <form action="adoptionInformance" method="post">
+        <div class="modal fade" id="myAdopt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                  请确认个人信息
+                </h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal" id="new_adopt_form">
+                  <input type="hidden" value="${user.id}" name="id">
+                  <div class="form-group">
+                    <label for="new_Name" class="col-sm-2 control-label">
+                      领养人： </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="new_Name"
+                             placeholder="请输入领养人姓名" name="userName" value="${user.userName}" />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="new_petName" class="col-sm-2 control-label">
-                    宠物名： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_petName"
-                           placeholder="请输入宠物的名字" name="petName" value="${pet.petName}" readonly>
+                  <div class="form-group">
+                    <label for="new_petName" class="col-sm-2 control-label">
+                      宠物名： </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="new_petName"
+                             placeholder="请输入宠物的名字" name="petName" value="${pet.petName}" readonly>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="new_Sex" class="col-sm-2 control-label">
-                    性别： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Sex"
-                           placeholder="请输入领养人性别" name="sex" value="${user.sex}" />
+                  <div class="form-group">
+                    <label for="new_Sex" class="col-sm-2 control-label">
+                      性别： </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="new_Sex"
+                             placeholder="请输入领养人性别" name="sex" value="${user.sex}" />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="new_tel" class="col-sm-2 control-label">
-                    电话： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_tel"
-                           placeholder="请输入领养人电话" name="telephone" value="${user.telephone}" />
+                  <div class="form-group">
+                    <label for="new_tel" class="col-sm-2 control-label">
+                      电话： </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="new_tel"
+                             placeholder="请输入领养人电话" name="telephone" value="${user.telephone}" />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="new_Email" class="col-sm-2 control-label">
-                    邮件： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Email"
-                           placeholder="请输入领养人电话" name="new_Email" value="${user.email}" />
+                  <div class="form-group">
+                    <label for="new_Email" class="col-sm-2 control-label">
+                      邮件： </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="new_Email"
+                             placeholder="请输入领养人电话" name="new_Email" value="${user.email}" />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="new_Adress" class="col-sm-2 control-label">
-                    地址： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Adress"
-                           placeholder="请输入领养人地址" name="address" value="${user.address}" />
+                  <div class="form-group">
+                    <label for="new_Adress" class="col-sm-2 control-label">
+                      地址： </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="new_Adress"
+                             placeholder="请输入领养人地址" name="address" value="${user.address}" />
+                    </div>
                   </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="adopt_btn">关闭
-              </button>
-              <button type="button" class="btn btn-primary" id="submit_btn">提交申请</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
-      </div>
-
-      <div class="container">
-        <%--存放评论的地方--%>
-        <div class="comment-list">
-
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="adopt_btn">关闭
+                </button>
+                <button type="button" class="btn btn-primary" id="submit_btn">提交申请</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div>
         </div>
-
-        <div class="commentbox">
-          <textarea cols="80" rows="50" placeholder="来说几句吧" class="mytextarea" id="content"></textarea>
-          <div class="btn btn-info pull-right" id="comment">评论</div>
-        </div>
+        </form>
       </div>
-    </div>
-    <%--主回复--%>
-    <div class="modal fade" id="saveAnswer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel1">评论</h4>
-          </div>
-          <div class="modal-body">
-            <form id="save_answer_form">
-              <input type="hidden" name="id" id="edit_id">
-              <textarea class="form-control" id="edit_content" placeholder="请发表评论！" name="content"></textarea>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="comment_btn">关闭</button>
-            <button type="button" class="btn btn-primary" id="save_answer_btn">提交</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal -->
-    </div>
-    <div class="modal fade" id="saveAnswers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel2">评论</h4>
-          </div>
-          <div class="modal-body">
-            <form id="save_answers_form">
-              <input type="hidden" name="id" id="answer_id"<%-- value="${answer.id}"--%>>
-              <input type="hidden" name="comment_id" id="comment_id"<%-- value="${answer.comment.id}"--%>>
-              <textarea class="form-control" id="answer_content" placeholder="请发表评论！" name="content"></textarea>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="answer_btn">关闭</button>
-            <button type="button" class="btn btn-primary" id="save_answers_btn">提交</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal -->
     </div>
   </div>
-</div>
-</body>
-</html>
-

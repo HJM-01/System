@@ -4,8 +4,11 @@ import entity.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+import static util.JDBCutil.close;
 import static util.JDBCutil.getConnection;
 
 public class UserDao implements Dao {
@@ -35,4 +38,33 @@ public class UserDao implements Dao {
             return 0;
         }
     }
+    // 根据ID查询用户信息
+    public user getUserById(int id) {
+        user user = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection();
+            String sql = "SELECT * FROM user WHERE id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                user = new user();
+                user.setId(rs.getInt("id"));
+                user.setUserName(rs.getString("user_name"));
+                user.setSex(rs.getString("sex"));
+                user.setTelephone(rs.getString("telephone"));
+                user.setEmail(rs.getString("email"));
+                user.setAddress(rs.getString("address"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close((ResultSet) conn, pstmt, (Connection) rs);
+        }
+        return user;
+    }
+
 }

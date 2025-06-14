@@ -44,8 +44,8 @@
                     </ul>
                 </div>
                 <div class="button-styles">
-                    <a href="#cat" data-toggle="modal" data-target="#Catbtn">养狗注意的地方</a>
-                    <a href="#dog" data-toggle="modal" data-target="#Dogbtn">养猫注意的地方</a>
+                    <a href="#cat" data-toggle="modal" data-target="#Catbtn">养猫注意的地方</a>
+                    <a href="#dog" data-toggle="modal" data-target="#Dogbtn">养狗注意的地方</a>
                 </div>
             </div>
         </div>
