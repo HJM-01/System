@@ -25,7 +25,7 @@
 //                   pet.setPetType( request.getParameter("petType")),
 //                    pet.setSex(request.getParameter("sex")),
 //                    pet.setBirthday(request.getParameter("birthday")),
-//                    pet.setState(request.getParameter("state")),
+//                    pet.setState(Integer.valueOf(request.getParameter("state"))),
 //                    pet.setRemark(request.getParameter("remark"));
 ////            int result=dao.addPet(pet);
 //            if(result==1){
