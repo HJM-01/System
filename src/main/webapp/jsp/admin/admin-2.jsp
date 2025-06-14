@@ -68,7 +68,7 @@
                     <span>不同意收养列表</span>
                 </a>
 
-                <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="Adoption_Application.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-heart-o"></i>
                     <span>收养申请管理</span>
                 </a>
@@ -92,9 +92,9 @@
                     <span>用户管理</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="adminadd.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-user-circle-o"></i>
-                    <span>个人设置</span>
+                    <span>管理员管理</span>
                 </a>
 
 <%--                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">--%>

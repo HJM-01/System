@@ -67,7 +67,7 @@
                     <span>不同意收养列表</span>
                 </a>
 
-                <a href="admin-2.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="Adoption_Application.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-heart-o"></i>
                     <span>收养申请管理</span>
                 </a>
@@ -174,26 +174,12 @@
                                 <option value="已拒绝"></option>
                             </select>
                         </div>
-
-                        <%--                        <div>--%>
-                        <%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
-                        <%--                                <option value="">全部申请时间</option>--%>
-                        <%--                                <option value="今天">今天</option>--%>
-                        <%--                                <option value="本周">本周</option>--%>
-                        <%--                                <option value="本月">本月</option>--%>
-                        <%--                                <option value="今年">今年</option>--%>
-                        <%--                            </select>--%>
-                        <%--                        </div>--%>
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
                         <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
-
-                        <%--                        <button class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">--%>
-                        <%--                            <i class="fa fa-file-pdf-o mr-2"></i>导出报表--%>
-                        <%--                        </button>--%>
                     </div>
                 </div>
 
