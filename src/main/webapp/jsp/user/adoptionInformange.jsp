@@ -1,18 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"></c:set>
+<%--<%@ taglib uri="https://jakarta.ee/xml/ns/jakartaee/jstl/core" prefix="c" %>--%>
+<%--<%@ taglib uri="https://jakarta.ee/xml/ns/jakartaee/jstl/fmt" prefix="fmt" %>--%>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>动物的具体信息</title>
-  <link rel="stylesheet" href="/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/adoptionInformage.css" type="text/css"/>
+  <link rel="stylesheet" href="<c:url value="/css/bootstrap.css"/>">
+  <link rel="stylesheet" href="<c:url value="/css/adoptionInformage.css"/>" type="text/css"/>
   <link rel="stylesheet" type="text/css" href="../../css/register.css">
-  <script src="/js/jquery-3.4.1.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/jquery.slideBox.min.js" type="text/javascript"></script>
-  <script src="/js/jquery.comment.js"></script>
-  <script src="/js/adoptionInformage.js"></script>
+  <script src="<c:url value="/js/jquery-3.4.1.min.js"/>"></script>
+  <script src="<c:url value="/js/bootstrap.js"/>"></script>
+  <script src="<c:url value="/js/jquery.slideBox.min.js"/>" type="text/javascript"></script>
+  <script src="<c:url value="/js/jquery.comment.js"/>"></script>
+  <script src="<c:url value="/js/adoptionInformage.js"/>"></script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -32,18 +35,18 @@
             </ul>
           </div>
           <div class="name">
-            <img src="/image/adopt/p1.jpg" height="50px" width="50px">
+            <img src="<c:url value="/image/adopt/p1.jpg"/>" height="50px" width="50px">
             <span>我叫 ${pet.petName}</span>
           </div>
         </center>
         <div class="animal">
           <div class="group">
             <div class="animalX1">
-              <img src="/image/adopt/p2.jpg"><span>编号</span><br>
+              <img src="<c:url value="/image/adopt/p2.jpg"/>"><span>编号</span><br>
               <p>${pet.id}</p>
             </div>
             <div class="animalX2">
-              <img src="/image/adopt/p3.jpg"><span>生日</span><br>
+              <img src="<c:url value="/image/adopt/p3.jpg"/>"><span>生日</span><br>
               <p>
                 <fmt:formatDate pattern="yyyy-MM-dd" value="${pet.birthday}"/>
               </p>
@@ -51,28 +54,29 @@
           </div>
           <div class="group">
             <div class="animalX3">
-              <img src="/image/adopt/p4.jpg"><span>品种</span><br>
+              <img src="<c:url value="/image/adopt/p4.jpg"/>"><span>品种</span><br>
               <p>${pet.petType}</p>
             </div>
             <div class="animalX4">
-              <img src="/image/adopt/p5.jpg"><span>性别</span><br>
+              <img src="<c:url value="/image/adopt/p5.jpg"/>"><span>性别</span><br>
               <p>${pet.sex}</p>
             </div>
           </div>
         </div>
         <div class="animal_me">
           <div class="animal_me1">
-            <img src="/image/adopt/p6.jpg">
-            <img src="/image/adopt/p7.jpg">
-            <img src="/image/adopt/p8.jpg">
-            <img src="/image/adopt/p9.jpg">
-            <img src="/image/adopt/p10.jpg">
+            <img src="<c:url value="/image/adopt/p6.jpg"/>">
+            <img src="<c:url value="/image/adopt/p7.jpg"/>">
+            <img src="<c:url value="/image/adopt/p8.jpg"/>">
+            <img src="<c:url value="/image/adopt/p9.jpg"/>">
+            <img src="<c:url value="/image/adopt/p10.jpg"/>">
           </div>
           <div class="animal_me2"><p>大家好，我是${pet.petName}。${pet.remark}。你能带我回家吗？</p></div>
           <div class="animal_me3"><img src="/image/adopt/p11.jpg"></div>
         </div>
         <div class="my_btn">
-          <button class="btn btn-primary btn-lg" id="pet_adopt_modal_btn">想要领养</button>
+          <button class="btn btn-primary btn-lg" id="pet_adopt_modal_btn"
+                  data-toggle="modal" data-target="#myAdopt">想要领养</button>
           <button class="btn btn-primary btn-lg" id="tianchuan_btn"
                   style="float: right;position: relative;left: 150px;bottom: 45px">返回中心
           </button>
@@ -80,7 +84,7 @@
       </div>
 
       <!-- 模态框（Modal） -->
-      <form action="adoptionInformance" method="post">
+<%--      <form action="adoptionInformance" method="post">--%>
         <div class="modal fade" id="myAdopt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -153,7 +157,7 @@
             </div><!-- /.modal-content -->
           </div>
         </div>
-        </form>
+<%--        </form>--%>
       </div>
     </div>
   </div>
