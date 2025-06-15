@@ -3,8 +3,10 @@ package servlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Data;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class PetServlet extends HttpServlet {
     //序列化版本号（Serial Version UID）
@@ -32,7 +34,9 @@ public class PetServlet extends HttpServlet {
         String petName = req.getParameter("petName");
         String petType = req.getParameter("petType");
         String Sex = req.getParameter("Sex");
+        String Birthday=req.getParameter("Birthday");
+        String remark=req.getParameter("remark");
 
-
+        int state=Integer.parseInt(req.getParameter("state"));
     }
 }
