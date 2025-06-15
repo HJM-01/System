@@ -47,7 +47,7 @@ public class PetDetailServlet extends HttpServlet {
             request.setAttribute("user", user);
 
             // 5. 转发到宠物详情页面
-            request.getRequestDispatcher("/WEB-INF/views/pet_detail.jsp").forward(request, response);
+            request.getRequestDispatcher("/adoptionInformange.jsp").forward(request, response);
 
         } catch (NumberFormatException e) {
             // 处理非法参数格式

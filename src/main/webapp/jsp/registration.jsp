@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
-    <form  method="post">
+    <form action="/jsp/registration1" method="post">
         <table>
             <tr aria-rowspan="6" > 
                 <td class="td" rowspan="6" colspan="2">

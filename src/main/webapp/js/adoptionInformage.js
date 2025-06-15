@@ -6,6 +6,15 @@ jQuery(function ($) {
 
 var id = "${sessionScope.pet}";//从 Session 作用域中获取名为 pet 的属性值，并输出到 JavaScript 中。
 
+$(document).ready(function() {
+    // 确保模态框已注册
+    $('#myAdopt').modal({
+        show: false, // 初始不显示
+        backdrop: 'static' // 点击外部不关闭
+    });
+});
+
+
 // $(function () {//在页面 DOM 加载完成后立即执行 to_page() 函数。
 //     to_page(); //自定义的分页加载函数
 // });
@@ -99,20 +108,20 @@ function reset_form(ele) {
     $(ele).find(".help-block").text("");//清空所有错误提示容器
 }
 
-//点击申请按钮弹出模态框。
+// 点击申请按钮弹出模态框
 $("#pet_adopt_modal_btn").click(function () {
-    //清除表单数据（表单完整重置（表单的数据，表单的样式））
-    reset_form("#new_adopt_form");
-    $("#new_id").val("${user.id}");     //将当前登录用户的信息（如ID、姓名、电话等）自动填充到表单中
-    $("#new_userName").val("${user.userName}");
-    $("#new_sex").val("${user.sex}");
-    $("#new_telephone").val("${user.telephone}");
-    $("#new_Email").val("${user.email}");
-    $("#new_address").val("${user.address}");
-    //弹出模态框
-    $("#myAdopt").modal({
-        backdrop: "static"   //表示必须通过关闭按钮才能退出模态框
-    });
+    try {
+        reset_form("#new_adopt_form");
+        $("#new_Name").val("${user.userName}");
+        $("#new_Sex").val("${user.sex}");
+        $("#new_tel").val("${user.telephone}");
+        $("#new_Email").val("${user.email}");
+        $("#new_Adress").val("${user.address}");
+        $("#myAdopt").modal({ backdrop: "static" });
+    } catch (e) {
+        console.error("Error opening adoption form:", e);
+        alert("初始化表单失败，请刷新页面重试");
+    }
 });
 //点击保存，保存到申请表
 $("#submit_btn").click(function () {
