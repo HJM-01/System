@@ -166,14 +166,14 @@
                                    class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
                         </div>
 
-                        <div>
-                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                                <option value=""></option>
-                                <option value="待审核"></option>
-                                <option value="已通过"></option>
-                                <option value="已拒绝"></option>
-                            </select>
-                        </div>
+<%--                        <div>--%>
+<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                                <option value=""></option>--%>
+<%--                                <option value="待审核"></option>--%>
+<%--                                <option value="已通过"></option>--%>
+<%--                                <option value="已拒绝"></option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">

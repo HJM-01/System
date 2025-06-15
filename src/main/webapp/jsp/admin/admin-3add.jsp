@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Lynnlyt
@@ -117,7 +118,8 @@
 
         <!-- 用户表单 -->
         <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
-          <form id="CatForm" action="AddPetServlet" method="post" enctype="multipart/form-data">            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form id="CatForm" action="<c:url value="/PetServlet?action=insert"/>" method="post" enctype="multipart/form-data">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- 左侧表单区域 -->
               <div>
 
@@ -125,7 +127,7 @@
                 <div class="mb-4">
                   <label for="petName" class="block text-sm font-medium text-gray-700 mb-1">猫名</label>
                   <input type="text" id="petName" name="petName" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入用户名">
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入猫名">
                 </div>
 
                 <div class="mb-4">
@@ -154,14 +156,15 @@
               </div>
               <!-- 右侧表单区域 -->
               <div>
-                <!-- 绝育状态 -->
+                <!-- 领养状态 -->
                 <div class="mb-4">
                   <label for="state" class="block text-sm font-medium text-gray-700 mb-1">领养状态</label>
                   <select id="state" name="state" required
                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
                     <option value="">请选择领养状态</option>
-                    <option value="2">已领养</option>
-                    <option value="1">未领养</option>
+                    <option value="1">无领养申请</option>
+                    <option value="2">被申请领养</option>
+                    <option value="1">已被领养</option>
 
                   </select>
                 </div>
@@ -175,13 +178,13 @@
                 <div class="mb-4">
                   <label class="block text-sm font-medium text-gray-700 mb-1">照片</label>
                   <div class="flex items-center justify-center w-full">
-                    <label for="avatar" class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <label for="petPic" class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
                       <div class="flex flex-col items-center justify-center pt-5 pb-6">
                         <i class="fa fa-cloud-upload text-3xl text-gray-400 mb-2"></i>
                         <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">点击上传头像</span> 或拖放文件</p>
                         <p class="text-xs text-gray-500">支持 JPG, PNG 格式，最大 2MB</p>
                       </div>
-                      <input id="avatar" name="avatar" type="file" accept="image/*" class="hidden" />
+                      <input id="petPic" name="petPic" type="file" accept="image/*" class="hidden" />
                     </label>
                   </div>
                   <div id="previewContainer" class="mt-2 hidden">
@@ -216,7 +219,7 @@
   document.addEventListener('DOMContentLoaded', function() {
 
     // 头像预览功能
-    const avatarInput = document.getElementById('avatar');
+    const avatarInput = document.getElementById('petPic');
     const previewContainer = document.getElementById('previewContainer');
     const avatarPreview = document.getElementById('avatarPreview');
 

@@ -166,35 +166,12 @@
                             <input type="text" placeholder="搜索申请人/联系方式/申请编号"
                                    class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
                         </div>
-
-                        <div>
-                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                                <option value="">全部状态</option>
-                                <option value="待审核">待审核</option>
-                                <option value="已通过">已通过</option>
-                                <option value="已拒绝">已拒绝</option>
-                            </select>
-                        </div>
-
-                        <%--                        <div>--%>
-                        <%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
-                        <%--                                <option value="">全部申请时间</option>--%>
-                        <%--                                <option value="今天">今天</option>--%>
-                        <%--                                <option value="本周">本周</option>--%>
-                        <%--                                <option value="本月">本月</option>--%>
-                        <%--                                <option value="今年">今年</option>--%>
-                        <%--                            </select>--%>
-                        <%--                        </div>--%>
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
                         <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
-
-                        <%--                        <button class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">--%>
-                        <%--                            <i class="fa fa-file-pdf-o mr-2"></i>导出报表--%>
-                        <%--                        </button>--%>
                     </div>
                 </div>
 

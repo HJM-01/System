@@ -96,11 +96,6 @@
                     <i class="fa fa-user-circle-o"></i>
                     <span>管理员管理</span>
                 </a>
-
-<%--                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">--%>
-<%--                    <i class="fa fa-bell-o"></i>--%>
-<%--                    <span>通知中心</span>--%>
-<%--                </a>--%>
             </div>
         </nav>
 

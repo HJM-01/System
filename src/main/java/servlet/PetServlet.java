@@ -1,42 +1,67 @@
 package servlet;
 
+import DAO.PetDAO;
+import entity.Pet;
+import service.PetService;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Data;
-
 import java.io.IOException;
 import java.util.Date;
 
 public class PetServlet extends HttpServlet {
-    //序列化版本号（Serial Version UID）
     private static final long serialVersionUID = 1L;
 
     protected void service(HttpServletRequest req, HttpServletResponse resp)
-            throws SecurityException, IOException{
-        //可以直接获取参数
-        //设置编码字符集
+            throws SecurityException, IOException {
         req.setCharacterEncoding("utf-8");
-        //假设我们的的参数请中都有一个标记（？？？？）
         String action = req.getParameter("action");
         if (action == null) {
-            action="";//这是查询请求中没有action参数
+            action = "";
         }
         switch (action) {
-            case "inster":
-                insterPet(req,resp);
+            case "insert":
+                insertPet(req, resp);
+                break;
+            default:
+                resp.getWriter().println("未知操作");
         }
     }
-//插入数据
-    private void insterPet(HttpServletRequest req, HttpServletResponse resp)
-            throws SecurityException, IOException {
-            //获取所有的参数
-        String petName = req.getParameter("petName");
-        String petType = req.getParameter("petType");
-        String Sex = req.getParameter("Sex");
-        String Birthday=req.getParameter("Birthday");
-        String remark=req.getParameter("remark");
 
-        int state=Integer.parseInt(req.getParameter("state"));
+    private void insertPet(HttpServletRequest req, HttpServletResponse resp)
+            throws SecurityException, IOException {
+        try {
+            Pet pet = new Pet();
+            pet.setPetName(req.getParameter("petName"));
+            pet.setPetType(req.getParameter("petType"));
+            pet.setSex(req.getParameter("sex"));
+
+            String birthdayStr = req.getParameter("birthday");
+            if (birthdayStr != null && !birthdayStr.isEmpty()) {
+                pet.setBirthday(new Date(Long.parseLong(birthdayStr)));
+            }
+
+            pet.setRemark(req.getParameter("remark"));
+            pet.setState(Integer.parseInt(req.getParameter("state")));
+
+            // 处理文件上传（即使暂时不使用，也需确保解析）
+            try {
+                req.getPart("petPic");
+            } catch (Exception e) {
+                // 暂时忽略
+            }
+
+            PetService service = new PetService();
+            int result = service.insertPet(pet);
+
+            if (result > 0) {
+                resp.sendRedirect("admin-3.jsp");
+            } else {
+                resp.getWriter().println("插入失败");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resp.getWriter().println("错误：" + e.getMessage());
+        }
     }
 }
