@@ -101,7 +101,7 @@ public class PetDAO {
         return pets;
     }
 
-    // 根据名称模糊查询商品
+    // 根据名称模糊查询
     public List<Pet> searchPets(String keyword) {
         List<Pet> pets = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE name LIKE ?";
