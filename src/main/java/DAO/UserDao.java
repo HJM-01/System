@@ -67,8 +67,10 @@ public class UserDao implements Dao {
         return user;
     }
 
+    //登录验证
     public user validateUser(String username, String password) {
-        String sql = "SELECT id, user_name as userName FROM user WHERE user_name = ? AND password = ?";
+        //userName as  user_name给列起别名
+        String sql = "SELECT id, userName as  user_name FROM user WHERE userName = ? AND password = ?";
 
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
