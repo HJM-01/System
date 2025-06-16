@@ -67,4 +67,27 @@ public class UserDao implements Dao {
         return user;
     }
 
+    public user validateUser(String username, String password) {
+        String sql = "SELECT id, user_name as userName FROM user WHERE user_name = ? AND password = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    user user = new user();
+                    user.setId(rs.getInt("id"));
+                    user.setUserName(rs.getString("userName"));
+                    return user;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
