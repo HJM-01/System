@@ -1,11 +1,13 @@
 package DAO;
 
+import entity.Pet;
 import entity.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 
 import static util.JDBCutil.close;
@@ -39,32 +41,60 @@ public class UserDao implements Dao {
         }
     }
     // 根据ID查询用户信息
-    public user getUserById(int id) {
-        user user = null;
+    public Optional<user> getUserById(int userId) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+
         try {
             conn = getConnection();
-            String sql = "SELECT * FROM user WHERE id = ?";
+            String sql = "SELECT id, user_name as userName, sex, telephone, email, address FROM user WHERE id = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id);
+            pstmt.setInt(1, userId);
             rs = pstmt.executeQuery();
+
             if (rs.next()) {
-                user = new user();
+                user user = new user();
                 user.setId(rs.getInt("id"));
-                user.setUserName(rs.getString("user_name"));
+                user.setUserName(rs.getString("userName"));
                 user.setSex(rs.getString("sex"));
                 user.setTelephone(rs.getString("telephone"));
                 user.setEmail(rs.getString("email"));
                 user.setAddress(rs.getString("address"));
+                return Optional.of(user);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            close((ResultSet) conn, pstmt, (Connection) rs);
+            close(rs, pstmt, conn);
         }
-        return user;
+        return Optional.empty();
     }
 
+    @Override
+    public int insertPet(Pet pet) {
+        return 0;
+    }
+    public user validateUser(String username, String password) {
+        String sql = "SELECT id, userName  FROM user WHERE userName = ? AND password = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    user user = new user();
+                    user.setId(rs.getInt("id"));
+                    user.setUserName(rs.getString("userName"));
+                    return user;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
