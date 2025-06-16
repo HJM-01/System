@@ -116,13 +116,6 @@
             <version>3.0.1</version>
             <scope>runtime</scope>
         </dependency>
-        <!-- Maven依赖 -->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.servlet</groupId>-->
-<!--            <artifactId>jakarta.servlet-api</artifactId>-->
-<!--            <version>5.0.0</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -133,5 +126,6 @@
                 <version>3.4.0</version>
             </plugin>
         </plugins>
+
     </build>
 </project>

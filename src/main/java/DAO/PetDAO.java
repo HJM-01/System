@@ -1,14 +1,13 @@
 package DAO;//package DAO;
 
 import entity.Pet;
+import util.JDBCutil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import static util.JDBCutil.close;
-import static util.JDBCutil.getConnection;
+import static util.JDBCutil.*;
 
 public class PetDAO {
     public int insertPet(Pet pet) {
@@ -26,16 +25,6 @@ public class PetDAO {
             pstmt.setInt(5, pet.getState());
             pstmt.setString(6, pet.getRemark());
             result = pstmt.executeUpdate();
-//            conn = getConnection();
-//            pstmt = conn.prepareStatement(sql);
-//            pstmt.setString(1, pet.getPetName());
-//            pstmt.setString(2, pet.getPetType()); // 若前端无该字段，可设默认值或调整
-//            pstmt.setString(3, pet.getSex());
-//            pstmt.setDate(4, new java.sql.Date(pet.getBirthday().getTime()));
-//            pstmt.setString(5, pet.getPic());
-//            pstmt.setInt(6, pet.getState());
-//            pstmt.setString(7, pet.getRemark());
-            result = pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -43,8 +32,7 @@ public class PetDAO {
         }
         return result;
     }
-
-    // 根据ID查询宠物详情
+//查询所有的pet
     public Pet getPetById(int id) {
         Pet pet = null;
         Connection conn = null;
@@ -83,4 +71,62 @@ public class PetDAO {
         return new String[0];
     }
 
+    //查询所有的pet
+    public List<Pet> getAllPets() {
+        List<Pet> pets = new ArrayList<>();
+        String sql = "SELECT * FROM pet";
+
+        try (
+                Connection conn=JDBCutil.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Pet pet = new Pet();
+                pet.setId(rs.getInt("id"));
+                pet.setPetName(rs.getString("petName"));
+                pet.setPetType(rs.getString("petType"));
+                pet.setBirthday(rs.getDate("birthday"));
+                pet.setSex(rs.getString("sex"));
+                pet.setPic(rs.getString("pic"));
+                pet.setState(rs.getInt("state"));
+                pet.setRemark(rs.getString("remark"));
+
+                pets.add(pet);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pets;
+    }
+
+    // 根据名称模糊查询商品
+    public List<Pet> searchPets(String keyword) {
+        List<Pet> pets = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE name LIKE ?";
+
+        try (Connection conn=JDBCutil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, "%" + keyword + "%");
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Pet pet = new Pet();
+                    pet.setId(rs.getInt("id"));
+                    pet.setPetName(rs.getString("petName"));
+                    pet.setPetType(rs.getString("petType"));
+                    pet.setBirthday(rs.getDate("birthday"));
+                    pet.setSex(rs.getString("sex"));
+                    pet.setPic(rs.getString("pic"));
+                    pet.setState(rs.getInt("state"));
+                    pet.setRemark(rs.getString("remark"));
+                    pets.add(pet);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pets;
+    }
 }
