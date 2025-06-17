@@ -211,16 +211,6 @@ public class petServlet22 extends HttpServlet {
             request.getRequestDispatcher("/jsp/admin/add-pet.jsp").forward(request, response);
             return;
         }
-
-//        // 设置宠物对象
-//        pet.setPetName(petName);
-//        pet.setPetType(petType);
-//        pet.setSex(sex);
-//        pet.setBirthday(birthday);
-//        pet.setState(state);
-//        pet.setRemark(remark);
-//        pet.setPic(pic);
-
         // 调用DAO方法插入数据
         try {
             // 通过 JNDI 获取连接池
@@ -248,14 +238,6 @@ public class petServlet22 extends HttpServlet {
                     int affectedRows = pstmt.executeUpdate();
 
                     if (affectedRows > 0) {
-//                        // 获取生成的主键
-//                        try (ResultSet rs = pstmt.getGeneratedKeys()) {
-//                            if (rs.next()) {
-//                                int id = rs.getInt(1);
-//                                pet.setId(id);
-//                            }
-//                        }
-
                         // 插入成功，重定向到列表页面
                         response.sendRedirect(request.getContextPath() + "/admin-3add.jsp");
                         return;
@@ -275,42 +257,46 @@ public class petServlet22 extends HttpServlet {
         request.getRequestDispatcher("/jsp/admin/admin-3add.jsp").forward(request, response);
     }
 
-    // 查询宠物列表
-    private void listPets(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Pet> petArrayList = new ArrayList<>();
+                        // 查询宠物列表
+                        private void listPets(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                            // 创建宠物对象列表，用于存储从数据库查询的结果
+                            List<Pet> petArrayList = new ArrayList<>();
 
-        try {
-            Context ctx = new InitialContext();
-            //链接数据库
-            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/Animals");
+                            try {
+                                Context ctx = new InitialContext();
+                                // 从数据源获取数据库连接，并使用try-with-resources自动关闭连接
+                                DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/Animals");
 
-            try (Connection conn = ds.getConnection()) {
-                String sql = "SELECT * FROM pet";
-                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    ResultSet rs = pstmt.executeQuery();
-                    while (rs.next()) {
-                        Pet pet = new Pet(
-                                rs.getInt("id"),
-                                rs.getString("petName"),
-                                rs.getString("petType"),
-                                rs.getString("sex"),
-                                rs.getDate("birthday"),
-                                rs.getString("pic"),
-                                rs.getInt("state"),
-                                rs.getString("remark")
-                        );
-                        petArrayList.add(pet);
-                    }
-                }
-            }
-        } catch (NamingException | SQLException e) {
-            e.printStackTrace();
-            request.setAttribute("error", "系统错误：无法获取宠物列表");
-        }
-
-        request.setAttribute("pets", petArrayList);
-        request.getRequestDispatcher("/jsp/admin/admin-3.jsp").forward(request, response);
-    }
+                                try (Connection conn = ds.getConnection()) {
+                                    String sql = "SELECT * FROM pet";
+                                    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                                        ResultSet rs = pstmt.executeQuery();// 执行查询并获取结果集
+                                        // 遍历结果集，将每条记录转换为Pet对象
+                                        while (rs.next()) {
+                                            Pet pet = new Pet(
+                                                    rs.getInt("id"),
+                                                    rs.getString("petName"),
+                                                    rs.getString("petType"),
+                                                    rs.getString("sex"),
+                                                    rs.getDate("birthday"),
+                                                    rs.getString("pic"),
+                                                    rs.getInt("state"),
+                                                    rs.getString("remark")
+                                            );
+                                            // 将构造好的Pet对象添加到列表中
+                                            petArrayList.add(pet);
+                                        }
+                                    }
+                                }
+                            } catch (NamingException | SQLException e) {
+                                e.printStackTrace();
+                                request.setAttribute("error", "系统错误：无法获取宠物列表");
+                            }
+                            // 将查询到的宠物列表存储在request对象中，供JSP页面使用
+                            request.setAttribute("pets", petArrayList);
+                            // 将请求转发到admin-3.jsp页面进行视图渲染
+                            request.getRequestDispatcher("/jsp/admin/admin-3.jsp").forward(request, response);
+                        }
 
     // 从Part对象获取文件名
     private String getFileName(Part part) {
