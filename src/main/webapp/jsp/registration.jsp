@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -7,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>注册</title>
@@ -27,7 +27,7 @@
             </tr>
 
             <tr>
-                <td colspan="2"><input type="text" name="username" placeholder="请输入用户名"></td>
+                <td colspan="2"><input type="text" name="username" placeholder="请输入名称"></td>
             </tr>
 
             <tr>
@@ -35,11 +35,11 @@
             </tr>
 
             <tr>
-                <td colspan="2"><input type="password" name="SecondPassword" placeholder="请再次确认密码"></td>
+                <td colspan="2"><input type="password" name="SecondPassword" placeholder="请再次输入密码"></td>
             </tr>
 
             <tr>
-                <td colspan="2"><input type="text" name="phoneNumber" placeholder="联系方式"></td>
+                <td colspan="2"><input type="text" name="phoneNumber" placeholder="请输入联系方式"></td>
             </tr>
 
             <tr>
