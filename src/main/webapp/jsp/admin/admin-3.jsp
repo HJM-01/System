@@ -220,7 +220,8 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.state}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.remark}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
+                                            <a href="${pageContext.request.contextPath}/petEdit?id=${Pet.id}"
+                                               class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
                                             <a href="${pageContext.request.contextPath}/petDelete?id=${Pet.id}"
                                                class="btn btn-danger btn-sm" onclick="return confirm('确定要删除该猫咪的记录吗?')">删除</a>
                                         </td>
