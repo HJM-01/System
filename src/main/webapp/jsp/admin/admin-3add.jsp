@@ -119,24 +119,24 @@
 
         <!-- 用户表单 -->
         <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
-          <form id="CatForm" action="Pet" method="post" enctype="multipart/form-data">
+          <!-- 在form标签中添加action和method，确保enctype正确 -->
+          <form id="CatForm" action="pet" method="post" enctype="multipart/form-data">
+            <!-- 表单内容保持不变 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- 左侧表单区域 -->
               <div>
-
                 <!-- 猫名 -->
                 <div class="mb-4">
                   <label for="petName" class="block text-sm font-medium text-gray-700 mb-1">猫名</label>
                   <input type="text" id="petName" name="petName" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入猫名">
                 </div>
-                <%--品种--%>
+                <!-- 品种 -->
                 <div class="mb-4">
                   <label for="petType" class="block text-sm font-medium text-gray-700 mb-1">品种</label>
                   <input type="text" id="petType" name="petType" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入品种">
                 </div>
-
                 <!-- 性别 -->
                 <div class="mb-4">
                   <label for="sex" class="block text-sm font-medium text-gray-700 mb-1">性别</label>
@@ -147,15 +147,12 @@
                     <option value="female">雌性</option>
                   </select>
                 </div>
-
                 <!-- 发现日期 -->
                 <div class="mb-4">
                   <label for="birthday" class="block text-sm font-medium text-gray-700 mb-1">发现日期</label>
                   <input type="date" id="birthday" name="birthday" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入发现日期">
                 </div>
-
-
               </div>
               <!-- 右侧表单区域 -->
               <div>
@@ -167,11 +164,9 @@
                     <option value="">请选择领养状态</option>
                     <option value="1">无领养申请</option>
                     <option value="2">被申请领养</option>
-                    <option value="1">已被领养</option>
-
+                    <option value="3">已被领养</option> <!-- 修正了原来重复的选项值 -->
                   </select>
                 </div>
-
                 <div class="mb-4">
                   <label for="remark" class="block text-sm font-medium text-gray-700 mb-1">添加描述</label>
                   <input type="text" id="remark" name="remark" required

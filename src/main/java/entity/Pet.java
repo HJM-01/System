@@ -35,6 +35,9 @@ public class Pet implements Serializable {
         this.remark = remark;
     }
 
+    public Pet(int id, String petName, String petType, String sex, java.sql.Date birthday, String pic, int state, Object o, String remark) {
+    }
+
     public String getRemark() {
         return remark;
     }

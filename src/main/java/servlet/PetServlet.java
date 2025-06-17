@@ -1,6 +1,7 @@
 package servlet;
 
 import DAO.PetDAO;
+import entity.Admins;
 import entity.Pet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,18 +12,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/pet")
+@WebServlet("/jsp/admin/PetServlet")
 public class PetServlet extends HttpServlet {
     private PetDAO petDAO = new PetDAO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        processRequest(req, resp);
+//        processRequest(req, resp);
+        listPets(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        processRequest(req, resp);
+//        processRequest(req, resp);
+        listPets(req, resp);
     }
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,16 +48,19 @@ public class PetServlet extends HttpServlet {
     }
 //查询全部
     private void listPets(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Pet> products = petDAO.getAllPets();
-        req.setAttribute("products", products);
-        req.getRequestDispatcher("src/main/webapp/jsp/admin/admin-3.jsp").forward(req, resp);
+        List<Pet> pets = petDAO.getAllPets();
+        if(pets.isEmpty()) {
+//            pets.add(new Pet(1,petName));
+        }
+        req.setAttribute("pets", pets);
+        req.getRequestDispatcher("/jsp/admin/admin-3.jsp").forward(req, resp);
     }
 //部分查询
     private void searchPets(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String keyword = req.getParameter("keyword");
-        List<Pet> products = petDAO.searchPets(keyword);
-        req.setAttribute("products", products);
+        List<Pet> pets = petDAO.searchPets(keyword);
+        req.setAttribute("pets", pets);
         req.setAttribute("keyword", keyword);
-        req.getRequestDispatcher("src/main/webapp/jsp/admin/admin-3.jsp").forward(req, resp);
+        req.getRequestDispatcher("/jsp/admin/admin-3.jsp").forward(req, resp);
     }
 }

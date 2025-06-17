@@ -6,8 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>]
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -170,7 +171,7 @@
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
-                        <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        <button onclick="window.location.href='http://localhost:8080/System_war/jsp/admin/PetServlet'" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
 
@@ -188,6 +189,27 @@
                     </div>
 
                     <div class="overflow-x-auto">
+
+                        <c:forEach items="${pets}" var="Pet">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${Pet.id}$</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${Pet.petName}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.petType}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.sex}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.birthday}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <img src="${Pet.pic}" alt="猫照片" class="w-10 h-10 rounded-full object-cover">
+                                        </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.state}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.remark}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
+                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
+                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
+                                </td>
+                            </tr
+                        </c:forEach>
+
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                             <tr>
@@ -204,25 +226,7 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
 <%--                            <jsp:useBean id="petlist" scope="request" type="java.util.List"/>--%>
-                            <c:forEach items="${pets}" var="Pet">
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${Pet.id}$</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${Pet.petName}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.petType}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.sex}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.birthday}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1001/40/40" alt="猫照片" class="w-10 h-10 rounded-full object-cover">
-                                ${Pet.pic}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.state}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${Pet.remark}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr
-                            </c:forEach>
+
 
                             </tbody>
                         </table>
