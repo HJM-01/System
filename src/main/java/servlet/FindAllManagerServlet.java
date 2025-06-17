@@ -18,7 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet("/jsp/admin/FindAllManagerServlet")
+@WebServlet("/FindAllManagerServlet")
 public class FindAllManagerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8"); // 建议加上编码声明

@@ -41,6 +41,7 @@
     <img src="/image/animal/dog.jpg" alt="" />
   </div>
 </div>
+<li>
 <%--<div id="demo1" class="slideBox">--%>
 <%--  <ul class="items">--%>
 <%--    <li>--%>

@@ -12,8 +12,14 @@
     <title>登录</title>
 <%--    <link rel="stylesheet" type="text/css" href="../css/login.css">--%>
     <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/register.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script SRC="/js/banner.js"></script>
 </head>
 <body>
+<jsp:include page="user/header.jsp"/>
     <form  action="/jsp/login" name="#" method="post">
         <table>
             <tr aria-rowspan="4">

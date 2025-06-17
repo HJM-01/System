@@ -22,7 +22,7 @@ public class registrationServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String secondPassword = request.getParameter("SecondPassword");
-        String telephone = request.getParameter("telephone");
+        String telephone = request.getParameter("phoneNumber");
 
         // 客户端验证
         if (!password.equals(secondPassword)) {
