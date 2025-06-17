@@ -17,7 +17,7 @@ import java.sql.SQLException;
 @WebServlet("/jsp/registration1")
 public class registrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8"); // 建议加上编码声明
+        response.setContentType("text/html;charset=UTF-8");
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");

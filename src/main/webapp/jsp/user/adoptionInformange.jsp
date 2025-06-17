@@ -14,7 +14,6 @@
   <script src="<c:url value="/js/jquery.slideBox.min.js"/>" type="text/javascript"></script>
   <script src="<c:url value="/js/jquery.comment.js"/>"></script>
   <script src="<c:url value="/js/adoptionInformage.js"/>"></script>
-
   <style>
     /* 新增的样式确保模态框输入框可见 */
     #myAdopt .modal-body {
@@ -79,9 +78,9 @@
         <center>
           <div id="demo1" class="slideBox">
             <ul class="items">
-              <c:forEach items="${requestScope.pics}" var="pic">
+              <c:forEach items="${requestScope.pics}" var="pic" varStatus="status">
                 <li>
-                  <a href=""><img class="my-img" src="/image/animal/${pic}"></a>
+                  <a href=""><img class="my-img" src="${path}/image/animal/${pic}"></a>
                 </li>
               </c:forEach>
             </ul>
@@ -124,7 +123,7 @@
             <img src="<c:url value="/image/adopt/p10.jpg"/>">
           </div>
           <div class="animal_me2"><p>大家好，我是${pet.petName}。${pet.remark}。你能带我回家吗？</p></div>
-          <div class="animal_me3"><img src="/image/adopt/p11.jpg"></div>
+          <div class="animal_me3"><img src="/image/adopt/p11.jpg" alt=""></div>
         </div>
         <div class="my_btn">
           <button class="btn btn-primary btn-lg" id="pet_adopt_modal_btn"
@@ -166,7 +165,7 @@
                     宠物名： </label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="new_petName"
-                           placeholder="请输入宠物的名字" name="petName" value="${pet.petName}" readonly>
+                           placeholder="请输入宠物的名字" name="petName" value="${pet.petName}" >
                   </div>
                 </div>
 
@@ -206,16 +205,16 @@
                   </div>
                 </div>
 
-                <!-- 新增的图片上传字段 -->
-                <div class="form-group">
-                  <label for="new_Image" class="col-sm-2 control-label">
-                    居住环境照片： </label>
-                  <div class="col-sm-10">
-                    <input type="file" class="form-control" id="new_Image"
-                           name="image" accept="image/*">
-                    <p class="help-block">请上传您的居住环境照片（可选）</p>
-                  </div>
-                </div>
+                <%--                <!-- 新增的图片上传字段 -->--%>
+                <%--                <div class="form-group">--%>
+                <%--                  <label for="new_Image" class="col-sm-2 control-label">--%>
+                <%--                    居住环境照片： </label>--%>
+                <%--                  <div class="col-sm-10">--%>
+                <%--                    <input type="file" class="form-control" id="new_Image"--%>
+                <%--                           name="image" accept="image/*">--%>
+                <%--                    <p class="help-block">请上传您的居住环境照片（可选）</p>--%>
+                <%--                  </div>--%>
+                <%--                </div>--%>
 
               </form>
             </div>
@@ -232,6 +231,17 @@
 </div>
 
 <script>
+  $(document).ready(function() {
+    // 确保元素存在再初始化slideBox
+    var $slideBox = $('#demo1');
+    if($slideBox.length && $.fn.slideBox) {
+      $slideBox.slideBox({
+        width: 600,
+        height: 400,
+        speed: 0.5
+      });
+    }
+  });
   $(document).ready(function() {
     // 确保模态框已注册
     $('#myAdopt').modal({
@@ -281,5 +291,3 @@
     });
   });
 </script>
-</body>
-</html>

@@ -20,7 +20,7 @@ public class Registration extends HttpServlet {
 //            InitialContext异常
             Context context = new InitialContext();
 //            驱动
-            DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+            DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/Animals");
 //            插入用户名，密码，联系方式
             String AddUser="inset into valuse(?,?,?)";
 //            PreparedStatement p=
@@ -28,4 +28,5 @@ public class Registration extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
 }

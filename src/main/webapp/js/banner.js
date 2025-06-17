@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     var carousel = document.getElementById('myCarousel');
     var footer = document.getElementById('footer1');
-    var images = carousel.getElementsByTagName('img');
-    var currentImageIndex = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+        var elements = document.getElementsByTagName('img');
+        if(elements.length > 0) {
+            // 你的代码
+        }
+    });
+    // var images = carousel.getElementsByTagName('img');
+    // var currentImageIndex = 0;
 
     function switchImage() {
         // 隐藏当前图片
@@ -31,11 +37,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 var hideTimeout;
 
-container.addEventListener('mouseleave', function() {
-    hideTimeout = setTimeout(function() {
-        footer.classList.remove('show');
-    }, 300); // 300毫秒延迟
-});
+var container = document.getElementById('yourContainerId');
+if(container) {
+    container.doSomething();
+}
+// container.addEventListener('mouseleave', function() {
+//     hideTimeout = setTimeout(function() {
+//         footer.classList.remove('show');
+//     }, 300); // 300毫秒延迟
+// });
 
 footer.addEventListener('mouseenter', function() {
     clearTimeout(hideTimeout);
@@ -72,7 +82,7 @@ $(document).ready(function() {
 
     // 3. 监听鼠标离开事件
     banner.addEventListener('mouseleave', () => {
-        footer.style.bottom = '-1000px'; // 下滑隐藏 Footer
+        footer.style.bottom = '-800px'; // 下滑隐藏 Footer
     });
 
     // 7. 关闭按钮功能

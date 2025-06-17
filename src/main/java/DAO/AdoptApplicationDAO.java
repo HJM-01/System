@@ -1,55 +1,45 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import entity.Pet;
 
-import static util.JDBCutil.close;
-import static util.JDBCutil.getConnection;
+import java.sql.*;
 
-public class AdoptApplicationDAO {
-    // 添加领养申请
+public class AdoptApplicationDAO implements Dao{
     public boolean addApplication(int userId, int petId) {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        boolean result = false;
-        try {
-            conn = getConnection();
-            String sql = "INSERT INTO adopt_application (user_id, pet_id) VALUES (?, ?)";
-            pstmt = conn.prepareStatement(sql);
+        String sql = "INSERT INTO adopt_application (user_id, pet_id, state) VALUES (?, ?, 0)";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
             pstmt.setInt(1, userId);
             pstmt.setInt(2, petId);
-            int affectedRows = pstmt.executeUpdate();
-            result = affectedRows > 0;
+            return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            close((ResultSet) conn, pstmt, null);
+            return false;
         }
-        return result;
     }
-    // 检查用户是否已提交过该宠物的领养申请
-    public boolean checkApplicationExists(int userId, int petId) {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        boolean exists = false;
 
-        try {
-            conn = getConnection();
-            String sql = "SELECT 1 FROM adopt_application WHERE user_id = ? AND pet_id = ?";
-            pstmt = conn.prepareStatement(sql);
+    public boolean checkApplicationExists(int userId, int petId) {
+        String sql = "SELECT COUNT(*) FROM adopt_application WHERE user_id = ? AND pet_id = ? AND state != 2";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
             pstmt.setInt(1, userId);
             pstmt.setInt(2, petId);
-            rs = pstmt.executeQuery();
-            exists = rs.next();
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                return rs.next() && rs.getInt(1) > 0;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            close((ResultSet) conn, pstmt, (Connection) rs);
+            return false;
         }
+    }
 
-        return exists;
+    @Override
+    public int insertPet(Pet pet) {
+        return 0;
     }
 }

@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
-    <form  name="#" method="post">
+    <form  action="/jsp/login" name="#" method="post">
         <table>
             <tr aria-rowspan="4">
                 <td class="td" rowspan="4" colspan="2">

@@ -1,5 +1,7 @@
 package DAO;
 
+import entity.Pet;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -29,6 +31,8 @@ public interface Dao {
         }
         return conn;
     }
+
+    int insertPet(Pet pet);
 }
 
 

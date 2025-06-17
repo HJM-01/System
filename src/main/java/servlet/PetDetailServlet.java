@@ -1,61 +1,74 @@
 package servlet;
 
 import DAO.PetDAO;
+import DAO.UserDao;
 import entity.Pet;
 import entity.user;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Optional;
 
-@WebServlet("/pet/detail")
+@WebServlet(name = "PetDetailServlet", value = "/pet/detail")
 public class PetDetailServlet extends HttpServlet {
-    private PetDAO petDAO = new PetDAO();
+    private final PetDAO petDAO = new PetDAO();
+    private final UserDao userDAO = new UserDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            // 1. 获取宠物ID（添加参数校验）
-            String petIdStr = request.getParameter("id");
-            if (petIdStr == null || petIdStr.isEmpty()) {
-                response.sendRedirect(request.getContextPath() + "/pet/list"); // 重定向到宠物列表页
-                return;
-            }
-            int petId = Integer.parseInt(petIdStr);
+        System.out.println("PetDetailServlet被调用，参数id=" + request.getParameter("id"));
+        String petIdStr = request.getParameter("id");
 
-            // 2. 获取宠物详情
-            Pet pet = petDAO.getPetById(petId);
-            if (pet == null) {
-                response.sendRedirect(request.getContextPath() + "/pet/list");
+        if (petIdStr == null || petIdStr.isEmpty()) {
+            response.sendRedirect(request.getContextPath() + "/error?message=缺少宠物ID参数");
+            return;
+        }
+
+        try {
+            int petId = Integer.parseInt(petIdStr);
+            Optional<Pet> petOpt = petDAO.getPetById(petId);
+
+            if (petOpt.isEmpty()) {
+                response.sendRedirect(request.getContextPath() + "/error?message=未找到指定宠物");
                 return;
             }
+
+            Pet pet = petOpt.get();
             request.setAttribute("pet", pet);
 
-            // 3. 获取宠物图片列表（假设图片路径以逗号分隔）
+            // 获取宠物图片
             String[] pics = petDAO.getPetPics(petId);
+            if (pics == null || pics.length == 0) {
+                System.out.println("未找到宠物图片，petId=" + petId);
+                pics = new String[]{request.getContextPath() + "/image/default.jpg"}; // 设置默认图片
+            }
             request.setAttribute("pics", pics);
 
+            // 获取当前登录用户
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                Integer userId = (Integer) session.getAttribute("userId");
+                if (userId != null) {
+                    Optional<user> userOpt = userDAO.getUserById(userId);
+                    if (userOpt.isPresent()) {
+                        user user = userOpt.get();
+                        if (user.getPic() != null && !user.getPic().isEmpty()) {
+                            user.setPic(request.getContextPath() + "/image/user/" + user.getPic());
+                        }
+                        request.setAttribute("user", user);
+                    }
+                }
+            }
 
-            // 4. 获取当前登录用户
-            HttpSession session = request.getSession();
-            user user = (user) session.getAttribute("user");
-            request.setAttribute("user", user);
-
-            // 5. 转发到宠物详情页面
             request.getRequestDispatcher("/adoptionInformange.jsp").forward(request, response);
 
         } catch (NumberFormatException e) {
-            // 处理非法参数格式
-            response.sendRedirect(request.getContextPath() + "/error?msg=参数格式错误");
+            response.sendRedirect(request.getContextPath() + "/error?message=无效的宠物ID格式");
         } catch (Exception e) {
-            // 处理其他异常
             e.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/error?msg=系统错误，请稍后再试");
+            response.sendRedirect(request.getContextPath() + "/error?message=系统错误");
         }
     }
 }
