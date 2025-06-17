@@ -225,7 +225,6 @@
 <%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>--%>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
                                     <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
                                     <a href="#" class="text-danger hover:text-danger/80">删除</a>
                                 </td>

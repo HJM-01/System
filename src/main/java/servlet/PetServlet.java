@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
-
+//这个还有用没有啊T.T——林
 @WebServlet("/jsp/admin/PetServlet")
 public class PetServlet extends HttpServlet {
     private PetDAO petDAO = new PetDAO();

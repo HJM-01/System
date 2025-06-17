@@ -15,6 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+//此Servlet用来处理插入pet
 
 @WebServlet("/pet")
 @MultipartConfig
@@ -44,7 +45,7 @@ public class PetInsertServlet extends HttpServlet {
         // 处理图片上传（这里简单假设存储图片路径）
         Part filePart = request.getPart("petPic");
         String pic = filePart.getSubmittedFileName(); // 简单存储文件名
-
+        //图片这方面似乎没怎么实现——林
         // 创建 Pet 对象
         Pet pet = new Pet(null, petName, petType, sex, birthday, pic, state, remark);
 

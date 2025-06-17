@@ -1,7 +1,6 @@
 package DAO;
 
 import entity.Pet;
-import util.JDBCutil;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -19,7 +18,7 @@ public class PetDAO implements Dao {
         String sql = "INSERT INTO pet (petName, petType, sex, birthday, pic, state, remark) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    try{// 1. 获取 JNDI 上下文
+    try{// 1. 获取 JNDI 上下文//修改了数据源的获取方式——林
         Context ctx = new InitialContext();
         // 2. 查找数据源（名称需与 context.xml 中的 Resource.name 一致）
         DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Animals");
@@ -53,6 +52,31 @@ public class PetDAO implements Dao {
         throw new RuntimeException(e);
     }
     }
+
+    //通过id删除pet
+    @Override
+    public boolean deletePet(int petId) {
+        String sql = "DELETE FROM pet WHERE id = ?";
+
+        try{// 1. 获取 JNDI 上下文//修改了数据源的获取方式——林
+            Context ctx = new InitialContext();
+            // 2. 查找数据源（名称需与 context.xml 中的 Resource.name 一致）
+            DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Animals");
+            // 3. 从连接池获取连接
+            try (Connection conn = getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setInt(1, petId);
+                int rowsAffected = pstmt.executeUpdate();
+                return rowsAffected > 0;
+        }
+
+        } catch (SQLException e) {
+            throw new DataAccessException("删除宠物失败，ID: " + petId, e);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @Override
     public Optional<Pet> getPetById(int petId) {

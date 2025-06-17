@@ -206,7 +206,6 @@
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
                                     <a href="#" class="text-success hover:text-success/80 mr-3">通过</a>
                                     <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
                                 </td>
