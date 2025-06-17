@@ -59,12 +59,6 @@ public class FindAllManagerServlet extends HttpServlet {
         if(adminsArrayList.isEmpty()) {
             adminsArrayList.add(new Admins(1, "测试管理员", "test@example.com", "123456789", "男"));
         }
-
-//        int a = 2222;
-        System.out.println(adminsArrayList.get(1));
-//        System.out.println(a);
-//        request.setAttribute("a", a);
-
         request.setAttribute("AdminList", adminsArrayList);
         request.getRequestDispatcher("/jsp/admin/adminadd.jsp").include(request, response);
     }
