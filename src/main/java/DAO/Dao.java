@@ -50,7 +50,7 @@ public interface Dao {
 
     boolean addApplication(int userId, int petId);
 
-    boolean checkApplicationExists(int userId, int petId);
+    boolean checkApplicationExists(int userId, int petId) throws SQLException;
 
     int insertPet(Pet pet);
 

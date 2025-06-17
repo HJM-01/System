@@ -63,7 +63,7 @@ public class PetDetailServlet extends HttpServlet {
             String path = request.getContextPath();
             request.setAttribute("path", path);
 
-//            request.getRequestDispatcher("/adoptionInformange.jsp").forward(request, response);
+//           request.getRequestDispatcher("/adoptionInformange.jsp").forward(request, response);
 
             System.out.println("[TRACE] 转发前 - request属性: " + request.getAttribute("pet"));
             request.getRequestDispatcher("/jsp/user/adoptionInformange.jsp").forward(request, response);

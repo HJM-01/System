@@ -41,26 +41,27 @@
     <img src="/image/animal/dog.jpg" alt="" />
   </div>
 </div>
-<div id="demo1" class="slideBox">
-  <ul class="items">
-    <li>
-      <div class="circular-image-container">
-        <a href=""><img src="/image/微信图片_20250606155528(1).png" alt="领养宣传图1"></a>
-      </div>
-      <div class="circular-image-container">
-        <a href=""><img src="/image/微信图片_20250606160323.jpg" alt="领养宣传图2"></a>
-      </div>
-      <div class="circular-image-container">
-        <a href=""><img src="/image/微信图片_20250606160345(1).png" alt="领养宣传图3"></a>
-      </div>
-    </li>
-  </ul>
-</div>
-<div class="row">
-  <!-- 分页条信息 -->
-  <div class="col-md-5" id="page_info_area"></div>
-  <div class="col-md-4 myPage" id="page_nav_area"></div>
-</div>
-<jsp:include page="/PetDetailServlet"/>
+<li>
+<%--<div id="demo1" class="slideBox">--%>
+<%--  <ul class="items">--%>
+<%--    <li>--%>
+<%--      <div class="circular-image-container">--%>
+<%--        <a href=""><img src="/image/微信图片_20250606155528(1).png" alt="领养宣传图1"></a>--%>
+<%--      </div>--%>
+<%--      <div class="circular-image-container">--%>
+<%--        <a href=""><img src="/image/微信图片_20250606160323.jpg" alt="领养宣传图2"></a>--%>
+<%--      </div>--%>
+<%--      <div class="circular-image-container">--%>
+<%--        <a href=""><img src="/image/微信图片_20250606160345(1).png" alt="领养宣传图3"></a>--%>
+<%--      </div>--%>
+<%--    </li>--%>
+<%--  </ul>--%>
+<%--</div>--%>
+<%--<div class="row">--%>
+<%--  <!-- 分页条信息 -->--%>
+<%--  <div class="col-md-5" id="page_info_area"></div>--%>
+<%--  <div class="col-md-4 myPage" id="page_nav_area"></div>--%>
+<%--</div>--%>
+<jsp:include page="adoptionInformange.jsp"/>
 </body>
 </html>

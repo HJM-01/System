@@ -68,6 +68,34 @@ public class UserDao implements Dao {
         return Optional.empty();
     }
 
+
+    // 在UserDao中添加
+    public Optional<user> getUserByNameAndid(String id, String userName) throws SQLException {
+        String sql = "SELECT * FROM user WHERE userName = ? AND id = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, userName);
+            stmt.setString(2, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    user user = new user();
+                    user.setId(rs.getInt("id"));
+                    user.setUserName(rs.getString("userName"));
+                    user.setPassword(rs.getString("password"));
+                    user.setSex(rs.getString("sex"));
+                    user.setAge(rs.getInt("age"));
+                    user.setTelephone(rs.getString("telephone"));
+                    user.setEmail(rs.getString("Email"));
+                    user.setAddress(rs.getString("address"));
+                    user.setPic(rs.getString("pic"));
+                    user.setState(rs.getInt("state"));
+                    return Optional.of(user);
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
     //登录验证
     public user validateUser(String username, String password) {
         //userName as  user_name给列起别名
@@ -113,4 +141,5 @@ public class UserDao implements Dao {
     public Optional<Pet> getPetById(int petId) {
         return Optional.empty();
     }
+
 }
