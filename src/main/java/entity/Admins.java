@@ -27,4 +27,11 @@ public class Admins implements Serializable {
     private String pic;
     private String remark;
 
+    public Admins(Integer id, String adminName, String Email,String telephone, String sex) {
+        this.id = id;
+        this.adminName = adminName;
+        this.Email = Email;
+        this.telephone = telephone;
+        this.sex=sex;
+    }
 }
