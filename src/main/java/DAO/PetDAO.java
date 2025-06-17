@@ -53,7 +53,7 @@ public class PetDAO implements Dao {
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    Pet pet = mapRowToPet(rs);//映射（转换）为一个 Pet 类型的对象。
+                    Pet pet = mapRowToPet(rs);
                     System.out.println("[DEBUG] Found pet: " + pet); // 检查查询结果
                     return Optional.of(mapRowToPet(rs));
                 }
