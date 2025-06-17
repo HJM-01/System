@@ -1,5 +1,7 @@
 package DAO;
 
+import entity.Pet;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -8,30 +10,29 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public interface Dao {
-    private DataSource getDataSource(){
+    default DataSource getDataSource() {
         DataSource dataSource = null;
         try {
             Context context = new InitialContext();
-            dataSource=(DataSource) context.lookup("java:comp/env/jdbc/Animals");
-        }catch (NamingException ne){
-            System.out.println("异常"+ne);
+            dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Animals");
+        } catch (NamingException ne) {
+            System.out.println("异常" + ne);
         }
         return dataSource;
     }
 
-    public default Connection getConnection() throws SQLException {
+    default Connection getConnection() throws SQLException {
         DataSource dataSource = getDataSource();
-        Connection conn = null;
-        try {
-            conn = dataSource.getConnection();
-        }catch (SQLException sqle){
-            System.out.println("异常" +sqle);
+        if (dataSource == null) {
+            throw new SQLException("Data source not available");
         }
-        return conn;
+        return dataSource.getConnection();
     }
-    public static void close(ResultSet rs, PreparedStatement st, Connection con) {
+
+    static void close(ResultSet rs, PreparedStatement st, Connection con) {
         try {
             if (rs != null) {
                 rs.close();
@@ -47,6 +48,11 @@ public interface Dao {
         }
     }
 
+    boolean addApplication(int userId, int petId);
+
+    boolean checkApplicationExists(int userId, int petId);
+
+    int insertPet(Pet pet);
+
+    Optional<Pet> getPetById(int petId);
 }
-
-

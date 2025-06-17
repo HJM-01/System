@@ -4,7 +4,7 @@
               type="javax.sql.DataSource"
               factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
               driverClassName="com.mysql.cj.jdbc.Driver"
-              url="jdbc:mysql://127.0.0.1:3306/animal%20system?useSSL=false&amp;serverTimezone=UTC"
+              url="jdbc:mysql://127.0.0.1:3306/animal%20system?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF-8"
               username="root"
               password="123456"
               maxTotal="4"

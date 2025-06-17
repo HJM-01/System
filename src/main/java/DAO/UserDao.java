@@ -1,11 +1,13 @@
 package DAO;
 
+import entity.Pet;
 import entity.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 
 import static util.JDBCutil.close;
@@ -39,32 +41,31 @@ public class UserDao implements Dao {
         }
     }
     // 根据ID查询用户信息
-    public user getUserById(int id) {
-        user user = null;
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        try {
-            conn = getConnection();
-            String sql = "SELECT * FROM user WHERE id = ?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id);
-            rs = pstmt.executeQuery();
+    // 根据用户ID获取用户信息
+    public Optional<user> getUserById(int userId) {
+        String sql = "SELECT * FROM user WHERE id = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                user = new user();
+                user user = new user();
                 user.setId(rs.getInt("id"));
-                user.setUserName(rs.getString("user_name"));
+                user.setUserName(rs.getString("userName"));
+                user.setPassword(rs.getString("password"));
                 user.setSex(rs.getString("sex"));
+                user.setAge(rs.getInt("age"));
                 user.setTelephone(rs.getString("telephone"));
-                user.setEmail(rs.getString("email"));
+                user.setEmail(rs.getString("Email"));
                 user.setAddress(rs.getString("address"));
+                user.setPic(rs.getString("pic"));
+                user.setState(rs.getInt("state"));
+                return Optional.of(user);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            close((ResultSet) conn, pstmt, (Connection) rs);
         }
-        return user;
+        return Optional.empty();
     }
 
     //登录验证
@@ -92,4 +93,24 @@ public class UserDao implements Dao {
         return null;
     }
 
+
+    @Override
+    public boolean addApplication(int userId, int petId) {
+        return false;
+    }
+
+    @Override
+    public boolean checkApplicationExists(int userId, int petId) {
+        return false;
+    }
+
+    @Override
+    public int insertPet(Pet pet) {
+        return 0;
+    }
+
+    @Override
+    public Optional<Pet> getPetById(int petId) {
+        return Optional.empty();
+    }
 }

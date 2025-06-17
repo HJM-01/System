@@ -1,4 +1,4 @@
-package DAO;//package DAO;
+package DAO;
 
 import entity.Pet;
 import util.JDBCutil;
@@ -6,127 +6,160 @@ import util.JDBCutil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import static util.JDBCutil.*;
+public class PetDAO implements Dao {
 
-public class PetDAO {
+    @Override
     public int insertPet(Pet pet) {
-        String sql = "INSERT INTO pet (id, petName, petType, sex,birthday,/* pic, */ state, remark) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        int result = 0;
-        try {
-            conn = getConnection();
-            pstmt = conn.prepareStatement(sql);
+        String sql = "INSERT INTO pet (petName, petType, sex, birthday, pic, state, remark) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = JDBCutil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
             pstmt.setString(1, pet.getPetName());
             pstmt.setString(2, pet.getPetType());
             pstmt.setString(3, pet.getSex());
             pstmt.setDate(4, new java.sql.Date(pet.getBirthday().getTime()));
-            pstmt.setInt(5, pet.getState());
-            pstmt.setString(6, pet.getRemark());
-            result = pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            close((ResultSet) conn, pstmt, null);
-        }
-        return result;
-    }
-//查询所有的pet
-    public Pet getPetById(int id) {
-        Pet pet = null;
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        try {
-            conn = getConnection();
-            String sql = "SELECT * FROM pet WHERE id = ?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id);
-            rs = pstmt.executeQuery();
-            if (rs.next()) {
-                pet = new Pet();
-                pet.setId(rs.getInt("id"));
-                pet.setPetName(rs.getString("pet_name"));
-                pet.setPetType(rs.getString("pet_type"));
-                pet.setSex(rs.getString("sex"));
-                pet.setBirthday(rs.getDate("birthday"));
-                pet.setPic(rs.getString("pic"));
-                pet.setState(rs.getInt("state"));
-                pet.setRemark(rs.getString("remark"));
+            pstmt.setString(5, pet.getPic());
+            pstmt.setInt(6, pet.getState());
+            pstmt.setString(7, pet.getRemark());
+
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        return rs.getInt(1);
+                    }
+                }
             }
+            return affectedRows;
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            close((ResultSet) conn, pstmt, (Connection) rs);
+            throw new DataAccessException("插入宠物失败", e);
         }
-        return pet;
-    }
-    // 获取宠物图片列表（假设图片路径以逗号分隔存储）
-    public String[] getPetPics(int id) {
-        Pet pet = getPetById(id);
-        if (pet != null && pet.getPic() != null) {
-            return pet.getPic().split(",");
-        }
-        return new String[0];
     }
 
-    //查询所有的pet
+    @Override
+    public Optional<Pet> getPetById(int petId) {
+        System.out.println("[DEBUG] Querying pet ID: " + petId);
+        String sql = "SELECT * FROM pet WHERE id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, petId);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Pet pet = mapRowToPet(rs);
+                    System.out.println("[DEBUG] Found pet: " + pet); // 检查查询结果
+                    return Optional.of(mapRowToPet(rs));
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("[ERROR] Database error: " + e.getMessage());
+            throw new DataAccessException("查询宠物失败, ID: " + petId, e);
+        }
+        return Optional.empty();
+    }
+
+    public boolean isPetAdopted(int petId) {
+        String sql = "SELECT state FROM adoptAnimal WHERE petId = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, petId);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("state") != AdoptionStatus.PENDING;
+                }
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("查询领养状态失败, 宠物ID: " + petId, e);
+        }
+        return false;
+    }
+
     public List<Pet> getAllPets() {
         List<Pet> pets = new ArrayList<>();
         String sql = "SELECT * FROM pet";
 
-        try (
-                Connection conn=JDBCutil.getConnection();
+        try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                Pet pet = new Pet();
-                pet.setId(rs.getInt("id"));
-                pet.setPetName(rs.getString("petName"));
-                pet.setPetType(rs.getString("petType"));
-                pet.setBirthday(rs.getDate("birthday"));
-                pet.setSex(rs.getString("sex"));
-                pet.setPic(rs.getString("pic"));
-                pet.setState(rs.getInt("state"));
-                pet.setRemark(rs.getString("remark"));
-
-                pets.add(pet);
-
+                pets.add(mapRowToPet(rs));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DataAccessException("获取所有宠物失败", e);
         }
         return pets;
     }
 
-    // 根据名称模糊查询
     public List<Pet> searchPets(String keyword) {
-        List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM products WHERE name LIKE ?";
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return getAllPets();
+        }
 
-        try (Connection conn=JDBCutil.getConnection();
+        List<Pet> pets = new ArrayList<>();
+        String sql = "SELECT * FROM pet WHERE petName LIKE ? OR petType LIKE ?";
+
+        try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, "%" + keyword + "%");
+            String likePattern = "%" + keyword + "%";
+            pstmt.setString(1, likePattern);
+            pstmt.setString(2, likePattern);
+
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
-                    Pet pet = new Pet();
-                    pet.setId(rs.getInt("id"));
-                    pet.setPetName(rs.getString("petName"));
-                    pet.setPetType(rs.getString("petType"));
-                    pet.setBirthday(rs.getDate("birthday"));
-                    pet.setSex(rs.getString("sex"));
-                    pet.setPic(rs.getString("pic"));
-                    pet.setState(rs.getInt("state"));
-                    pet.setRemark(rs.getString("remark"));
-                    pets.add(pet);
+                    pets.add(mapRowToPet(rs));
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DataAccessException("搜索宠物失败, 关键字: " + keyword, e);
         }
         return pets;
     }
+
+    private Pet mapRowToPet(ResultSet rs) throws SQLException {
+        Pet pet = new Pet();
+        pet.setId(rs.getInt("id"));
+        pet.setPetName(rs.getString("petName"));
+        pet.setPetType(rs.getString("petType"));
+        pet.setSex(rs.getString("sex"));
+        pet.setBirthday(rs.getDate("birthday"));
+        pet.setPic(rs.getString("pic"));
+        pet.setState(rs.getInt("state"));
+        pet.setRemark(rs.getString("remark"));
+        return pet;
+    }
+
+    @Override
+    public boolean addApplication(int userId, int petId) {
+        return false;
+    }
+
+    @Override
+    public boolean checkApplicationExists(int userId, int petId) {
+        return false;
+    }
+}
+
+interface AdoptionStatus {
+    int PENDING = 1;
+    int APPROVED = 2;
+    int REJECTED = 3;
+}
+
+class DataAccessException extends RuntimeException {
+    public DataAccessException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
 }

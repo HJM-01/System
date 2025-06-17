@@ -61,5 +61,6 @@
   <div class="col-md-5" id="page_info_area"></div>
   <div class="col-md-4 myPage" id="page_nav_area"></div>
 </div>
+<jsp:include page="/PetDetailServlet"/>
 </body>
 </html>

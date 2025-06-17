@@ -77,40 +77,34 @@
         <h2>待领养的动物</h2>
         <center>
           <div id="demo1" class="slideBox">
-            <ul class="items">
-              <c:forEach items="${requestScope.pics}" var="pic" varStatus="status">
-                <li>
-                  <a href=""><img class="my-img" src="${path}/image/animal/${pic}"></a>
-                </li>
-              </c:forEach>
+            <ul class="items" id="petImages">
+              <!-- 图片将通过AJAX动态加载 -->
             </ul>
           </div>
           <div class="name">
             <img src="<c:url value="/image/adopt/p1.jpg"/>" height="50px" width="50px">
-            <span>我叫 ${pet.petName}</span>
+            <span id="petNameSpan">加载中...</span>
           </div>
         </center>
         <div class="animal">
           <div class="group">
             <div class="animalX1">
               <img src="<c:url value="/image/adopt/p2.jpg"/>"><span>编号</span><br>
-              <p>${pet.id}</p>
+              <p id="petId">-</p>
             </div>
             <div class="animalX2">
               <img src="<c:url value="/image/adopt/p3.jpg"/>"><span>生日</span><br>
-              <p>
-                <fmt:formatDate pattern="yyyy-MM-dd" value="${pet.birthday}"/>
-              </p>
+              <p id="petBirthday">-</p>
             </div>
           </div>
           <div class="group">
             <div class="animalX3">
               <img src="<c:url value="/image/adopt/p4.jpg"/>"><span>品种</span><br>
-              <p>${pet.petType}</p>
+              <p id="petType">-</p>
             </div>
             <div class="animalX4">
               <img src="<c:url value="/image/adopt/p5.jpg"/>"><span>性别</span><br>
-              <p>${pet.sex}</p>
+              <p id="petSex">-</p>
             </div>
           </div>
         </div>
@@ -122,8 +116,8 @@
             <img src="<c:url value="/image/adopt/p9.jpg"/>">
             <img src="<c:url value="/image/adopt/p10.jpg"/>">
           </div>
-          <div class="animal_me2"><p>大家好，我是${pet.petName}。${pet.remark}。你能带我回家吗？</p></div>
-          <div class="animal_me3"><img src="/image/adopt/p11.jpg" alt=""></div>
+          <div class="animal_me2"><p id="petDescription">加载中...</p></div>
+          <div class="animal_me3"><img src="${path}/image/adopt/p11.jpg" alt=""></div>
         </div>
         <div class="my_btn">
           <button class="btn btn-primary btn-lg" id="pet_adopt_modal_btn"
@@ -135,92 +129,21 @@
       </div>
 
       <!-- 模态框（Modal） -->
-      <div class="modal fade" id="myAdopt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal fade" id="myAdopt" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                &times;
-              </button>
-              <h4 class="modal-title" id="myModalLabel">
-                请确认个人信息
-              </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">请确认个人信息</h4>
             </div>
-
             <div class="modal-body">
-              <form class="form-horizontal" id="new_adopt_form" enctype="multipart/form-data">
-                <input type="hidden" value="${user.id}" name="id">
-
-                <div class="form-group">
-                  <label for="new_Name" class="col-sm-2 control-label">
-                    领养人： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Name"
-                           placeholder="请输入领养人姓名" name="userName" value="${user.userName}">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="new_petName" class="col-sm-2 control-label">
-                    宠物名： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_petName"
-                           placeholder="请输入宠物的名字" name="petName" value="${pet.petName}" >
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="new_Sex" class="col-sm-2 control-label">
-                    性别： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Sex"
-                           placeholder="请输入领养人性别" name="sex" value="${user.sex}">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="new_tel" class="col-sm-2 control-label">
-                    电话： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_tel"
-                           placeholder="请输入领养人电话" name="telephone" value="${user.telephone}">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="new_Email" class="col-sm-2 control-label">
-                    邮件： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Email"
-                           placeholder="请输入领养人邮箱" name="email" value="${user.email}">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="new_Adress" class="col-sm-2 control-label">
-                    地址： </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="new_Adress"
-                           placeholder="请输入领养人地址" name="address" value="${user.address}">
-                  </div>
-                </div>
-
-                <%--                <!-- 新增的图片上传字段 -->--%>
-                <%--                <div class="form-group">--%>
-                <%--                  <label for="new_Image" class="col-sm-2 control-label">--%>
-                <%--                    居住环境照片： </label>--%>
-                <%--                  <div class="col-sm-10">--%>
-                <%--                    <input type="file" class="form-control" id="new_Image"--%>
-                <%--                           name="image" accept="image/*">--%>
-                <%--                    <p class="help-block">请上传您的居住环境照片（可选）</p>--%>
-                <%--                  </div>--%>
-                <%--                </div>--%>
-
+              <form class="form-horizontal" id="new_adopt_form">
+                <input type="hidden" id="userId" name="id">
+                <!-- 表单内容将通过AJAX填充 -->
               </form>
             </div>
-
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="adopt_btn">关闭</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
               <button type="button" class="btn btn-primary" id="submit_btn">提交申请</button>
             </div>
           </div>
@@ -232,62 +155,93 @@
 
 <script>
   $(document).ready(function() {
-    // 确保元素存在再初始化slideBox
-    var $slideBox = $('#demo1');
-    if($slideBox.length && $.fn.slideBox) {
-      $slideBox.slideBox({
-        width: 600,
-        height: 400,
-        speed: 0.5
-      });
+    // 1. 从URL获取ID参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const petId = urlParams.get('id');
+
+    // 2. 加载宠物数据
+    if(petId) {
+      loadPetData(petId);
+    } else {
+      alert("缺少宠物ID参数");
+    }
+
+    // 3. 加载用户数据（用于模态框）
+    const userId = '<%= session.getAttribute("userId") %>';
+    if(userId && userId !== 'null') {
+      loadUserData(userId);
     }
   });
-  $(document).ready(function() {
-    // 确保模态框已注册
-    $('#myAdopt').modal({
-      show: false, // 初始不显示
-      backdrop: 'static' // 点击外部不关闭
-    });
 
-    // 点击申请按钮弹出模态框
-    $("#pet_adopt_modal_btn").click(function () {
-      try {
-        // 预填充表单数据
-        $("#new_Name").val("${user.userName}");
-        $("#new_Sex").val("${user.sex}");
-        $("#new_tel").val("${user.telephone}");
-        $("#new_Email").val("${user.email}");
-        $("#new_Adress").val("${user.address}");
-      } catch (e) {
-        console.error("Error opening adoption form:", e);
-        alert("初始化表单失败，请刷新页面重试");
+  function loadPetData(petId) {
+    $.get("${path}/api/pet?id=" + petId, function(pet) {
+      // 更新宠物信息
+      $("#petNameSpan").text("我叫 " + pet.petName);
+      $("#petId").text(pet.id);
+      $("#petBirthday").text(pet.birthday);
+      $("#petType").text(pet.petType);
+      $("#petSex").text(pet.sex);
+      $("#petDescription").text("大家好，我是" + pet.petName + "。" + pet.remark + "。你能带我回家吗？");
+
+      // 更新图片轮播
+      const pics = pet.pic.split(",");
+      const $slideBox = $('#petImages');
+      $slideBox.empty();
+      pics.forEach(pic => {
+        $slideBox.append(`
+                <li>
+                    <a href=""><img class="my-img" src="${path}/image/animal/${pic.trim()}"></a>
+                </li>
+            `);
+      });
+
+      // 初始化轮播
+      $('#demo1').slideBox({ width: 600, height: 400, speed: 0.5 });
+
+      // 设置模态框宠物名
+      $("#new_petName").val(pet.petName);
+    }).fail(function() {
+      alert("加载宠物信息失败！");
+    });
+  }
+
+  function loadUserData(userId) {
+    $.get("${path}/api/user?id=" + userId, function(user) {
+      $("#userId").val(user.id);
+      $("#new_Name").val(user.userName);
+      $("#new_Sex").val(user.sex);
+      $("#new_tel").val(user.telephone);
+      $("#new_Email").val(user.email);
+      $("#new_Adress").val(user.address);
+    });
+  }
+
+  // 提交领养申请
+  $("#submit_btn").click(function() {
+    const formData = new FormData(document.getElementById("new_adopt_form"));
+    const petId = new URLSearchParams(window.location.search).get('id');
+    formData.append("petId", petId);
+
+    $.ajax({
+      url: "${path}/adopt/submit",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function() {
+        alert("提交申请成功");
+        $("#myAdopt").modal('hide');
+      },
+      error: function() {
+        alert("提交申请失败");
       }
     });
+  });
 
-    // 点击保存，保存到申请表
-    $("#submit_btn").click(function () {
-      var formData = new FormData(document.getElementById("new_adopt_form"));
-
-      $.ajax({
-        url: "${path}/adopt/submit",
-        type: "POST",
-        data: formData,
-        processData: false,  // 告诉jQuery不要去处理发送的数据
-        contentType: false,  // 告诉jQuery不要去设置Content-Type请求头
-        success: function (result) {
-          alert("提交申请成功");
-          $("#myAdopt").modal('hide');
-        },
-        error: function (result) {
-          console.log(result);
-          alert("提交申请失败");
-        }
-      });
-    });
-
-    // 返回中心按钮
-    $("#tianchuan_btn").click(function () {
-      window.location.href = "${path}/user/adoptionCenter";
-    });
+  // 返回中心按钮
+  $("#tianchuan_btn").click(function() {
+    window.location.href = "${path}/user/adoptionCenter";
   });
 </script>
+</body>
+</html>
