@@ -54,6 +54,7 @@ public interface Dao {
 
     int insertPet(Pet pet);
 
-    Optional<Pet> getPetById(int petId);
+    boolean deletePet(int petId);
 
+    Optional<Pet> getPetById(int petId);
 }

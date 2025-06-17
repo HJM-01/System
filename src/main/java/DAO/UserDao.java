@@ -138,6 +138,11 @@ public class UserDao implements Dao {
     }
 
     @Override
+    public boolean deletePet(int petId) {
+        return false;
+    }
+
+    @Override
     public Optional<Pet> getPetById(int petId) {
         return Optional.empty();
     }

@@ -1,8 +1,11 @@
 package DAO;
 
 import entity.Pet;
-import util.JDBCutil;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,31 +18,65 @@ public class PetDAO implements Dao {
         String sql = "INSERT INTO pet (petName, petType, sex, birthday, pic, state, remark) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = JDBCutil.getConnection();
+    try{// 1. 获取 JNDI 上下文//修改了数据源的获取方式——林
+        Context ctx = new InitialContext();
+        // 2. 查找数据源（名称需与 context.xml 中的 Resource.name 一致）
+        DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Animals");
+        // 3. 从连接池获取连接
+        try (Connection conn = ds.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            pstmt.setString(1, pet.getPetName());
-            pstmt.setString(2, pet.getPetType());
-            pstmt.setString(3, pet.getSex());
-            pstmt.setDate(4, new java.sql.Date(pet.getBirthday().getTime()));
-            pstmt.setString(5, pet.getPic());
-            pstmt.setInt(6, pet.getState());
-            pstmt.setString(7, pet.getRemark());
+        pstmt.setString(1, pet.getPetName());
+        pstmt.setString(2, pet.getPetType());
+        pstmt.setString(3, pet.getSex());
+        pstmt.setDate(4, new java.sql.Date(pet.getBirthday().getTime()));
+        pstmt.setString(5, pet.getPic());
+        pstmt.setInt(6, pet.getState());
+        pstmt.setString(7, pet.getRemark());
 
-            int affectedRows = pstmt.executeUpdate();
+        int affectedRows = pstmt.executeUpdate();
 
-            if (affectedRows > 0) {
-                try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        return rs.getInt(1);
-                    }
+        if (affectedRows > 0) {
+            try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
                 }
             }
-            return affectedRows;
+        }
+        return affectedRows;
+    } catch (SQLException e) {
+        throw new DataAccessException("插入宠物失败", e);
+    }
+    } catch (DataAccessException | NamingException e)
+    {
+        throw new RuntimeException(e);
+    }
+    }
+
+    //通过id删除pet
+    @Override
+    public boolean deletePet(int petId) {
+        String sql = "DELETE FROM pet WHERE id = ?";
+
+        try{// 1. 获取 JNDI 上下文//修改了数据源的获取方式——林
+            Context ctx = new InitialContext();
+            // 2. 查找数据源（名称需与 context.xml 中的 Resource.name 一致）
+            DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Animals");
+            // 3. 从连接池获取连接
+            try (Connection conn = getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setInt(1, petId);
+                int rowsAffected = pstmt.executeUpdate();
+                return rowsAffected > 0;
+        }
+
         } catch (SQLException e) {
-            throw new DataAccessException("插入宠物失败", e);
+            throw new DataAccessException("删除宠物失败，ID: " + petId, e);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
         }
     }
+
 
     @Override
     public Optional<Pet> getPetById(int petId) {
@@ -149,8 +186,6 @@ public class PetDAO implements Dao {
     public boolean checkApplicationExists(int userId, int petId) {
         return false;
     }
-
-
 }
 
 interface AdoptionStatus {

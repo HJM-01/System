@@ -93,7 +93,7 @@
           <span>用户管理</span>
         </a>
 
-        <a href="http://localhost:8080/System_war/FindAllManagerServlet" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+        <a href="http://localhost:8080/System_war/jsp/admin/FindAllManagerServlet" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
           <i class="fa fa-user-circle-o"></i>
           <span>管理员管理</span>
         </a>
@@ -195,154 +195,81 @@
 <%--            <span class="text-sm text-gray-500">共 <strong>256</strong> 条记录</span>--%>
           </div>
 
-          <div>
-              <table>
-                  <thead class="bg-gray-50">
-                  <tr>
-                      <th >用户ID</th>
-                      <th >用户名</th>
-                      <th >电话号码</th>
-                      <th >性别</th>
-                      <th >操作</th>
-                      </tr>
-                   </thead>
-                  </table>
-          </div>
-
-<%--            账号表格--%>
-          <div class="overflow-x-auto">
-              <table>
-              <c:if test="${empty requestScope.AdminList}">
-                  <div class="alert alert-danger">AdminList为空!</div>
-              </c:if>
-              <c:if test="${not empty requestScope.AdminList}">
-                  <c:forEach items="${AdminList}" var="item">
-                      <tr>
-                      <td>${item.id}</td>
-                          <td>${item.adminName}</td>
-                      <%--                      <li>${item.Email}</li>--%>
-                          <td>${item.telephone}</td>
-                          <td>${item.sex}</td>
-                          <td class="whitespace-nowrap ">
-                              <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                              <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                              <a href="#" class="text-danger hover:text-danger/80 ">删除</a>
-                          </td>
-                      </tr>
-                  </c:forEach>
-                  </table>
-              </c:if>
-<%--            <table class="min-w-full divide-y divide-gray-200">--%>
-<%--              <thead class="bg-gray-50">--%>
-<%--              <tr>--%>
-<%--                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户ID</th>--%>
-<%--&lt;%&ndash;                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">头像</th>&ndash;%&gt;--%>
-<%--                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户名</th>--%>
-<%--&lt;%&ndash;                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>&ndash;%&gt;--%>
-<%--                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>--%>
-<%--                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">性别</th>--%>
-<%--&lt;%&ndash;                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>&ndash;%&gt;--%>
-<%--                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>--%>
-<%--              </tr>--%>
-<%--              </thead>--%>
-
-<%--              <tbody class="bg-white divide-y divide-gray-200">--%>
-<%--              <c:forEach items="${AdminList}" var="ListItems">--%>
-<%--              <tr class="hover:bg-gray-50 transition-colors">--%>
-<%--                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${ListItems.id}#USR-001</td>--%>
-<%--                <td class="px-6 py-4 whitespace-nowrap">--%>
-<%--                  <img src="https://picsum.photos/id/1005/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">--%>
-<%--                </td>--%>
-<%--                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${ListItems.adminName}张三</td>--%>
-<%--                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${ListItems.Email}zhangsan@example.com</td>--%>
-<%--                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${ListItems.telephone}2023-01-10</td>--%>
-<%--                <td class="px-6 py-4 whitespace-nowrap">--%>
-<%--                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">${ListItems.sex}男</span>--%>
-<%--                </td>--%>
-<%--&lt;%&ndash;                <td class="px-6 py-4 whitespace-nowrap">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                </td>&ndash;%&gt;--%>
-<%--                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">--%>
-<%--                  <a href="#" class="flex text-primary hover:text-primary/80 mr-3 ">查看</a>--%>
-<%--                  <a href="#" class="flex text-gray-600 hover:text-gray-900 mr-3 ">编辑</a>--%>
-<%--                  <a href="#" class="flex text-danger hover:text-danger/80 ">删除</a>--%>
-<%--                </td>--%>
-<%--              </tr>--%>
-<%--              </c:forEach>--%>
-<%--              </tbody>--%>
-<%--            </table>--%>
-        </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <tbody class="bg-white divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户ID</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户名</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">性别</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+<%--                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>--%>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                    </tr>
+                    </thead>
+                    <c:forEach items="${AdminList}" var="item">
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.id}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.adminName}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.telephone}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.sex}</td>
+<%--                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>--%>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
+                                <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
+                                <a href="#" class="text-danger hover:text-danger/80">删除</a>
+                            </td>
+                        </tr
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
 
 
-          <!-- 分页控件 -->
-<%--          <div class="px-6 py-4 border-t flex items-center justify-between">--%>
-<%--            <div class="text-sm text-gray-700">--%>
-<%--              显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">256</span> 条记录--%>
-<%--            </div>--%>
-<%--            <div class="flex space-x-2">--%>
-<%--              <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>--%>
-<%--              <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>--%>
-<%--              <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>--%>
-<%--              <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>--%>
-<%--              <span class="px-3 py-1 text-gray-700">...</span>--%>
-<%--              <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">64</button>--%>
-<%--              <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>--%>
-<%--            </div>--%>
+
+
+
+
+<%--            <div>--%>
+<%--              <table>--%>
+<%--                  <thead class="bg-gray-50">--%>
+<%--                  <tr>--%>
+<%--                      <th >用户ID    </th>--%>
+<%--                      <th >用户名     </th>--%>
+<%--                      <th >电话号码    </th>--%>
+<%--                      <th >性别    </th>--%>
+<%--                      <th >操作     </th>--%>
+<%--                      </tr>--%>
+<%--                   </thead>--%>
+<%--                  </table>--%>
 <%--          </div>--%>
+
+<%--&lt;%&ndash;            账号表格&ndash;%&gt;--%>
+<%--          <div class="overflow-x-auto">--%>
+<%--              <table>--%>
+<%--              <c:if test="${empty requestScope.AdminList}">--%>
+<%--                  <div class="alert alert-danger">AdminList为空!</div>--%>
+<%--              </c:if>--%>
+<%--              <c:if test="${not empty requestScope.AdminList}">--%>
+<%--                  <c:forEach items="${AdminList}" var="item">--%>
+<%--                      <tr class="hover:bg-gray-50 transition-colors">--%>
+<%--                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.id}</td>--%>
+<%--                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900>${item.adminName}</td>--%>
+<%--                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500>${item.telephone}</td>--%>
+<%--                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500>${item.sex}</td>--%>
+<%--                          <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium“>--%>
+<%--                              <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
+<%--                              <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+<%--                              <a href="#" class="text-danger hover:text-danger/80 ">删除</a>--%>
+<%--                          </td>--%>
+<%--                      </tr>--%>
+<%--                  </c:forEach>--%>
+<%--                  </table>--%>
+<%--              </c:if>--%>
 <%--        </div>--%>
-
-        <!-- 数据统计卡片 -->
-        <%--                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">--%>
-        <%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
-        <%--                        <div class="flex items-center">--%>
-        <%--                            <div class="p-3 bg-primary/10 rounded-lg text-primary">--%>
-        <%--                                <i class="fa fa-users text-xl"></i>--%>
-        <%--                            </div>--%>
-        <%--                            <div class="ml-4">--%>
-        <%--                                <p class="text-gray-500 text-sm">总用户数</p>--%>
-        <%--                                <p class="text-2xl font-bold">256</p>--%>
-        <%--                            </div>--%>
-        <%--                        </div>--%>
-        <%--                    </div>--%>
-
-        <%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
-        <%--                        <div class="flex items-center">--%>
-        <%--                            <div class="p-3 bg-purple-100 rounded-lg text-purple-800">--%>
-        <%--                                <i class="fa fa-shield text-xl"></i>--%>
-        <%--                            </div>--%>
-        <%--                            <div class="ml-4">--%>
-        <%--                                <p class="text-gray-500 text-sm">管理员</p>--%>
-        <%--                                <p class="text-2xl font-bold">12</p>--%>
-        <%--                            </div>--%>
-        <%--                        </div>--%>
-        <%--                    </div>--%>
-
-        <%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
-        <%--                        <div class="flex items-center">--%>
-        <%--                            <div class="p-3 bg-blue-100 rounded-lg text-blue-800">--%>
-        <%--                                <i class="fa fa-heart text-xl"></i>--%>
-        <%--                            </div>--%>
-        <%--                            <div class="ml-4">--%>
-        <%--                                <p class="text-gray-500 text-sm">志愿者</p>--%>
-        <%--                                <p class="text-2xl font-bold">48</p>--%>
-        <%--                            </div>--%>
-        <%--                        </div>--%>
-        <%--                    </div>--%>
-
-        <%--                    <div class="bg-white rounded-xl shadow p-6 transition-transform hover:scale-105 duration-300">--%>
-        <%--                        <div class="flex items-center">--%>
-        <%--                            <div class="p-3 bg-gray-100 rounded-lg text-gray-800">--%>
-        <%--                                <i class="fa fa-user text-xl"></i>--%>
-        <%--                            </div>--%>
-        <%--                            <div class="ml-4">--%>
-        <%--                                <p class="text-gray-500 text-sm">普通用户</p>--%>
-        <%--                                <p class="text-2xl font-bold">196</p>--%>
-        <%--                            </div>--%>
-        <%--                        </div>--%>
-        <%--                    </div>--%>
-        <%--                </div>--%>
     </main>
-
   </div>
 </div>
 

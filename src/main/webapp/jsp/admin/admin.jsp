@@ -4,6 +4,7 @@
   Date: 2025/6/2
   Time: 23:52
   To change this template use File | Settings | File Templates.
+  没啥用,不用展示
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
@@ -312,7 +313,6 @@
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">已完成</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-primary hover:text-primary/80">查看</a>
                                 </td>
                             </tr>
                             <tr>
