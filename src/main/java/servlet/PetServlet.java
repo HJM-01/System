@@ -2,66 +2,59 @@ package servlet;
 
 import DAO.PetDAO;
 import entity.Pet;
-import service.PetService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
-import java.util.Date;
+import java.util.List;
 
+@WebServlet("/pet")
 public class PetServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+    private PetDAO petDAO = new PetDAO();
 
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
-            throws SecurityException, IOException {
-        req.setCharacterEncoding("utf-8");
-        String action = req.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        switch (action) {
-            case "insert":
-                insertPet(req, resp);
-                break;
-            default:
-                resp.getWriter().println("未知操作");
-        }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
     }
 
-    private void insertPet(HttpServletRequest req, HttpServletResponse resp)
-            throws SecurityException, IOException {
-        try {
-            Pet pet = new Pet();
-            pet.setPetName(req.getParameter("petName"));
-            pet.setPetType(req.getParameter("petType"));
-            pet.setSex(req.getParameter("sex"));
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
+    }
 
-            String birthdayStr = req.getParameter("birthday");
-            if (birthdayStr != null && !birthdayStr.isEmpty()) {
-                pet.setBirthday(new Date(Long.parseLong(birthdayStr)));
-            }
-
-            pet.setRemark(req.getParameter("remark"));
-            pet.setState(Integer.parseInt(req.getParameter("state")));
-
-            // 处理文件上传（即使暂时不使用，也需确保解析）
-            try {
-                req.getPart("petPic");
-            } catch (Exception e) {
-                // 暂时忽略
-            }
-
-            PetService service = new PetService();
-            int result = service.insertPet(pet);
-
-            if (result > 0) {
-                resp.sendRedirect("admin-3.jsp");
-            } else {
-                resp.getWriter().println("插入失败");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            resp.getWriter().println("错误：" + e.getMessage());
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        String action = req.getParameter("action");
+        if (action == null) {
+            action = "list";
         }
+
+        switch (action) {
+            case "list":
+                listPets(req, resp);
+                break;
+            case "search":
+                searchPets(req, resp);
+                break;
+            default:
+                listPets(req, resp);
+        }
+    }
+//查询全部
+    private void listPets(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Pet> products = petDAO.getAllPets();
+        req.setAttribute("products", products);
+        req.getRequestDispatcher("src/main/webapp/jsp/admin/admin-3.jsp").forward(req, resp);
+    }
+//部分查询
+    private void searchPets(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String keyword = req.getParameter("keyword");
+        List<Pet> products = petDAO.searchPets(keyword);
+        req.setAttribute("products", products);
+        req.setAttribute("keyword", keyword);
+        req.getRequestDispatcher("src/main/webapp/jsp/admin/admin-3.jsp").forward(req, resp);
     }
 }
