@@ -1,12 +1,12 @@
 package DAO;
 
-import entity.Pet;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface Dao {
@@ -31,8 +31,22 @@ public interface Dao {
         }
         return conn;
     }
+    public static void close(ResultSet rs, PreparedStatement st, Connection con) {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (st != null) {
+                st.cancel();
+            }
+            if (con != null) {
+                con.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-    int insertPet(Pet pet);
 }
 
 
