@@ -120,7 +120,7 @@
         <!-- 用户表单 -->
         <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
           <!-- 在form标签中添加action和method，确保enctype正确 -->
-          <form id="CatForm" action="pet" method="post" enctype="multipart/form-data">
+          <form id="CatForm" action="<%=request.getContextPath()%>/pet" method="post" enctype="multipart/form-data">
             <!-- 表单内容保持不变 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- 左侧表单区域 -->
@@ -143,8 +143,8 @@
                   <select id="sex" name="sex" required
                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
                     <option value="">请选择状态</option>
-                    <option value="male">雄性</option>
-                    <option value="female">雌性</option>
+                    <option value="公">公</option>
+                    <option value="母">母</option>
                   </select>
                 </div>
                 <!-- 发现日期 -->
