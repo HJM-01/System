@@ -55,4 +55,5 @@ public interface Dao {
     int insertPet(Pet pet);
 
     Optional<Pet> getPetById(int petId);
+
 }

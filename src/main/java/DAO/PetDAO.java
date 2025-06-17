@@ -149,6 +149,8 @@ public class PetDAO implements Dao {
     public boolean checkApplicationExists(int userId, int petId) {
         return false;
     }
+
+
 }
 
 interface AdoptionStatus {

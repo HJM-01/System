@@ -1,11 +1,9 @@
 package entity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 import java.io.Serializable;
 
-@Data
+@Date
 @NoArgsConstructor
 @AllArgsConstructor
 public class user implements Serializable {
@@ -28,5 +26,8 @@ public class user implements Serializable {
         this.userName = userName;
         this.password = password;
         this.telephone = telephone;
+    }
+
+    public Object getPassword() {
     }
 }
