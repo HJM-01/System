@@ -1,5 +1,6 @@
 package servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,7 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/jsp/registration1")
+@WebServlet("/registrationServlet")
 public class registrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -22,11 +23,13 @@ public class registrationServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String secondPassword = request.getParameter("SecondPassword");
-        String telephone = request.getParameter("telephone");
+        String telephone = request.getParameter("phoneNumber");
 
         // 客户端验证
         if (!password.equals(secondPassword)) {
-            response.getWriter().write("两次输入的密码不一致！");
+            request.setAttribute("Message","两次输入的密码不一致！");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/registration.jsp");
+            rd.forward(request,response);
             return;
         }
 
@@ -45,18 +48,26 @@ public class registrationServlet extends HttpServlet {
                     pstmt.setString(3, telephone);
                     int rows = pstmt.executeUpdate();
                     if (rows > 0) {
-                        response.getWriter().write("注册成功！");
+                        request.setAttribute("Message", "注册成功");
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/login.jsp");
+                        rd.forward(request,response);
                     } else {
-                        response.getWriter().write("注册失败，请重新注册。");
+                        request.setAttribute("Message", "注册失败，请重新注册。");
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/registration.jsp");
+                        rd.forward(request,response);
                     }
                 }
             }
         } catch (NamingException e) {
             e.printStackTrace();
-            response.getWriter().write("系统错误：无法找到数据库配置！");
+            request.setAttribute("Message", "系统错误：无法找到数据库配置！");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/registration.jsp");
+            rd.forward(request,response);
         } catch (SQLException e) {
             e.printStackTrace();
-            response.getWriter().write("数据库操作失败：" + e.getMessage());
+            request.setAttribute("Message", "数据库操作失败：" + e.getMessage());
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/registration.jsp");
+            rd.forward(request,response);
         }
     }
 

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -9,14 +10,18 @@
 <html>
 <head>
     <title>注册</title>
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
-    <form action="/jsp/registration1" method="post">
+<%--    显示成功与否--%>
+    <c:if test="${not empty Message}">
+        <div>${Message}</div>
+    </c:if>
+    <form action="${pageContext.request.contextPath}/registrationServlet" method="post">
         <table>
             <tr aria-rowspan="6" > 
                 <td class="td" rowspan="6" colspan="2">
-                    <img src="../image/loginCat.jpeg" alt="#">
+                    <img src="${pageContext.request.contextPath}/image/loginCat.jpeg" alt="#">
                 </td>
                 <td colspan="2" class="text1">用户注册</td>
             </tr>
@@ -38,7 +43,7 @@
             </tr>
 
             <tr>
-                <td><input onclick="window.location.href='login.jsp'" type="button" name="LoginSubmit" value="登  录"></td>
+                <td><input onclick="window.location.href='${pageContext.request.contextPath}/jsp/login.jsp'" type="button" name="LoginSubmit" value="登  录"></td>
                 <td><input type="submit" name="register" value="注   册"></td>
             </tr>
         </table>
