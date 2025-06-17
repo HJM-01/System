@@ -69,16 +69,26 @@
 </head>
 
 <body>
-<jsp:include page="header.jsp"/>
+<%--<jsp:include page="header.jsp"/>--%>
 <div class="myDiv">
   <div>
     <div class="myDiv">
       <div>
-        <h2>待领养的动物</h2>
+<%--        <h2>待领养的动物</h2>--%>
         <center>
           <div id="demo1" class="slideBox">
             <ul class="items" id="petImages">
-              <!-- 图片将通过AJAX动态加载 -->
+              <li>
+                <div class="circular-image-container">
+                  <a href=""><img src="/image/微信图片_20250606155528(1).png" alt="领养宣传图1"></a>
+                </div>
+                <div class="circular-image-container">
+                  <a href=""><img src="/image/微信图片_20250606160323.jpg" alt="领养宣传图2"></a>
+                </div>
+                <div class="circular-image-container">
+                  <a href=""><img src="/image/微信图片_20250606160345(1).png" alt="领养宣传图3"></a>
+                </div>
+              </li>
             </ul>
           </div>
           <div class="name">
