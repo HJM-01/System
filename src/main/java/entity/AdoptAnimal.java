@@ -20,6 +20,9 @@ public class AdoptAnimal implements Serializable {
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date adoptTime;
     private Integer state;
+
+    public void setState(Integer state) {
+    }
 //    @TableField(exist = false) 注解通常用于MyBatis-Plus框架，用来指定某个字段不对应数据库表中的列
 //    @TableField(exist = false)
 //    private Pet pet;

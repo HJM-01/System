@@ -1,14 +1,19 @@
 package entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 import java.io.Serializable;
+import java.sql.CallableStatement;
 import java.util.Date;
 
 
-@Date
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pet implements Serializable {
@@ -23,17 +28,6 @@ public class Pet implements Serializable {
     private Integer state;
     private String remark;
 
-
-    public Pet(Integer id, String petName, String petType, String sex, Date birthday, String pic, Integer state, String remark) {
-        this.id = id;
-        this.petName = petName;
-        this.petType = petType;
-        this.sex = sex;
-        this.birthday = birthday;
-        this.pic = pic;
-        this.state = state;
-        this.remark = remark;
-    }
 
 
 }

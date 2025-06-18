@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/admin.css">
 
@@ -38,11 +39,83 @@
             }
         }
     </script>
+
+    <!-- 数据处理逻辑 -->
+    <script>
+        // 从表单数据或URL参数中获取申请信息（优先获取POST数据）
+        function getFormData() {
+            const formData = {};
+
+            // 尝试从URL参数获取（适用于GET请求）
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                for (const [key, value] of urlParams.entries()) {
+                    formData[key] = value;
+                }
+            } catch (e) {
+                console.error('解析URL参数失败:', e);
+            }
+
+            // 尝试从POST数据中获取（需要后端支持，此处为示例）
+            // 实际应用中建议通过AJAX从会话获取
+            return formData;
+        }
+
+        // 向表格中添加新申请记录
+        function addApplicationToTable(formData) {
+            const tableBody = document.getElementById('application-table-body');
+            if (!tableBody) return;
+
+            // 生成新行
+            const newRow = document.createElement('tr');
+            newRow.className = 'hover:bg-gray-50 transition-colors';
+
+            // 生成唯一申请编号
+            const applyId = '#ADOPT-' + new Date().getFullYear() +
+                String(new Date().getMonth() + 1).padStart(2, '0') +
+                String(new Date().getDate()).padStart(2, '0') +
+                Math.floor(Math.random() * 1000);
+
+            newRow.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${applyId}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${formData.userName || '未知'}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${formData.petName || '未命名宠物'}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <a href="#" class="text-success hover:text-success/80 mr-3">通过</a>
+                    <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
+                </td>
+            `;
+
+            // 添加到表格顶部
+            tableBody.insertBefore(newRow, tableBody.firstChild);
+
+            // 更新记录总数
+            const recordCount = document.querySelector('span strong');
+            if (recordCount) {
+                recordCount.textContent = parseInt(recordCount.textContent) + 1;
+            }
+        }
+
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取表单数据
+            const formData = getFormData();
+
+            // 若有数据则添加到表格
+            if (Object.keys(formData).length > 0) {
+                addApplicationToTable(formData);
+            }
+        });
+    </script>
 </head>
 <body class="bg-gray-50 font-sans antialiased text-gray-800">
 <div class="flex h-screen overflow-hidden">
     <!-- 侧边栏导航 -->
-    <aside id="sidebar" class="bg-gray-105 shadow-lg w-64 flex-shrink-0 hidden md:block transition-all duration-300 ease-in-out z-20">
+    <aside id="sidebar"
+           class="bg-gray-105 shadow-lg w-64 flex-shrink-0 hidden md:block transition-all duration-300 ease-in-out z-20">
         <div class="flex items-center justify-between p-4 border-b">
             <div class="flex items-center space-x-2">
                 <i class="fa fa-cogs text-primary text-2xl"></i>
@@ -62,22 +135,26 @@
                     <span>同意收养列表</span>
                 </a>
 
-                <a href="admin-disagree.jsp" class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-disagree.jsp"
+                   class=" flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-users"></i>
                     <span>不同意收养列表</span>
                 </a>
 
-                <a href="Adoption_Application.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="Adoption_Application.jsp"
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-heart-o"></i>
                     <span>收养申请管理</span>
                 </a>
 
-                <a href="admin-3.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-3.jsp"
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-id-card"></i>
                     <span>流浪猫信息管理</span>
                 </a>
 
-                <a href="admin-4.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-4.jsp"
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-file-text-o"></i>
                     <span>志愿者申请</span>
                 </a>
@@ -86,7 +163,8 @@
             <div class="space-y-1 mt-8">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">系统设置</p>
 
-                <a href="admin-1.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="admin-1.jsp"
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-cog"></i>
                     <span>用户管理</span>
                 </a>
@@ -122,9 +200,9 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <div class="relative">
-              <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                <i class="fa fa-search text-gray-400"></i>
-              </span>
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <i class="fa fa-search text-gray-400"></i>
+                        </span>
                         <input type="text" placeholder="搜索..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary w-64">
                     </div>
                 </div>
@@ -156,31 +234,6 @@
                 <!-- 查询条件区域 -->
                 <div class="bg-white rounded-xl shadow p-6 mb-6">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">收养申请列表</h2>
-
-<%--                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">--%>
-<%--                        <div class="relative">--%>
-<%--                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">--%>
-<%--                        <i class="fa fa-search text-gray-400"></i>--%>
-<%--                    </span>--%>
-<%--                            <input type="text" placeholder="搜索申请人/联系方式/申请编号"--%>
-<%--                                   class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
-<%--                        </div>--%>
-
-<%--                        <div>--%>
-<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
-<%--                                <option value=""></option>--%>
-<%--&lt;%&ndash;                                <option value="待审核"></option>&ndash;%&gt;--%>
-<%--                                <option value="通过"></option>--%>
-<%--                                <option value="拒绝"></option>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="mt-4 flex justify-between items-center">--%>
-<%--                        <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">--%>
-<%--                            <i class="fa fa-search mr-2"></i>查询--%>
-<%--                        </button>--%>
-<%--                    </div>--%>
                 </div>
 
                 <!-- 数据展示区域 -->
@@ -197,19 +250,15 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请编号</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请人</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">宠物名字</th>
-                                <%--                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请时间</th>--%>
-                                <%--                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请岗位</th>--%>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
                                 <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-gray-200" id="application-table-body">
                             <tr class="hover:bg-gray-50 transition-colors">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#VOL-20230101</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">张三</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13800138001</td>
-                                <%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-15 09:30</td>--%>
-                                <%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">猫咪护理员</td>--%>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
                                 </td>
@@ -218,7 +267,6 @@
                                     <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
                                 </td>
                             </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -280,7 +328,3 @@
 </script>
 </body>
 </html>
-
-
-
-

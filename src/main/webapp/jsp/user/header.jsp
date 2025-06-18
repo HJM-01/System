@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <html>
 <head>
   <title>Title</title>
@@ -28,7 +29,7 @@
 <%--              </ul>--%>
             </li>
 
-            <li><a href="adoptionCenter.jsp">领养中心</a></li>
+            <li><a href="${path}/pet/detail" class="text-primary font-medium">领养中心</a></li>
 <%--            <li><a href="#">团队展示</a></li>--%>
             <li><a href="../login.jsp">登录/注册</a></li>
             <li>
@@ -50,17 +51,6 @@
 <%--                </div>--%>
               </div>
             </li>
-
-<%--            <div class="search-box">--%>
-
-<%--              <a class="search-btn">--%>
-<%--                <span class="glyphicon glyphicon-search-box" aria-hidden="true"></span>--%>
-<%--              </a>--%>
-
-<%--              <input type="text" class="search-txt" placeholder="搜索" />--%>
-
-<%--              <div class="search-line"></div>--%>
-<%--            </div>--%>
 
           </ul>
         </div><!-- /.navbar-collapse -->

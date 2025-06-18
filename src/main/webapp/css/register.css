@@ -17,7 +17,19 @@
     border-top-left-radius: 20px;
     /*border-top-right-radius: 10%;*/
  }
+.hidden {
+    display: none;
+}
 
+.visible {
+    display: block;
+}
+
+#footer1 {
+    position: fixed;
+    bottom: -100px;
+    transition: bottom 0.3s ease;
+}
 .navbar-default {
     background-color: transparent;
     border: none;

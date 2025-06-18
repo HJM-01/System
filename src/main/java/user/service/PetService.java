@@ -23,6 +23,8 @@ public interface PetService {
     int update(Pet pet);
 
     int del(Integer id);
+
+    Pet getPetById(Long id);
 }
 
 

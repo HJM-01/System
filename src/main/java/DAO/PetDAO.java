@@ -176,6 +176,24 @@ public class PetDAO implements Dao {
         pet.setRemark(rs.getString("remark"));
         return pet;
     }
+    public List<Pet> getPetsByStatus(int status) throws SQLException {
+        List<Pet> petList = new ArrayList<>();
+        String sql = "SELECT * FROM pet WHERE status = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, status);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Pet pet = new Pet();
+                    // 填充宠物对象...
+                    petList.add(pet);
+                }
+            }
+        }
+        return petList;
+    }
 
     @Override
     public boolean addApplication(int userId, int petId) {

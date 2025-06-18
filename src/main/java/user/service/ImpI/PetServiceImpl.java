@@ -35,30 +35,6 @@ public class PetServiceImpl implements PetService {
         return petMapper.insert(pet);
     }
 
-//    @Override
-//    public PageInfo<Pet> allPet(String petType, Integer pageNum, Integer pageSize) {
-//        // 开始分页
-//        PageHelper.startPage(pageNum, pageSize);
-//
-//        // 创建实体包装器
-//        EntityWrapper<Pet> wrapper = new EntityWrapper<>();
-//
-//        // 判断宠物类型是否为空或空字符串
-//        if (petType != null && !"".equals(petType)) {
-//            // 根据宠物类型进行模糊查询
-//            wrapper.like("petType", petType);
-//        }
-
-//        // 查询宠物列表
-//        List<Pet> pets = petMapper.selectList(wrapper);
-//
-//        // 创建分页信息对象
-//        PageInfo<Pet> pageInfo = new PageInfo<>(pets, 3);
-//
-//        // 返回分页信息对象
-//        return pageInfo;
-//    }
-
 
     @Override
     public int add(Pet pet) {
@@ -73,5 +49,10 @@ public class PetServiceImpl implements PetService {
     @Override
     public int del(Integer id) {
         return petMapper.deleteById(id);
+    }
+
+    @Override
+    public Pet getPetById(Long id) {
+        return petMapper.selectById(id);
     }
 }
