@@ -31,7 +31,7 @@
 
             <li><a href="${path}/pet/detail" class="text-primary font-medium">领养中心</a></li>
 <%--            <li><a href="#">团队展示</a></li>--%>
-            <li><a href="../login.jsp">登录/注册</a></li>
+            <li><a href="${path}/jsp/login.jsp">登录/注册</a></li>
             <li>
               <div class="header-info">
 <%--                <div class="header-right">--%>

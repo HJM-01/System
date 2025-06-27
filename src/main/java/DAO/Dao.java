@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 public interface Dao {
@@ -57,4 +58,6 @@ public interface Dao {
     boolean deletePet(int petId);
 
     Optional<Pet> getPetById(int petId);
+
+    List<Pet> getPetsByStatus(int i);
 }

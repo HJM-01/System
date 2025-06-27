@@ -19,7 +19,7 @@ public class AdoptionListServlet extends HttpServlet {
         try {
             List<Pet> petList = petDAO.getPetsByStatus(0); // 获取待领养宠物
             request.setAttribute("petList", petList);
-            request.getRequestDispatcher("/jsp/user/adoptionList.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/user/adoptionInformange.jsp").forward(request, response);
         } catch (Exception e) {
             response.sendRedirect(request.getContextPath() + "/error?code=A001");
         }

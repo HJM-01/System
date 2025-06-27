@@ -17,6 +17,7 @@ public class PetDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String petIdStr = request.getParameter("id");
+//        String petIdStr = "1";
 
         if (petIdStr == null || petIdStr.isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/error?message=缺少宠物ID参数");

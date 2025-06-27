@@ -94,9 +94,9 @@
                     <span>用户管理</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="${pageContext.request.contextPath}/jsp/admin/FindAllManagerServlet" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-user-circle-o"></i>
-                    <span>个人设置</span>
+                    <span>管理设置</span>
                 </a>
             </div>
         </nav>
@@ -108,7 +108,7 @@
                     <p class="font-medium">管理员</p>
                     <p class="text-xs text-gray-500">admin@example.com</p>
                 </div>
-                <button class="ml-auto text-gray-500 hover:text-gray-700">
+                <button onclick="window.location.href='${path}/jsp/login.jsp'" class="ml-auto text-gray-500 hover:text-gray-700">
                     <i class="fa fa-sign-out"></i>
                 </button>
             </div>
@@ -171,7 +171,7 @@
                     </div>
 
                     <div class="mt-4 flex justify-between items-center">
-                        <button onclick="window.location.href='http://localhost:8080/System_war/jsp/admin/PetServlet'" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        <button onclick="window.location.href='${pageContext.request.contextPath}/jsp/admin/PetServlet'" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
 

@@ -125,6 +125,11 @@ public class PetDAO implements Dao {
         return Optional.empty();
     }
 
+    @Override
+    public List<Pet> getPetsByStatus(int i) {
+        return List.of();
+    }
+
     public boolean isPetAdopted(int petId) {
         String sql = "SELECT state FROM adoptAnimal WHERE petId = ?";
 

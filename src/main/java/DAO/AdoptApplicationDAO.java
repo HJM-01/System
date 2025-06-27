@@ -2,7 +2,9 @@ package DAO;
 
 import entity.Pet;
 
+import javax.sql.DataSource;
 import java.sql.*;
+import java.util.List;
 import java.util.Optional;
 
 import static util.JDBCutil.getConnection;
@@ -10,27 +12,35 @@ import static util.JDBCutil.getConnection;
 public class AdoptApplicationDAO implements Dao {
 
     // 创建领养申请记录
-    public boolean simpleCreateApplication(String userName, String telephone,
-                                           String petName, String sex,
-                                           String email, String address,
-                                           String petId) throws SQLException {
-        String sql = "INSERT INTO adoption_applications " +
-                "(user_name, telephone, pet_name, sex, email, address, pet_id, application_date) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+    public boolean simpleCreateApplication(String userName, String petName,String sex,
+                                           String telephone, String email,
+                                           String address) throws SQLException {
+        String sql = "INSERT INTO adopt " +
+                "(username, petName,sex, telephone, email, address) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, userName);
-            pstmt.setString(2, telephone);
-            pstmt.setString(3, petName);
-            pstmt.setString(4, sex);
+            pstmt.setString(2, petName);
+            pstmt.setString(3, sex);
+            pstmt.setString(4, telephone);
             pstmt.setString(5, email);
             pstmt.setString(6, address);
-            pstmt.setString(7, petId);
 
             return pstmt.executeUpdate() > 0;
         }
+    }
+
+    @Override
+    public DataSource getDataSource() {
+        return Dao.super.getDataSource();
+    }
+
+    @Override
+    public Connection getConnection() throws SQLException {
+        return Dao.super.getConnection();
     }
 
     @Override
@@ -67,6 +77,11 @@ public class AdoptApplicationDAO implements Dao {
     @Override
     public Optional<Pet> getPetById(int petId) {
         return Optional.empty();
+    }
+
+    @Override
+    public List<Pet> getPetsByStatus(int i) {
+        return List.of();
     }
 
     // 根据用户名和电话获取用户ID

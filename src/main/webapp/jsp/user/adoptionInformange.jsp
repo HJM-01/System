@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>动物的具体信息</title>
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.css"/>">
+    <link rel="stylesheet" href="/css/adoptionCenter.css" type="text/css" media="all" />
     <link rel="stylesheet" href="<c:url value="/css/adoptionInformage.css"/>" type="text/css"/>
     <script src="<c:url value="/js/jquery-3.4.1.min.js"/>"></script>
     <script src="<c:url value="/js/bootstrap.js"/>"></script>
@@ -75,17 +76,22 @@
     <div>
         <div class="myDiv">
             <div>
-                <h2>待领养的动物</h2>
-                <center>
-                    <div id="demo1" class="slideBox">
-                        <ul class="items">
-                            <c:forEach items="${requestScope.pics}" var="pic">
-                                <li>
-                                    <a href=""><img class="my-img" src="/image/animal/${pic}"></a>
-                                </li>
-                            </c:forEach>
-                        </ul>
+                <div class="services" id="services">
+                    <div class="container">
+                        <h3 class="agile-title">领养中心</h3>
+                        <div class="w3_agile_services_grids">
+
+                        </div>
                     </div>
+
+                    <div class="w3l-img-side">
+                        <img src="/image/animal/cat.jpg" alt="" />
+                    </div>
+                    <div class="w3l-img-side w3l-img-side2">
+                        <img src="/image/animal/dog.jpg" alt="" />
+                    </div>
+                </div>
+                <center>
                     <div class="name">
                         <img src="<c:url value="/image/adopt/p1.jpg"/>" height="50px" width="50px">
                         <span>我叫 ${pet.petName}</span>
@@ -131,7 +137,7 @@
                             data-toggle="modal" data-target="#myAdopt">想要领养</button>
                     <button class="btn btn-primary btn-lg" id="tianchuan_btn"
                             style="float: right;position: relative;left: 150px;bottom: 45px"
-                            onclick="returnToCenter()" class="btn btn-primary">查看更多</button>
+                            onclick="returnToCenter()" class="btn btn-primary">返回中心</button>
                 </div>
             </div>
 
@@ -149,7 +155,7 @@
                         </div>
 
                         <div class="modal-body">
-                            <form class="form-horizontal" id="new_adopt_form" enctype="multipart/form-data">
+                            <form action="/adopt/simple-submit" class="form-horizontal" id="new_adopt_form"  method="post">
                                 <input type="hidden" value="${user.id}" name="id">
 
                                 <div class="form-group">
@@ -211,7 +217,9 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal" id="adopt_btn">关闭</button>
-                            <button type="button" class="btn btn-primary" id="submit_btn">提交申请</button>
+                            <button type="submit" class="btn btn-primary" form="new_adopt_form">提交申请</button>
+<%--                            <button type="submit" class="btn btn-primary">提交申请</button>--%>
+<%--                            <input type="submit" value="提交">--%>
                         </div>
                     </div>
                 </div>
@@ -250,26 +258,26 @@
             }
         });
 
-        <%--// 点击保存，保存到申请表--%>
-        <%--$("#submit_btn").click(function () {--%>
-        <%--    var formData = new FormData(document.getElementById("new_adopt_form"));--%>
+        // 点击保存，保存到申请表
+        $("#submit_btn").click(function () {
+            var formData = new FormData(document.getElementById("new_adopt_form"));
 
-        <%--    $.ajax({--%>
-        <%--        url: "${path}/adopt/submit",--%>
-        <%--        type: "POST",--%>
-        <%--        data: formData,--%>
-        <%--        processData: false,  // 告诉jQuery不要去处理发送的数据--%>
-        <%--        contentType: false,  // 告诉jQuery不要去设置Content-Type请求头--%>
-        <%--        success: function (result) {--%>
-        <%--            alert("提交申请成功");--%>
-        <%--            $("#myAdopt").modal('hide');--%>
-        <%--        },--%>
-        <%--        error: function (result) {--%>
-        <%--            console.log(result);--%>
-        <%--            alert("提交申请失败");--%>
-        <%--        }--%>
-        <%--    });--%>
-        <%--});--%>
+            $.ajax({
+                url: "${path}/adopt/submit",
+                type: "POST",
+                data: formData,
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false,  // 告诉jQuery不要去设置Content-Type请求头
+                success: function (result) {
+                    alert("提交申请成功");
+                    $("#myAdopt").modal('hide');
+                },
+                error: function (result) {
+                    console.log(result);
+                    alert("提交申请失败");
+                }
+            });
+        });
             document.addEventListener('DOMContentLoaded', function() {
                 // 确保按钮和表单存在
                 const submit_btn = document.getElementById('submit_btn');
@@ -290,7 +298,7 @@
                         const formData = new FormData(form);
 
                         // 发送数据到管理系统页面（使用POST请求）
-                        fetch('Adoption_Application.jsp', {
+                        fetch('/adopt/simple-submit', {
                             method: 'POST',
                             body: formData
                         })
@@ -320,9 +328,7 @@
                     console.warn('未找到提交按钮或表单元素');
                 }
             });
-
-
-    });
+        });
     });
 </script>
 </body>
