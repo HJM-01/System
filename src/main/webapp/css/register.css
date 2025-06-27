@@ -17,7 +17,25 @@
     border-top-left-radius: 20px;
     /*border-top-right-radius: 10%;*/
  }
+.hidden {
+    display: none;
+}
 
+.visible {
+    display: block;
+}
+
+#footer1 {
+    position: fixed;
+    bottom: -100px;
+    transition: bottom 0.3s ease;
+}
+.carousel {
+    width: 1300px;
+    height: 650px;
+    overflow: hidden; /* 溢出部分隐藏 */
+    position: relative;
+}
 .navbar-default {
     background-color: transparent;
     border: none;

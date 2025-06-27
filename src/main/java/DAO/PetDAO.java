@@ -77,6 +77,29 @@ public class PetDAO implements Dao {
         }
     }
 
+    // pet的修改功能
+    public boolean updatePet(Pet pet) {
+        String sql = "UPDATE pet SET petName=?, petType=?, sex=?, birthday=?, state=?, remark=?, pic=? WHERE id=?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, pet.getPetName());
+            pstmt.setString(2, pet.getPetType());
+            pstmt.setString(3, pet.getSex());
+            pstmt.setDate(4, new java.sql.Date(pet.getBirthday().getTime()));
+            pstmt.setInt(5, pet.getState());
+            pstmt.setString(6, pet.getRemark());
+            pstmt.setString(7, pet.getPic()); // 确保能处理null值
+            pstmt.setInt(8, pet.getId());
+
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            throw new DataAccessException("更新宠物信息失败，ID: " + pet.getId(), e);
+        }
+    }
+
 
     @Override
     public Optional<Pet> getPetById(int petId) {
@@ -100,6 +123,11 @@ public class PetDAO implements Dao {
             throw new DataAccessException("查询宠物失败, ID: " + petId, e);
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Pet> getPetsByStatus(int i) {
+        return List.of();
     }
 
     public boolean isPetAdopted(int petId) {

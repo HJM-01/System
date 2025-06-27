@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -145,6 +146,11 @@ public class UserDao implements Dao {
     @Override
     public Optional<Pet> getPetById(int petId) {
         return Optional.empty();
+    }
+
+    @Override
+    public List<Pet> getPetsByStatus(int i) {
+        return List.of();
     }
 
 }

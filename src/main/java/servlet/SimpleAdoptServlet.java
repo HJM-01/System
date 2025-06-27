@@ -29,23 +29,24 @@ public class SimpleAdoptServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // 设置请求和响应编码
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         try {
-            // 1. 获取所有表单数据
+            // 获取表单数据
             String userName = request.getParameter("userName");
             String telephone = request.getParameter("telephone");
             String petName = request.getParameter("petName");
             String sex = request.getParameter("sex");
             String email = request.getParameter("email");
             String address = request.getParameter("address");
-            String petId = request.getParameter("petId");
 
-            // 2. 直接插入数据库
+            // 插入数据库
             boolean success = applicationDAO.simpleCreateApplication(
                     userName, telephone, petName,
-                    sex, email, address, petId
+                    sex, email, address
             );
 
             if (success) {
@@ -56,7 +57,10 @@ public class SimpleAdoptServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            out.write("系统错误");
+            response.getWriter().write("系统错误: " + e.getMessage());
         }
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 }
