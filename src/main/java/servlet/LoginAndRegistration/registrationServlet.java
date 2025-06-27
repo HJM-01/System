@@ -1,4 +1,4 @@
-package servlet;
+package servlet.LoginAndRegistration;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

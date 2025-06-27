@@ -34,4 +34,15 @@ public class Admins implements Serializable {
         this.telephone = telephone;
         this.sex=sex;
     }
+
+    public Admins(Integer id, String adminName, String adminPwd, String realName,String telephone, String Email,Date birthday, String sex) {
+        this.id = id;
+        this.adminName = adminName;
+        this.adminPwd = adminPwd;
+        this.realName = realName;
+        this.telephone = telephone;
+        this.Email = Email;
+        this.birthday = birthday;
+        this.sex=sex;
+    }
 }

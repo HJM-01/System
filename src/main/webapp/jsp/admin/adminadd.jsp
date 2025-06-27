@@ -113,7 +113,7 @@
           <p class="font-medium">管理员</p>
           <p class="text-xs text-gray-500">admin@example.com</p>
         </div>
-        <button class="ml-auto text-gray-500 hover:text-gray-700">
+        <button onclick="window.location.href='http://localhost:8080/System_war/jsp/login.jsp'" class="ml-auto text-gray-500 hover:text-gray-700">
           <i class="fa fa-sign-out"></i>
         </button>
       </div>
@@ -182,7 +182,7 @@
 <%--              <i class="fa fa-search mr-2"></i>查询--%>
 <%--            </button>--%>
 
-            <button  onclick="window.location.href='admin-1add.jsp'" class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">
+            <button  onclick="window.location.href='adminadd-add.jsp'" class="px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">
               <i href="admin-1add.jsp" class="fa fa-plus mr-2"></i>新增管理员
             </button>
           </div>
@@ -205,7 +205,6 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">性别</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-<%--                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>--%>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                     </tr>
                     </thead>
@@ -215,60 +214,18 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.adminName}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.telephone}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.sex}</td>
-<%--                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>--%>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>
-                                <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                <a href="#" class="text-danger hover:text-danger/80">删除</a>
+                                <a href="${pageContext.request.contextPath}/byIdManagerServlet?id=${item.id}" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
+                                <a href="${pageContext.request.contextPath}/deleteManagerServlet?id=${item.id}"
+                                   class="text-danger hover:text-danger" onclick="return confirm('确定要删除该账户吗?')">删除</a>
                             </td>
                         </tr
                     </c:forEach>
                     </tbody>
                 </table>
             </div>
-
-
-
-
-
-
-<%--            <div>--%>
-<%--              <table>--%>
-<%--                  <thead class="bg-gray-50">--%>
-<%--                  <tr>--%>
-<%--                      <th >用户ID    </th>--%>
-<%--                      <th >用户名     </th>--%>
-<%--                      <th >电话号码    </th>--%>
-<%--                      <th >性别    </th>--%>
-<%--                      <th >操作     </th>--%>
-<%--                      </tr>--%>
-<%--                   </thead>--%>
-<%--                  </table>--%>
-<%--          </div>--%>
-
-<%--&lt;%&ndash;            账号表格&ndash;%&gt;--%>
-<%--          <div class="overflow-x-auto">--%>
-<%--              <table>--%>
-<%--              <c:if test="${empty requestScope.AdminList}">--%>
-<%--                  <div class="alert alert-danger">AdminList为空!</div>--%>
-<%--              </c:if>--%>
-<%--              <c:if test="${not empty requestScope.AdminList}">--%>
-<%--                  <c:forEach items="${AdminList}" var="item">--%>
-<%--                      <tr class="hover:bg-gray-50 transition-colors">--%>
-<%--                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.id}</td>--%>
-<%--                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900>${item.adminName}</td>--%>
-<%--                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500>${item.telephone}</td>--%>
-<%--                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500>${item.sex}</td>--%>
-<%--                          <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium“>--%>
-<%--                              <a href="#" class="text-primary hover:text-primary/80 mr-3">查看</a>--%>
-<%--                              <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
-<%--                              <a href="#" class="text-danger hover:text-danger/80 ">删除</a>--%>
-<%--                          </td>--%>
-<%--                      </tr>--%>
-<%--                  </c:forEach>--%>
-<%--                  </table>--%>
-<%--              </c:if>--%>
-<%--        </div>--%>
+        </div>
+      </div>
     </main>
   </div>
 </div>
