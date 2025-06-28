@@ -107,54 +107,33 @@
             <p class="text-gray-500 mt-1">填写以下信息创建新账户</p>
           </div>
           <div>
-            <a href="adminadd.jsp" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
-              <i class="fa fa-arrow-left mr-2"></i> 返回管理员列表
+            <a href="${pageContext.request.contextPath}/jsp/admin/FindAllUserServlet" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+              <i class="fa fa-arrow-left mr-2"></i> 返回用户列表
             </a>
           </div>
         </div>
 
         <!-- 用户表单 -->
         <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
-          <form id="userForm" action="adminAdd1" method="post" enctype="multipart/form-data">
+          <form id="userForm" action="${pageContext.request.contextPath}/jsp/admin/AddUserServlet" method="post">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- 左侧表单区域 -->
               <div>
-                <!-- 用户ID -->
-<%--                <div class="mb-4">--%>
-<%--                  <label for="username" class="block text-sm font-medium text-gray-700 mb-1">用户ID</label>--%>
-<%--                  <input type="text" id="userID" name="id" required--%>
-<%--                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入用户ID">--%>
-<%--                </div>--%>
-
-                <!-- 管理员名 -->
+                <!-- 用户名 -->
                 <div class="mb-4">
-                  <label for="adminName" class="block text-sm font-medium text-gray-700 mb-1">管理员名</label>
-                  <input type="text" id="adminName" name="adminName" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入管理员名">
+                  <label for="userName" class="block text-sm font-medium text-gray-700 mb-1">用户名</label>
+                  <input type="text" id="userName" name="userName" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入用户名">
                 </div>
 
-                <!-- 邮箱 -->
+                <%--                密码--%>
                 <div class="mb-4">
-                  <label for="Email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
-                  <input type="email" id="Email" name="Email" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入邮箱地址">
+                  <label for="password" class="block text-sm font-medium text-gray-700 mb-1">密码</label>
+                  <input type="text" id="password" name="password" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入密码">
                 </div>
 
-                <!-- 电话号码 -->
-                <div class="mb-4">
-                  <label for="telephone" class="block text-sm font-medium text-gray-700 mb-1">电话号码</label>
-                  <input type="tel" id="telephone" name="telephone" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入电话号码">
-                </div>
-                <!-- 补充年龄字段：name 为 age，与后端 user.setAge 匹配 -->
-                <div class="mb-4">
-                  <label for="realName" class="block text-sm font-medium text-gray-700 mb-1">年龄</label>
-                  <input type="number" id="realName" name="realName" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                         placeholder="请输入年龄">
-                </div>
-
-                <!-- 补充性别字段：name 为 sex，与后端 user.setSex 匹配 -->
+                <!-- 性别 -->
                 <div class="mb-4">
                   <label for="sex" class="block text-sm font-medium text-gray-700 mb-1">性别</label>
                   <select id="sex" name="sex" required
@@ -165,8 +144,38 @@
                   </select>
                 </div>
 
+                <!-- 年龄 -->
+                <div class="mb-4">
+                  <label for="age" class="block text-sm font-medium text-gray-700 mb-1">年龄</label>
+                  <input type="number" id="age" name="age" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                         placeholder="请输入年龄">
+                </div>
+              </div>
+
               <!-- 右侧表单区域 -->
-<%--              <div>--%>
+              <div>
+                <!-- 电话号码 -->
+                <div class="mb-4">
+                  <label for="telephone" class="block text-sm font-medium text-gray-700 mb-1">电话号码</label>
+                  <input type="tel" id="telephone" name="telephone" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入电话号码">
+                </div>
+
+                <!-- 邮箱 -->
+                <div class="mb-4">
+                  <label for="Email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                  <input type="email" id="Email" name="Email" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入邮箱">
+                </div>
+
+                <!-- 地址 -->
+                <div class="mb-4">
+                  <label for="address" class="block text-sm font-medium text-gray-700 mb-1">地址</label>
+                  <input type="text" id="address" name="address" required
+                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入地址">
+                </div>
+
                 <!-- 角色 -->
 <%--                <div class="mb-4">--%>
 <%--                  <label for="role" class="block text-sm font-medium text-gray-700 mb-1">角色</label>--%>
@@ -196,7 +205,6 @@
 <%--                    <img id="avatarPreview" src="" alt="头像预览" class="w-20 h-20 rounded-full object-cover border-2 border-primary/20 shadow-sm">--%>
 <%--                  </div>--%>
 <%--                </div>--%>
-
               </div>
             </div>
 

@@ -40,7 +40,6 @@
   </script>
 </head>
 <body class="bg-gray-50 font-sans antialiased text-gray-800">
-
 <div class="flex h-screen overflow-hidden">
   <!-- 侧边栏导航 -->
   <aside id="sidebar" class="bg-gray-105 shadow-lg w-64 flex-shrink-0 hidden md:block transition-all duration-300 ease-in-out z-20">
@@ -192,7 +191,7 @@
         <div class="bg-white rounded-xl shadow mb-6">
           <div class="p-6 border-b flex justify-between items-center">
             <h3 class="font-semibold text-lg">账户信息列表</h3>
-<%--            <span class="text-sm text-gray-500">共 <strong>256</strong> 条记录</span>--%>
+            <span class="text-sm text-gray-500">共 <strong>${n}</strong> 个账号</span>
           </div>
 
             <div class="overflow-x-auto">
@@ -200,11 +199,13 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                     <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户ID</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户名</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">管理员ID</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">管理员账号名</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">管理员真名</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">生日</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">性别</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                     </tr>
                     </thead>
@@ -212,11 +213,14 @@
                         <tr class="hover:bg-gray-50 transition-colors">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.id}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.adminName}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.realName}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.telephone}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.email}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.birthday}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.sex}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="${pageContext.request.contextPath}/byIdManagerServlet?id=${item.id}" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                <a href="${pageContext.request.contextPath}/deleteManagerServlet?id=${item.id}"
+                                <a href="${pageContext.request.contextPath}/jsp/admin/byIdManagerServlet?id=${item.id}" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
+                                <a href="${pageContext.request.contextPath}/jsp/admin/deleteManagerServlet?id=${item.id}"
                                    class="text-danger hover:text-danger" onclick="return confirm('确定要删除该账户吗?')">删除</a>
                             </td>
                         </tr

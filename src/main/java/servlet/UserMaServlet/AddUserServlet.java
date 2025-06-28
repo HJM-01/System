@@ -1,4 +1,4 @@
-package servlet.Manager;
+package servlet.UserMaServlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,52 +14,52 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/jsp/admin/adminadd-addServlet")
-public class AddManagerServlet extends HttpServlet {
+@WebServlet("/jsp/admin/AddUserServlet")
+public class AddUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8"); // 建议加上编码声明
 
-        String adminname = request.getParameter("adminName");
-        String adminPwd=request.getParameter("adminPwd");
-        String Email = request.getParameter("Email");
-        String telephone = request.getParameter("telephone");
+        String userName = request.getParameter("userName");
+        String password=request.getParameter("password");
         String sex=request.getParameter("sex");
+        String age=request.getParameter("age");
+        String telephone = request.getParameter("telephone");
+        String Email = request.getParameter("Email");
+        String address=request.getParameter("address");
 
-        // 通过 JNDI 获取连接池
         try {
-            // 1. 获取 JNDI 上下文
             Context ctx = new InitialContext();
-            // 2. 查找数据源（名称需与 context.xml 中的 Resource.name 一致）
             DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/Animals");
-            // 3. 从连接池获取连接
             try (Connection conn = ds.getConnection()) {
-                String sql = "INSERT INTO admins (adminName,adminPwd, Email, telephone,sex) VALUES (?,?,?,?,?)";
+                String sql = "INSERT INTO user (userName,password,sex,age,telephone, Email,address) VALUES (?,?,?,?,?,?,?)";
 
                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    pstmt.setString(1, adminname);
-                    pstmt.setString(2, adminPwd);
-                    pstmt.setString(3, Email);
-                    pstmt.setString(4, telephone);
-                    pstmt.setString(5, sex);
+                    pstmt.setString(1, userName);
+                    pstmt.setString(2, password);
+                    pstmt.setString(3, sex);
+                    pstmt.setString(4, age);
+                    pstmt.setString(5, telephone);
+                    pstmt.setString(6, Email);
+                    pstmt.setString(7, address);
 
                     int rows = pstmt.executeUpdate();
                     if (rows > 0) {
                         request.setAttribute("message", "添加成功！");
-                        request.getRequestDispatcher("/jsp/admin/FindAllManagerServlet").forward(request, response);
+                        request.getRequestDispatcher("/jsp/admin/FindAllUserServlet").forward(request, response);
                     } else {
                         request.setAttribute("message", "添加失败，请重新添加。");
-                        request.getRequestDispatcher("/jsp/admin/adminadd-add.jsp").forward(request, response);
+                        request.getRequestDispatcher("/jsp/admin/admin-1add.jsp").forward(request, response);
                     }
                 }
             }
         } catch (NamingException e) {
             e.printStackTrace();
             request.setAttribute("message", "系统错误：无法找到数据库配置！");
-            request.getRequestDispatcher("/jsp/admin/adminadd-add.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/admin/admin-1add.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("message", "数据库操作失败：" + e.getMessage());
-            request.getRequestDispatcher("/jsp/admin/adminadd-add.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/admin/admin-1add.jsp").forward(request, response);
         }
     }
 

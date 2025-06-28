@@ -125,7 +125,7 @@
 
                 <!-- 用户表单 -->
                 <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
-                    <form id="userForm" action="${pageContext.request.contextPath}/updateManagerServlet?id=${Admin.id}" method="post" >
+                    <form id="userForm" action="${pageContext.request.contextPath}/jsp/admin/updateManagerServlet?id=${Admin.id}" method="post" >
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <%--                            <input type="hidden" name="id" value="${pet.id}">--%>
 
@@ -185,18 +185,6 @@
                                 </div>
 
                                 <!-- 右侧表单区域 -->
-                                <%--              <div>--%>
-                                <!-- 角色 -->
-                                <%--                <div class="mb-4">--%>
-                                <%--                  <label for="role" class="block text-sm font-medium text-gray-700 mb-1">角色</label>--%>
-                                <%--                  <select id="role" name="role" required--%>
-                                <%--                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">--%>
-                                <%--                    <option value="">请选择角色</option>--%>
-                                <%--                    <option value="管理员">管理员</option>--%>
-                                <%--                    <option value="普通用户">普通用户</option>--%>
-                                <%--                  </select>--%>
-                                <%--                </div>--%>
-
                                 <!-- 头像上传 -->
                                 <%--                <div class="mb-4">--%>
                                 <%--                  <label class="block text-sm font-medium text-gray-700 mb-1">头像</label>--%>

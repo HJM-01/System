@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    session.setAttribute("ApplicationPAGE", "/jsp/admin/Adoption_Application.jsp");
+%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -39,79 +43,9 @@
             }
         }
     </script>
-
-    <!-- 数据处理逻辑 -->
-    <script>
-        // 从表单数据或URL参数中获取申请信息（优先获取POST数据）
-        function getFormData() {
-            const formData = {};
-
-            // 尝试从URL参数获取（适用于GET请求）
-            try {
-                const urlParams = new URLSearchParams(window.location.search);
-                for (const [key, value] of urlParams.entries()) {
-                    formData[key] = value;
-                }
-            } catch (e) {
-                console.error('解析URL参数失败:', e);
-            }
-
-            // 尝试从POST数据中获取（需要后端支持，此处为示例）
-            // 实际应用中建议通过AJAX从会话获取
-            return formData;
-        }
-
-        // 向表格中添加新申请记录
-        function addApplicationToTable(formData) {
-            const tableBody = document.getElementById('application-table-body');
-            if (!tableBody) return;
-
-            // 生成新行
-            const newRow = document.createElement('tr');
-            newRow.className = 'hover:bg-gray-50 transition-colors';
-
-            // 生成唯一申请编号
-            const applyId = '#ADOPT-' + new Date().getFullYear() +
-                String(new Date().getMonth() + 1).padStart(2, '0') +
-                String(new Date().getDate()).padStart(2, '0') +
-                Math.floor(Math.random() * 1000);
-
-            newRow.innerHTML = `
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${applyId}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${formData.userName || '未知'}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${formData.petName || '未命名宠物'}</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="#" class="text-success hover:text-success/80 mr-3">通过</a>
-                    <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
-                </td>
-            `;
-
-            // 添加到表格顶部
-            tableBody.insertBefore(newRow, tableBody.firstChild);
-
-            // 更新记录总数
-            const recordCount = document.querySelector('span strong');
-            if (recordCount) {
-                recordCount.textContent = parseInt(recordCount.textContent) + 1;
-            }
-        }
-
-        // 页面加载时执行
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取表单数据
-            const formData = getFormData();
-
-            // 若有数据则添加到表格
-            if (Object.keys(formData).length > 0) {
-                addApplicationToTable(formData);
-            }
-        });
-    </script>
 </head>
 <body class="bg-gray-50 font-sans antialiased text-gray-800">
+
 <div class="flex h-screen overflow-hidden">
     <!-- 侧边栏导航 -->
     <aside id="sidebar"
@@ -169,9 +103,9 @@
                     <span>用户管理</span>
                 </a>
 
-                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="http://localhost:8080/System_war/jsp/admin/FindAllManagerServlet" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-user-circle-o"></i>
-                    <span>个人设置</span>
+                    <span>管理员管理</span>
                 </a>
             </div>
         </nav>
@@ -183,7 +117,7 @@
                     <p class="font-medium">管理员</p>
                     <p class="text-xs text-gray-500">admin@example.com</p>
                 </div>
-                <button class="ml-auto text-gray-500 hover:text-gray-700">
+                <button onclick="window.location.href='http://localhost:8080/System_war/jsp/login.jsp'" class="ml-auto text-gray-500 hover:text-gray-700">
                     <i class="fa fa-sign-out"></i>
                 </button>
             </div>
@@ -234,58 +168,81 @@
                 <!-- 查询条件区域 -->
                 <div class="bg-white rounded-xl shadow p-6 mb-6">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">收养申请列表</h2>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button onclick="window.location.href='http://localhost:8080/System_war/jsp/admin/FindApplicationServlet'" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                            <i class="fa fa-search mr-2"></i>查询
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 数据展示区域 -->
                 <div class="bg-white rounded-xl shadow mb-6">
                     <div class="p-6 border-b flex justify-between items-center">
-                        <h3 class="font-semibold text-lg">同意申请列表</h3>
-                        <span class="text-sm text-gray-500">共 <strong>87</strong> 条记录</span>
+                        <h3 class="font-semibold text-lg">申请列表</h3>
+<%--                        <span class="text-sm text-gray-500">共 <strong>87</strong> 条记录</span>--%>
                     </div>
 
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请编号</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请人</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">宠物名字</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
-                                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200" id="application-table-body">
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#VOL-20230101</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">张三</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13800138001</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-success hover:text-success/80 mr-3">通过</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
-                                </td>
-                            </tr>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请编号</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请人</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">猫的名字</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请人性别</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地址</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
+                                    <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                                </tr>
+                                </thead>
+
+                                <c:forEach items="${adoptList}" var="item">
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.id}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.userName}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.petName}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.sex}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.telephone}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.email}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.address}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-6 py-4 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                   <c:choose>
+                                                       <c:when test="${item.status == '0'}">待审核</c:when>
+                                                       <c:when test="${item.status == '1'}">已通过</c:when>
+                                                       <c:when test="${item.status == '2'}">已拒绝</c:when>
+                                                       <c:otherwise>未知状态</c:otherwise>
+                                                   </c:choose>
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="http://localhost:8080/System_war/jsp/admin/UpdateStatusServlet?id=${item.id}&action=yes" class="text-success hover:text-success/80 mr-3" onclick="return confirm('确定通过该申请吗?')">通过</a>
+                                            <a href="http://localhost:8080/System_war/jsp/admin/UpdateStatusServlet?id=${item.id}&action=no" class="text-danger hover:text-danger/80">拒绝</a>
+                                        </td>
+                                    </tr
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>
 
                     <!-- 分页控件 -->
-                    <div class="px-6 py-4 border-t flex items-center justify-between">
-                        <div class="text-sm text-gray-700">
-                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">87</span> 条记录
-                        </div>
-                        <div class="flex space-x-2">
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>
-                            <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>
-                            <span class="px-3 py-1 text-gray-700">...</span>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">22</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>
-                        </div>
-                    </div>
+<%--                    <div class="px-6 py-4 border-t flex items-center justify-between">--%>
+<%--                        <div class="text-sm text-gray-700">--%>
+<%--                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">87</span> 条记录--%>
+<%--                        </div>--%>
+<%--                        <div class="flex space-x-2">--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>--%>
+<%--                            <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>--%>
+<%--                            <span class="px-3 py-1 text-gray-700">...</span>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">22</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
             </div>
         </main>

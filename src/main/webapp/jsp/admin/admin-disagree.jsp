@@ -6,7 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    session.setAttribute("ApplicationPAGE", "/jsp/admin/admin-disagree.jsp");
+%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -92,9 +95,9 @@
                     <span>用户管理</span>
                 </a>
 
-                <a href="adminadd.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="http://localhost:8080/System_war/jsp/admin/FindAllManagerServlet" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-user-circle-o"></i>
-                    <span>管理员设置</span>
+                    <span>管理员管理</span>
                 </a>
             </div>
         </nav>
@@ -106,7 +109,7 @@
                     <p class="font-medium">管理员</p>
                     <p class="text-xs text-gray-500">admin@example.com</p>
                 </div>
-                <button class="ml-auto text-gray-500 hover:text-gray-700">
+                <button onclick="window.location.href='http://localhost:8080/System_war/jsp/login.jsp'" class="ml-auto text-gray-500 hover:text-gray-700">
                     <i class="fa fa-sign-out"></i>
                 </button>
             </div>
@@ -158,18 +161,18 @@
                 <div class="bg-white rounded-xl shadow p-6 mb-6">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">不同意申请管理</h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                        <i class="fa fa-search text-gray-400"></i>
-                    </span>
-                            <input type="text" placeholder="搜索申请人/联系方式/申请编号"
-                                   class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                        </div>
-                    </div>
+<%--                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">--%>
+<%--                        <div class="relative">--%>
+<%--                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">--%>
+<%--                        <i class="fa fa-search text-gray-400"></i>--%>
+<%--                    </span>--%>
+<%--                            <input type="text" placeholder="搜索申请人/联系方式/申请编号"--%>
+<%--                                   class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
                     <div class="mt-4 flex justify-between items-center">
-                        <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        <button onclick="window.location.href='http://localhost:8080/System_war/jsp/admin/FindApplicationServlet'" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
                     </div>
@@ -179,57 +182,69 @@
                 <div class="bg-white rounded-xl shadow mb-6">
                     <div class="p-6 border-b flex justify-between items-center">
                         <h3 class="font-semibold text-lg">不同意申请列表</h3>
-                        <span class="text-sm text-gray-500">共 <strong>87</strong> 条记录</span>
+<%--                        <span class="text-sm text-gray-500">共 <strong>87</strong> 条记录</span>--%>
                     </div>
 
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请编号</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请人</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">宠物名字</th>
-                                <%--                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请时间</th>--%>
-                                <%--                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请岗位</th>--%>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">猫的名字</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">申请人性别</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地址</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
                                 <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#VOL-20230101</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">张三</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13800138001</td>
-                                <%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-15 09:30</td>--%>
-                                <%--                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">猫咪护理员</td>--%>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待审核</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-success hover:text-success/80 mr-3">通过</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">拒绝</a>
-                                </td>
-                            </tr>
 
+                            <c:forEach items="${adoptList}" var="item">
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.id}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.userName}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.petName}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.sex}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.telephone}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.email}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.address}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-6 py-4 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                   <c:choose>
+                                                       <c:when test="${item.status == '0'}">待审核</c:when>
+                                                       <c:when test="${item.status == '1'}">已通过</c:when>
+                                                       <c:when test="${item.status == '2'}">已拒绝</c:when>
+                                                       <c:otherwise>未知状态</c:otherwise>
+                                                   </c:choose>
+                                            </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://localhost:8080/System_war/jsp/admin/UpdateStatusServlet?id=${item.id}&action=yes" class="text-success hover:text-success/80 mr-3" onclick="return confirm('确定通过该申请吗?')">通过</a>
+                                    </td>
+                                </tr
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
 
                     <!-- 分页控件 -->
-                    <div class="px-6 py-4 border-t flex items-center justify-between">
-                        <div class="text-sm text-gray-700">
-                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">87</span> 条记录
-                        </div>
-                        <div class="flex space-x-2">
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>
-                            <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>
-                            <span class="px-3 py-1 text-gray-700">...</span>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">22</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>
-                        </div>
-                    </div>
+<%--                    <div class="px-6 py-4 border-t flex items-center justify-between">--%>
+<%--                        <div class="text-sm text-gray-700">--%>
+<%--                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">87</span> 条记录--%>
+<%--                        </div>--%>
+<%--                        <div class="flex space-x-2">--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>--%>
+<%--                            <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>--%>
+<%--                            <span class="px-3 py-1 text-gray-700">...</span>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">22</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
             </div>
         </main>

@@ -127,7 +127,6 @@
         <div class="bg-white rounded-xl shadow p-6 mb-6 transform transition-all duration-300 hover:shadow-lg">
           <form id="userForm" action="${pageContext.request.contextPath}/jsp/admin/adminadd-addServlet" method="post" >
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
               <!-- 左侧表单区域 -->
               <div>
                 <!-- 管理员名 -->
@@ -150,21 +149,16 @@
                   <input type="email" id="Email" name="Email" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入邮箱地址">
                 </div>
+              </div>
 
+              <!-- 右侧表单区域 -->
+              <div>
                 <!-- 电话号码 -->
                 <div class="mb-4">
                   <label for="telephone" class="block text-sm font-medium text-gray-700 mb-1">电话号码</label>
                   <input type="tel" id="telephone" name="telephone" required
                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="请输入电话号码">
                 </div>
-
-<%--                年龄--%>
-<%--                <div class="mb-4">--%>
-<%--                  <label for="realName" class="block text-sm font-medium text-gray-700 mb-1">年龄</label>--%>
-<%--                  <input type="number" id="realName" name="realName" required--%>
-<%--                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"--%>
-<%--                         placeholder="请输入真实姓名">--%>
-<%--                </div>--%>
 
                 <!-- sex -->
                 <div class="mb-4">
@@ -176,20 +170,6 @@
                     <option value="女">女</option>
                   </select>
                 </div>
-
-              <!-- 右侧表单区域 -->
-<%--              <div>--%>
-                <!-- 角色 -->
-<%--                <div class="mb-4">--%>
-<%--                  <label for="role" class="block text-sm font-medium text-gray-700 mb-1">角色</label>--%>
-<%--                  <select id="role" name="role" required--%>
-<%--                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">--%>
-<%--                    <option value="">请选择角色</option>--%>
-<%--                    <option value="管理员">管理员</option>--%>
-<%--                    <option value="普通用户">普通用户</option>--%>
-<%--                  </select>--%>
-<%--                </div>--%>
-
                 <!-- 头像上传 -->
 <%--                <div class="mb-4">--%>
 <%--                  <label class="block text-sm font-medium text-gray-700 mb-1">头像</label>--%>
@@ -207,7 +187,6 @@
 <%--                    <img id="avatarPreview" src="" alt="头像预览" class="w-20 h-20 rounded-full object-cover border-2 border-primary/20 shadow-sm">--%>
 <%--                  </div>--%>
 <%--                </div>--%>
-
               </div>
             </div>
 
@@ -216,7 +195,7 @@
               <button type="button" onclick="resetForm()" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors shadow-sm hover:shadow">
                 <i class="fa fa-refresh mr-2"></i>重置
               </button>
-<%--              onclick="window.location.href='AddManagerServlet'"--%>
+
               <button  type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-sm hover:shadow">
                 <i class="fa fa-save mr-2"></i>保存
               </button>

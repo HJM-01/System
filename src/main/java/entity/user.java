@@ -24,14 +24,20 @@ public class user implements Serializable {
     private String pic;
     private Integer state;
 
-    //    @TableField(exist = false)
-//    List<Comment> commentList;
-//    @TableField(exist = false)
-//    List<AdoptAnimal> animalList;
+    //注册用
     public user(String userName, String password, String telephone) {
         this.userName = userName;
         this.password = password;
         this.telephone = telephone;
     }
-
+    //显示用
+    public user(Integer id,String userName, String sex,Integer age,String telephone,String Email,String address) {
+        this.id = id;
+        this.userName = userName;
+        this.sex=sex;
+        this.age=age;
+        this.telephone=telephone;
+        this.Email=Email;
+        this.address=address;
+    }
 }

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -92,7 +92,7 @@
                     <span>用户管理</span>
                 </a>
 
-                <a href="adminadd.jsp" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="http://localhost:8080/System_war/jsp/admin/FindAllManagerServlet" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fa fa-user-circle-o"></i>
                     <span>管理员管理</span>
                 </a>
@@ -106,7 +106,7 @@
                     <p class="font-medium">管理员</p>
                     <p class="text-xs text-gray-500">admin@example.com</p>
                 </div>
-                <button class="ml-auto text-gray-500 hover:text-gray-700">
+                <button onclick="window.location.href='http://localhost:8080/System_war/jsp/login.jsp'" class="ml-auto text-gray-500 hover:text-gray-700">
                     <i class="fa fa-sign-out"></i>
                 </button>
             </div>
@@ -156,29 +156,30 @@
             <div class="max-w-7xl mx-auto">
                 <!-- 查询条件区域 -->
                 <div class="bg-white rounded-xl shadow p-6 mb-6">
-                    <h2 class="text-xl font-bold text-gray-800 mb-4">网站账户管理</h2>
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">用户账户管理</h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                        <i class="fa fa-search text-gray-400"></i>
-                    </span>
-                            <input type="text" placeholder="搜索用户名/邮箱/ID"
-                                   class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                        </div>
+<%--                    搜索框+角色选择--%>
+<%--                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">--%>
+<%--                        <div class="relative">--%>
+<%--                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">--%>
+<%--                        <i class="fa fa-search text-gray-400"></i>--%>
+<%--                    </span>--%>
+<%--                            <input type="text" placeholder="搜索用户名/邮箱/ID"--%>
+<%--                                   class="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                        </div>--%>
 
-                        <div>
-                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
-                                <option value="">全部角色</option>
-                                <option value="管理员">管理员</option>
-                                <option value="志愿者">志愿者</option>
-                                <option value="普通用户">普通用户</option>
-                            </select>
-                        </div>
-                    </div>
+<%--                        <div>--%>
+<%--                            <select class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--%>
+<%--                                <option value="">全部角色</option>--%>
+<%--                                <option value="管理员">管理员</option>--%>
+<%--                                <option value="志愿者">志愿者</option>--%>
+<%--                                <option value="普通用户">普通用户</option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
                     <div class="mt-4 flex justify-between items-center">
-                        <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        <button onclick="window.location.href='http://localhost:8080/System_war/jsp/admin/FindAllUserServlet'" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                             <i class="fa fa-search mr-2"></i>查询
                         </button>
 
@@ -191,63 +192,60 @@
                 <!-- 数据展示区域 -->
                 <div class="bg-white rounded-xl shadow mb-6">
                     <div class="p-6 border-b flex justify-between items-center">
-                        <h3 class="font-semibold text-lg">账户信息列表</h3>
-                        <span class="text-sm text-gray-500">共 <strong>256</strong> 条记录</span>
+                        <h3 class="font-semibold text-lg">用户账户信息列表</h3>
+                        <span class="text-sm text-gray-500">共 <strong>${n}</strong> 个账号</span>
                     </div>
 
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户ID</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">头像</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户名</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">性别</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-                                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">年龄</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">电话号码</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邮箱</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地址</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#USR-001</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <img src="https://picsum.photos/id/1005/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">张三</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">zhangsan@example.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-10</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">男</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-<%--                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">活跃</span>--%>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>
-                                    <a href="#" class="text-danger hover:text-danger/80">删除</a>
-                                </td>
-                            </tr>
+                            <c:forEach items="${userArrayList}" var="user">
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${user.id}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${user.userName}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${user.sex}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.age}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${user.telephone}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${user.email}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.address}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<%--                                        <a href="${pageContext.request.contextPath}/?id=${user.id}" class="text-gray-600 hover:text-gray-900 mr-3">编辑</a>--%>
+                                        <a href="${pageContext.request.contextPath}/jsp/admin/deleteUserServlet?id=${user.id}"
+                                           class="text-danger hover:text-danger" onclick="return confirm('确定要删除该账户吗?')">删除</a>
+                                    </td>
+                                </tr
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
 
                     <!-- 分页控件 -->
-                    <div class="px-6 py-4 border-t flex items-center justify-between">
-                        <div class="text-sm text-gray-700">
-                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">256</span> 条记录
-                        </div>
-                        <div class="flex space-x-2">
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>
-                            <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>
-                            <span class="px-3 py-1 text-gray-700">...</span>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">64</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>
-                        </div>
-                    </div>
+<%--                    <div class="px-6 py-4 border-t flex items-center justify-between">--%>
+<%--                        <div class="text-sm text-gray-700">--%>
+<%--                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">256</span> 条记录--%>
+<%--                        </div>--%>
+<%--                        <div class="flex space-x-2">--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">上一页</button>--%>
+<%--                            <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md">1</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">2</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">3</button>--%>
+<%--                            <span class="px-3 py-1 text-gray-700">...</span>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">64</button>--%>
+<%--                            <button class="px-3 py-1 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">下一页</button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
 
                 <!-- 数据统计卡片 -->
